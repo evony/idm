@@ -15,7 +15,7 @@ import express from 'express';
 import QRCode from 'qrcode';
 import { WABot } from './bot';
 import { ApiClient } from './api-client';
-import { initDatabase, updateBotStatus, addWaLog, resetActiveSeasons } from './database';
+import { initDatabase, updateBotStatus, addWaLog } from './database';
 import type { BotConfig } from './types';
 
 // ─── Load Configuration ──────────────────────────
@@ -138,14 +138,29 @@ app.post('/disconnect', async (_req, res) => {
   }
 });
 
-// Reset season — resets active season data (tournament, points, etc.)
-app.post('/reset-season', async (_req, res) => {
+// Reset bot session — clears WA auth session and restarts bot to generate new QR
+app.post('/reset-session', async (_req, res) => {
   try {
-    const result = await resetActiveSeasons();
-    await addWaLog({ type: 'system', message: `Season reset via /reset-season endpoint` }).catch(() => {});
-    res.json(result);
+    // Stop bot first
+    await bot.stop();
+    // Clear auth session files
+    try {
+      const fs = await import('fs');
+      const path = await import('path');
+      const sessionDir = path.join(process.cwd(), 'sessions', config.sessionName);
+      if (fs.existsSync(sessionDir)) {
+        fs.rmSync(sessionDir, { recursive: true, force: true });
+      }
+      console.log('[RESET-SESSION] Auth session cleared. Restarting bot for new QR...');
+    } catch (e: any) {
+      console.error('[RESET-SESSION] Error clearing session:', e.message);
+    }
+    await addWaLog({ type: 'system', message: 'Bot session reset via /reset-session endpoint' }).catch(() => {});
+    // Restart bot after delay to generate new QR
+    setTimeout(() => bot.start(), 3000);
+    res.json({ success: true, message: 'Sesi bot di-reset. QR baru akan muncul setelah bot restart...' });
   } catch (err: any) {
-    await addWaLog({ type: 'error', message: `Season reset failed: ${err.message}`, isError: true }).catch(() => {});
+    await addWaLog({ type: 'error', message: `Session reset failed: ${err.message}`, isError: true }).catch(() => {});
     res.status(500).json({ error: err.message });
   }
 });
@@ -191,7 +206,7 @@ app.get('/qr-html', async (_req, res) => {
     <div class="actions">
       <div class="actions-row">
         <button class="btn btn-gold" onclick="location.reload()">🔄 Refresh</button>
-        <button class="btn btn-danger" onclick="confirmResetSeason()">🗑️ Reset Season</button>
+        <button class="btn btn-outline" onclick="confirmResetSession()">🔄 Reset Sesi Bot</button>
       </div>
       <button class="btn btn-outline" onclick="confirmDisconnect()" style="width:100%">🔌 Disconnect Bot</button>
     </div>`;
@@ -205,16 +220,16 @@ app.get('/qr-html', async (_req, res) => {
       t.textContent=msg;t.className='toast toast-'+type+' show';
       setTimeout(()=>t.classList.remove('show'),3000);
     }
-    function confirmResetSeason() {
+    function confirmResetSession() {
       const overlay=document.createElement('div');overlay.className='confirm-overlay';
-      overlay.innerHTML='<div class="confirm-box"><h3>⚠️ Reset Season?</h3><p>Semua data turnamen, poin pemain, skin & badge season aktif akan dihapus. Aksi ini tidak bisa dibatalkan!</p><div class="confirm-actions"><button class="btn btn-danger" onclick="doReset(this)">Ya, Reset!</button><button class="btn btn-outline" onclick="this.closest(\\'.confirm-overlay\\').remove()">Batal</button></div></div>';
+      overlay.innerHTML='<div class="confirm-box"><h3>🔄 Reset Sesi Bot?</h3><p>Sesi auth WhatsApp bot akan dihapus dan bot akan restart. QR baru akan muncul untuk scan ulang.</p><div class="confirm-actions"><button class="btn btn-danger" onclick="doResetSession(this)">Ya, Reset!</button><button class="btn btn-outline" onclick="this.closest(\\'.confirm-overlay\\').remove()">Batal</button></div></div>';
       document.body.appendChild(overlay);
     }
-    function doReset(btn) {
+    function doResetSession(btn) {
       btn.disabled=true;btn.textContent='Mereset...';
-      fetch('/reset-season',{method:'POST'}).then(r=>r.json()).then(d=>{
+      fetch('/reset-session',{method:'POST'}).then(r=>r.json()).then(d=>{
         btn.closest('.confirm-overlay').remove();
-        if(d.success) showToast('✅ '+d.message,'success');
+        if(d.success){showToast('✅ '+d.message,'success');setTimeout(()=>location.reload(),3000)}
         else showToast('❌ '+(d.error||'Reset gagal'),'error');
       }).catch(e=>{btn.closest('.confirm-overlay').remove();showToast('❌ Error: '+e.message,'error')});
     }
