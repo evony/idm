@@ -1,12 +1,13 @@
-// SQLite schema for local development
-// Adapted from PostgreSQL production schema
+// Production schema (PostgreSQL)
+// Used by Vercel/production deployment.
+// Build script: cp prisma/schema.postgres.prisma prisma/schema.prisma && prisma generate
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
