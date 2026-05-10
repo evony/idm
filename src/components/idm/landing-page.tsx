@@ -346,7 +346,7 @@ export function LandingPage() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ['kompetisi', 'highlights', 'season-champion', 'experiences', 'players'];
+    const sectionIds = ['kompetisi', 'highlights', 'season-champion', 'experiences', 'players', 'clubs'];
     const observer = new IntersectionObserver(
       (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) setActiveSection(entry.target.id); }); },
       { rootMargin: '-40% 0px -55% 0px' }
@@ -418,6 +418,7 @@ export function LandingPage() {
               { id: 'season-champion', label: 'Season', mdLabel: 'Season' },
               { id: 'experiences', label: 'Video', mdLabel: 'Video' },
               { id: 'players', label: 'Player', mdLabel: 'Player' },
+              { id: 'clubs', label: 'Club', mdLabel: 'Club' },
 
             ].map(item => (
               <button
