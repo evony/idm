@@ -345,3 +345,29 @@ Stage Summary:
 - Database: Connected to Neon PostgreSQL successfully
 - Main app proxy route /api/wa-bot updated to support both gateway and direct connection
 - Bot ready for Railway deployment (just set ENABLE_WA=true and scan QR)
+
+---
+Task ID: 6
+Agent: Main Agent
+Task: Fix Railway deployment error (Node.js 18.x EOL) and verify WA Bot mini-service
+
+Work Log:
+- Identified Railway build error: "Node.js 18.x has reached End-Of-Life and has been removed"
+- Root cause: nixpacks.toml didn't specify Node.js version, defaulted to 18.x (now removed from nixpkgs)
+- Updated /home/z/idm-wa-bot/nixpacks.toml: changed from bun (requires Node 18) to nodejs_22 + npm + tsx
+- Updated /home/z/idm-wa-bot/Procfile: changed from "web: bun start" to "web: npx tsx src/index.ts"
+- Updated /home/z/idm-wa-bot/package.json: added tsx dependency, updated start script
+- Added /home/z/idm-wa-bot/.nvmrc with "22" to pin Node.js version
+- Committed and pushed to GitHub (commit 3f43a5a)
+- Verified WA Bot mini-service is already running on port 3004 (PID 14248)
+- Tested /health endpoint: returns 200 OK
+- Tested /status endpoint: returns bot status (waStatus: disconnected, API-only mode)
+- Tested /commands endpoint: returns 18 command definitions
+- Tested proxy route /api/wa-bot: returns 200 OK (previously was 503)
+- Synced same fixes to mini-service copy at /home/z/my-project/mini-services/wa-bot/
+
+Stage Summary:
+- Railway deployment fix pushed to https://github.com/evony/idm-wa-bot (Node.js 18→22)
+- WA Bot mini-service confirmed running on port 3004
+- /api/wa-bot proxy route now returns 200 instead of 503
+- Bot in API-only mode (ENABLE_WA not set); set ENABLE_WA=true to activate WhatsApp connection
