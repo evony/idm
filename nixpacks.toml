@@ -1,0 +1,9 @@
+# Railway Nixpacks configuration — force Node.js 22
+[phases.setup]
+nixPkgs = ["nodejs_22"]
+
+[phases.build]
+cmds = ["prisma generate && next build"]
+
+[start]
+cmd = "NODE_ENV=production bun .next/standalone/server.js"
