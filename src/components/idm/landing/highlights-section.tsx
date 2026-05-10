@@ -109,11 +109,11 @@ interface HighlightItem {
 
 /* ─── Color System — Consistent with Landing Page ─── */
 const COLORS = {
-  cardBg: '#0a0c16',
+  cardBg: 'var(--bg-mid)',
   cardBorder: 'rgba(212,168,83,0.1)',
   goldBorder: 'rgba(212,168,83,0.4)',
-  primaryText: 'rgb(245, 245, 247)',
-  secondaryText: 'rgb(142, 142, 147)',
+  primaryText: 'var(--card-foreground)',
+  secondaryText: 'var(--muted-foreground)',
   maleAccent: 'rgb(46, 159, 255)',
   maleAccentLight: 'rgb(87, 181, 255)',
   femaleAccent: 'rgb(255, 45, 120)',
@@ -340,7 +340,7 @@ function DivisionCard({
     <div
       className="rounded-[20px] overflow-hidden group/div transition-all duration-500"
       style={{
-        background: `linear-gradient(165deg, rgba(${colorRgb},0.1) 0%, rgba(10,12,22,0.97) 30%, rgba(${colorRgb},0.05) 100%)`,
+        background: `linear-gradient(165deg, rgba(${colorRgb},0.1) 0%, var(--bg-mid) 30%, rgba(${colorRgb},0.05) 100%)`,
         border: `1px solid rgba(${colorRgb},0.15)`,
         boxShadow: `0 2px 8px rgba(0,0,0,0.3), 0 8px 32px rgba(${colorRgb},0.06), inset 0 1px 0 rgba(255,255,255,0.03)`,
         willChange: 'transform',
@@ -415,7 +415,7 @@ function DivisionCard({
                     minHeight: '360px',
                     border: `1px solid rgba(${colorRgb},0.2)`,
                     boxShadow: `0 4px 16px rgba(${colorRgb},0.1), inset 0 1px 0 rgba(255,255,255,0.03)`,
-                    background: `linear-gradient(165deg, rgba(${colorRgb},0.08) 0%, rgba(6,8,18,0.9) 40%, rgba(${colorRgb},0.03) 100%)`,
+                    background: `linear-gradient(165deg, rgba(${colorRgb},0.08) 0%, var(--bg-mid) 40%, rgba(${colorRgb},0.03) 100%)`,
                   }}
                   onClick={() => {
                     setSelectedPlayer({ ...player, division });
@@ -432,7 +432,7 @@ function DivisionCard({
                       loading="lazy"
                     />
                     {/* Bottom gradient overlay for name readability */}
-                    <div className="absolute inset-0" style={{ background: `linear-gradient(to top, rgba(6,8,18,0.95) 0%, rgba(6,8,18,0.6) 30%, transparent 60%)` }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--bg-mid) 0%, color-mix(in srgb, var(--bg-mid) 60%, transparent) 30%, transparent 60%)' }} />
                     {/* Subtle side glow */}
                     <div className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(ellipse at 50% 80%, rgba(${colorRgb},0.12), transparent 60%)` }} />
                   </div>
@@ -522,8 +522,8 @@ function MvpCard({
       className="rounded-[20px] overflow-hidden group/mvp-card transition-all duration-500"
       style={{
         background: isEmpty
-          ? `linear-gradient(165deg, rgba(${colorRgb},0.1) 0%, rgba(10,12,22,0.97) 30%, rgba(${colorRgb},0.05) 100%)`
-          : `linear-gradient(165deg, rgba(${PLATINUM.rgb},0.08) 0%, rgba(${colorRgb},0.06) 20%, rgba(10,12,22,0.97) 50%, rgba(${PLATINUM.rgb},0.03) 100%)`,
+          ? `linear-gradient(165deg, rgba(${colorRgb},0.1) 0%, var(--bg-mid) 30%, rgba(${colorRgb},0.05) 100%)`
+          : `linear-gradient(165deg, rgba(${PLATINUM.rgb},0.08) 0%, rgba(${colorRgb},0.06) 20%, var(--bg-mid) 50%, rgba(${PLATINUM.rgb},0.03) 100%)`,
         border: isEmpty
           ? `1px solid rgba(${colorRgb},0.15)`
           : `1px solid rgba(${PLATINUM.rgb},0.2)`,
@@ -608,7 +608,7 @@ function MvpCard({
               minHeight: '280px',
               border: `1px solid rgba(${PLATINUM.rgb},0.15)`,
               boxShadow: `0 4px 16px rgba(${PLATINUM.rgb},0.08), 0 4px 12px rgba(${colorRgb},0.06), inset 0 1px 0 rgba(255,255,255,0.03)`,
-              background: `linear-gradient(165deg, rgba(${PLATINUM.rgb},0.06) 0%, rgba(6,8,18,0.9) 40%, rgba(${colorRgb},0.02) 100%)`,
+              background: `linear-gradient(165deg, rgba(${PLATINUM.rgb},0.06) 0%, var(--bg-mid) 40%, rgba(${colorRgb},0.02) 100%)`,
             }}
             onClick={() => {
               if (player?.player?.gamertag) {
@@ -628,7 +628,7 @@ function MvpCard({
                 loading="lazy"
               />
               {/* Bottom gradient overlay */}
-              <div className="absolute inset-0" style={{ background: `linear-gradient(to top, rgba(6,8,18,0.95) 0%, rgba(6,8,18,0.6) 25%, transparent 55%)` }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--bg-mid) 0%, color-mix(in srgb, var(--bg-mid) 60%, transparent) 25%, transparent 55%)' }} />
               {/* Platinum + division accent glow at bottom */}
               <div className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(ellipse at 50% 90%, rgba(${PLATINUM.rgb},0.08), rgba(${colorRgb},0.08), transparent 60%)` }} />
             </div>
@@ -751,7 +751,7 @@ export function HighlightsSection({
       id="highlights"
       role="region"
       aria-label="Highlights"
-      className="landing-section relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-mid"
+      className="landing-section relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-deep"
     >
       {/* Atmospheric glows — consistent with other sections */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">

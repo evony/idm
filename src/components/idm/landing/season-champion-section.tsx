@@ -223,7 +223,7 @@ function BintangMingguIniDuo({
       {/* Header */}
       <div className="relative h-14 overflow-hidden">
         <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${hexToRgba(maleAccent, 0.08)} 0%, transparent 50%, ${hexToRgba(femaleAccent, 0.08)} 100%)` }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d1a] via-[#0d0d1a]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         <div className="absolute bottom-2.5 left-4 right-4 flex items-end justify-between">
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1">
@@ -277,13 +277,13 @@ function BintangMingguIniDuo({
                 style={{ transform: 'scale(1.0) translateX(2%)' }}
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d1a] via-[#0d0d1a]/10 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0d0d1a]/50" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/50" />
               {/* Male fire glow */}
               <div className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(ellipse at 40% 80%, ${hexToRgba(maleAccent, 0.08)}, transparent 50%)` }} />
             </>
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${hexToRgba(maleAccent, 0.1)}, rgba(13,13,26,0.9))` }}>
+            <div className="absolute inset-0 flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${hexToRgba(maleAccent, 0.1)}, var(--bg-mid))` }}>
               <div className="flex flex-col items-center gap-2 opacity-25">
                 <Music className="w-10 h-10" style={{ color: maleAccent }} />
                 <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: maleAccentLight }}>Male</span>
@@ -292,10 +292,10 @@ function BintangMingguIniDuo({
           )}
           {/* Male info at bottom */}
           {hasMale && (
-            <div className="absolute bottom-0 inset-x-0 px-3 pb-3 pt-8 z-10" style={{ background: 'linear-gradient(to top, rgba(13,13,26,0.95) 0%, transparent 100%)' }}>
+            <div className="absolute bottom-0 inset-x-0 px-3 pb-3 pt-8 z-10" style={{ background: 'linear-gradient(to top, var(--bg-mid) 0%, transparent 100%)' }}>
               <div className="flex items-center gap-1 mb-0.5">
                 <span className="text-[10px] font-black" style={{ color: maleAccentLight }}>♂</span>
-                <p className="text-sm sm:text-base font-black text-foreground truncate drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                <p className="text-sm sm:text-base font-black text-foreground truncate dark:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                   {malePerformer.gamertag}
                 </p>
               </div>
@@ -326,7 +326,7 @@ function BintangMingguIniDuo({
           <div
             className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center z-10"
             style={{
-              backgroundColor: '#0d0d1a',
+              backgroundColor: 'var(--bg-mid)',
               border: `2px solid ${maleAccent}`,
               boxShadow: `0 0 16px ${hexToRgba(maleAccent, 0.35)}, inset 0 0 6px ${hexToRgba(maleAccent, 0.1)}`,
             }}
@@ -351,13 +351,13 @@ function BintangMingguIniDuo({
                 style={{ transform: 'scale(1.0) translateX(-2%)' }}
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d1a] via-[#0d0d1a]/10 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0d0d1a]/50" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background/50" />
               {/* Female fire glow */}
               <div className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(ellipse at 60% 80%, ${hexToRgba(femaleAccent, 0.08)}, transparent 50%)` }} />
             </>
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center" style={{ background: `linear-gradient(225deg, ${hexToRgba(femaleAccent, 0.1)}, rgba(13,13,26,0.9))` }}>
+            <div className="absolute inset-0 flex items-center justify-center" style={{ background: `linear-gradient(225deg, ${hexToRgba(femaleAccent, 0.1)}, var(--bg-mid))` }}>
               <div className="flex flex-col items-center gap-2 opacity-25">
                 <Shield className="w-10 h-10" style={{ color: femaleAccent }} />
                 <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: femaleAccentLight }}>Female</span>
@@ -366,10 +366,10 @@ function BintangMingguIniDuo({
           )}
           {/* Female info at bottom */}
           {hasFemale && (
-            <div className="absolute bottom-0 inset-x-0 px-3 pb-3 pt-8 z-10" style={{ background: 'linear-gradient(to top, rgba(13,13,26,0.95) 0%, transparent 100%)' }}>
+            <div className="absolute bottom-0 inset-x-0 px-3 pb-3 pt-8 z-10" style={{ background: 'linear-gradient(to top, var(--bg-mid) 0%, transparent 100%)' }}>
               <div className="flex items-center gap-1 mb-0.5">
                 <span className="text-[10px] font-black" style={{ color: femaleAccentLight }}>♀</span>
-                <p className="text-sm sm:text-base font-black text-foreground truncate drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                <p className="text-sm sm:text-base font-black text-foreground truncate dark:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                   {femalePerformer.gamertag}
                 </p>
               </div>
@@ -391,7 +391,7 @@ function BintangMingguIniDuo({
 
         {/* Flame badge floating at top */}
         <div className="champion-crown-float absolute top-2 left-1/2 -translate-x-1/2 z-20 w-6 h-6 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: maleAccent, boxShadow: `0 4px 12px ${hexToRgba(maleAccent, 0.4)}` }}>
-          <Flame className="w-3 h-3 text-[#0d0d1a]" />
+          <Flame className="w-3 h-3 text-background" />
         </div>
       </div>
 
@@ -578,7 +578,7 @@ function DuoChampionCard({
         {/* Center diamond emblem */}
         <div className="relative z-10 shrink-0 w-5 h-5 rotate-45 rounded-[3px]" style={{ background: 'linear-gradient(135deg, #d4a853, #f5d77a, #d4a853)', boxShadow: '0 0 12px rgba(212,168,83,0.5), 0 0 4px rgba(245,215,122,0.4), inset 0 1px 0 rgba(255,255,255,0.3)' }}>
           {/* Inner diamond */}
-          <div className="absolute inset-[3px] rotate-0 rounded-[1px]" style={{ background: 'linear-gradient(135deg, #0d0d1a, #1a1a2e)', border: '1px solid rgba(212,168,83,0.3)' }} />
+          <div className="absolute inset-[3px] rotate-0 rounded-[1px]" style={{ background: 'linear-gradient(135deg, var(--bg-mid), var(--bg-deep))', border: '1px solid rgba(212,168,83,0.3)' }} />
         </div>
         {/* Diamond glow aura */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full z-0" style={{ background: 'radial-gradient(circle, rgba(212,168,83,0.15), transparent 70%)' }} />
@@ -587,7 +587,7 @@ function DuoChampionCard({
       {/* Header */}
       <div className="relative h-14 overflow-hidden">
         <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${hexToRgba(maleAccent, 0.08)} 0%, transparent 50%, ${hexToRgba(femaleAccent, 0.08)} 100%)` }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d1a] via-[#0d0d1a]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         <div className="absolute bottom-2.5 left-4 right-4 flex items-end justify-between">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212,168,83,0.15)', border: '1.5px solid rgba(212,168,83,0.35)', boxShadow: '0 0 10px rgba(212,168,83,0.2)' }}>
@@ -655,7 +655,7 @@ function DuoChampionCard({
                   priority
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d1a]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
                 {/* Crown badge — top right */}
                 <div className="absolute top-2 right-2 z-10">
                   <div className="w-6 h-6 rounded-full bg-idm-gold-warm flex items-center justify-center shadow-[0_0_12px_rgba(212,168,83,0.4)]">
@@ -795,7 +795,7 @@ function DuoChampionCard({
                   priority
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d1a]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
                 {/* Crown badge — top right */}
                 <div className="absolute top-2 right-2 z-10">
                   <div className="w-6 h-6 rounded-full bg-idm-gold-warm flex items-center justify-center shadow-[0_0_12px_rgba(212,168,83,0.4)]">
@@ -1343,9 +1343,8 @@ export function SeasonChampionSection({
     : 'Belum ada juara musim ini — Bintang Minggu Ini: performa terbaik minggu berjalan';
 
   return (
-    <section id="season-champion" role="region" aria-label="Top Season" className="landing-section relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="season-champion" role="region" aria-label="Top Season" className="landing-section relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-deep">
       {/* Background */}
-      <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'linear-gradient(rgba(212,168,83,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,83,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 30% 20%, rgba(46,159,255,0.06) 0%, transparent 45%), radial-gradient(ellipse at 70% 20%, rgba(255,45,120,0.06) 0%, transparent 45%)' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 10%, rgba(212,168,83,0.08) 0%, transparent 50%)' }} />

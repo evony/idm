@@ -113,7 +113,7 @@ function TournamentCard({
         {
           '--division-color': division.color,
           '--division-color-rgb': division.colorRgb,
-          background: `linear-gradient(165deg, rgba(${division.colorRgb},0.08) 0%, rgba(10,12,22,0.95) 35%, rgba(${division.colorRgb},0.04) 100%)`,
+          background: `linear-gradient(165deg, rgba(${division.colorRgb},0.08) 0%, var(--bg-mid) 35%, rgba(${division.colorRgb},0.04) 100%)`,
         } as React.CSSProperties
       }
     >
@@ -198,7 +198,7 @@ function TournamentCard({
         )}
 
         {/* Gradient overlay at bottom — smoother blend into card body */}
-        <div className="absolute inset-x-0 bottom-0 h-28" style={{ background: `linear-gradient(to top, rgba(10,12,22,0.95), transparent)` }} />
+        <div className="absolute inset-x-0 bottom-0 h-28" style={{ background: 'linear-gradient(to top, var(--bg-mid), transparent)' }} />
 
         {/* Division glow line at header bottom — content area accent */}
         <div className="absolute inset-x-0 bottom-0 h-px" style={{ background: `linear-gradient(90deg, transparent 5%, rgba(${division.colorRgb},0.3) 30%, rgba(${division.colorRgb},0.5) 50%, rgba(${division.colorRgb},0.3) 70%, transparent 95%)` }} />
@@ -227,13 +227,13 @@ function TournamentCard({
             <Icon className="w-5 h-5 tournament-icon-pulse" style={{ color: division.color }} />
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-bold text-foreground dark:text-white text-foreground truncate ios-heading">{cardTitle}</h3>
-            <p className="text-[11px] text-muted-foreground dark:text-[#a09880] text-muted-foreground">{cardFormat}</p>
+            <h3 className="text-lg font-bold text-foreground dark:text-white truncate ios-heading">{cardTitle}</h3>
+            <p className="text-[11px] text-muted-foreground dark:text-[#a09880]">{cardFormat}</p>
           </div>
         </div>
 
         {/* Description — iOS lighter secondary text */}
-        <p className="text-sm text-muted-foreground dark:text-[#a09880] text-muted-foreground leading-relaxed mb-4">
+        <p className="text-sm text-muted-foreground dark:text-[#a09880] leading-relaxed mb-4">
           {cardDescription}
         </p>
 
@@ -244,7 +244,7 @@ function TournamentCard({
             <p className="relative text-lg font-extrabold tabular-nums" style={{ color: division.color }}>
               {totalPlayers}
             </p>
-            <p className="relative text-[10px] text-muted-foreground dark:text-[#a09880] text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
+            <p className="relative text-[10px] text-muted-foreground dark:text-[#a09880] flex items-center justify-center gap-1 mt-0.5">
               <Users className="w-2.5 h-2.5" />
               Pemain
             </p>
@@ -254,7 +254,7 @@ function TournamentCard({
             <p className="relative text-lg font-extrabold tabular-nums" style={{ color: division.color }}>
               {totalClubs}
             </p>
-            <p className="relative text-[10px] text-muted-foreground dark:text-[#a09880] text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
+            <p className="relative text-[10px] text-muted-foreground dark:text-[#a09880] flex items-center justify-center gap-1 mt-0.5">
               <Building2 className="w-2.5 h-2.5" />
               Club
             </p>
@@ -264,7 +264,7 @@ function TournamentCard({
             <p className="relative text-lg font-extrabold tabular-nums" style={{ color: division.color }}>
               {weeklyCount}
             </p>
-            <p className="relative text-[10px] text-muted-foreground dark:text-[#a09880] text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
+            <p className="relative text-[10px] text-muted-foreground dark:text-[#a09880] flex items-center justify-center gap-1 mt-0.5">
               <Gamepad2 className="w-2.5 h-2.5" />
               Match
             </p>
@@ -275,7 +275,7 @@ function TournamentCard({
         {prizePool > 0 && (
           <div className="ios-card flex items-center gap-2 mb-4 px-3 py-2" style={{ background: 'rgba(212,168,83,0.06)', borderColor: 'rgba(212,168,83,0.1)' }}>
             <Crown className="w-3.5 h-3.5 text-[#d4a853]" />
-            <span className="text-[11px] text-muted-foreground dark:text-[#a09880] text-muted-foreground">Prize Pool</span>
+            <span className="text-[11px] text-muted-foreground dark:text-[#a09880]">Prize Pool</span>
             <span className="text-sm font-bold text-gradient-champion ml-auto">
               {formatCurrency(prizePool)}
             </span>
@@ -335,7 +335,7 @@ export function TournamentHub({
       id="kompetisi"
       role="region"
       aria-label={sectionLabel}
-      className="landing-section relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-mid"
+      className="landing-section relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-deep"
     >
       {/* ── Top edge glow — section boundary ── */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.3)] to-transparent" aria-hidden="true" />
