@@ -52,3 +52,9 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Local data — not for deployment
+/upload/
+/db/
+worklog.md
+Caddyfile
