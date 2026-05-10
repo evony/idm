@@ -268,3 +268,27 @@ Stage Summary:
 - Card padding standardized across entire project to iOS/Apple standards
 - All cards now use minimum p-4 on mobile, p-5/p-6 on desktop
 - No layout breakage or lint errors
+
+---
+Task ID: 4
+Agent: Main Agent
+Task: Update navigation to add "Juara" section and reorder navigation items
+
+Work Log:
+- Modified /home/z/my-project/src/components/idm/landing-page.tsx
+- Updated IntersectionObserver sectionIds: ['kompetisi', 'highlights', 'season-champion', 'experiences', 'players'] (removed 'clubs')
+- Desktop nav: Kompetisi | Juara | Season | Video | Player (removed Club)
+- Mobile bottom nav: same order with icons (Swords, Crown, Trophy, Play, Music)
+- Added "Juara" (highlights section) between Kompetisi and Season
+- Removed "Club" from both desktop and mobile navigation
+- Renamed "Top Season" → "Season" in nav labels
+- Changed Season icon from Crown to Trophy (to differentiate from Juara which uses Crown)
+- Juara (highlights) gets `special: true` styling in mobile bottom nav (gold accent)
+- Added Trophy import from lucide-react, removed unused Users import
+- Verified: lint passes, homepage returns 200, no compilation errors
+
+Stage Summary:
+- Navigation now shows: Kompetisi | Juara | Season | Video | Player
+- Club removed from navigation (section still exists on page)
+- Juara maps to the existing highlights section (id="highlights")
+- Season maps to season-champion section (id="season-champion")

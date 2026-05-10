@@ -6,7 +6,7 @@ import { useCrossTabInvalidation } from '@/lib/cross-tab-sync';
 import { usePusherRealtime } from '@/hooks/use-pusher';
 
 import Image from 'next/image';
-import { Crown, Users, Swords, Music, LogIn, UserCircle, LogOut, Shield, Play } from 'lucide-react';
+import { Crown, Trophy, Swords, Music, LogIn, UserCircle, LogOut, Shield, Play } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
 import type { StatsData } from '@/types/stats';
 
@@ -346,7 +346,7 @@ export function LandingPage() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ['kompetisi', 'highlights', 'experiences', 'season-champion', 'players', 'clubs'];
+    const sectionIds = ['kompetisi', 'highlights', 'season-champion', 'experiences', 'players'];
     const observer = new IntersectionObserver(
       (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) setActiveSection(entry.target.id); }); },
       { rootMargin: '-40% 0px -55% 0px' }
@@ -414,10 +414,10 @@ export function LandingPage() {
           <div className="hidden sm:flex items-center gap-0.5 md:gap-1">
             {[
               { id: 'kompetisi', label: 'Kompetisi', mdLabel: 'Kompetisi' },
-              { id: 'season-champion', label: 'Top Season', mdLabel: 'Top Season' },
+              { id: 'highlights', label: 'Juara', mdLabel: 'Juara' },
+              { id: 'season-champion', label: 'Season', mdLabel: 'Season' },
               { id: 'experiences', label: 'Video', mdLabel: 'Video' },
               { id: 'players', label: 'Player', mdLabel: 'Player' },
-              { id: 'clubs', label: 'Club', mdLabel: 'Club' },
 
             ].map(item => (
               <button
@@ -463,10 +463,10 @@ export function LandingPage() {
         <div className="flex items-center justify-around h-16 px-2">
           {[
             { id: 'kompetisi', label: 'Kompetisi', icon: Swords, special: false },
-            { id: 'season-champion', label: 'Top Season', icon: Crown, special: true },
+            { id: 'highlights', label: 'Juara', icon: Crown, special: true },
+            { id: 'season-champion', label: 'Season', icon: Trophy, special: false },
             { id: 'experiences', label: 'Video', icon: Play, special: false },
             { id: 'players', label: 'Player', icon: Music, special: false },
-            { id: 'clubs', label: 'Club', icon: Users, special: false },
 
           ].map(item => {
             const isActive = activeSection === item.id;
