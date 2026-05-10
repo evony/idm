@@ -395,3 +395,20 @@ Stage Summary:
 - All avatar rings now consistently show division colors: Male = blue (#2E9FFF), Female = pink (#FF2D78)
 - Skin visual effects (gold border/glow) removed from avatar rings — division identity is always preserved
 - Consistent across hero-section and season-champion-section
+
+---
+Task ID: 8
+Agent: Main Agent
+Task: Fix Railway "bun: command not found" error
+
+Work Log:
+- Identified root cause: railway.json had "startCommand": "bun run start" which overrides nixpacks.toml start cmd
+- Railway was executing "bun run start" but bun is not installed (we switched to nodejs_22 + tsx)
+- Fixed railway.json: changed startCommand from "bun run start" to "npx tsx src/index.ts"
+- Pushed commit 79c6d23 to GitHub
+- Mini-service local copy uses Dockerfile (node:22-slim) — not affected
+
+Stage Summary:
+- Railway will now use "npx tsx src/index.ts" instead of "bun run start"
+- nixpacks.toml provides Node.js 22 + npm install during build
+- railway.json provides startCommand override for deploy
