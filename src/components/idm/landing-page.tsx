@@ -6,7 +6,9 @@ import { useCrossTabInvalidation } from '@/lib/cross-tab-sync';
 import { usePusherRealtime } from '@/hooks/use-pusher';
 
 import Image from 'next/image';
-import { Crown, Trophy, Swords, Music, LogIn, UserCircle, LogOut, Shield, Play } from 'lucide-react';
+import { Crown, Trophy, Swords, Music, LogIn, UserCircle, LogOut, Shield, Play, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useSyncExternalStore } from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import type { StatsData } from '@/types/stats';
 
@@ -23,6 +25,105 @@ import { LandingFooter } from './landing/landing-footer';
 
 // Shared hooks & components
 import { useSwipeNavigation, useScrollReveal, useParallax, SectionDivider } from './landing/shared';
+
+/* ═══ Theme Toggle — Landing Page ═══
+   Adapts to the landing page nav's scrolled state:
+   - Not scrolled (transparent nav): white icons visible on dark hero
+   - Scrolled (solid nav): themed icons visible on background
+*/
+const emptySubscribe = () => () => {};
+function useIsMounted() {
+  return useSyncExternalStore(emptySubscribe, () => true, () => false);
+}
+
+function LandingThemeToggle({ scrolled }: { scrolled: boolean }) {
+  const { theme, setTheme } = useTheme();
+  const mounted = useIsMounted();
+
+  if (!mounted) {
+    return (
+      <button
+        className="inline-flex h-8 w-8 items-center justify-center rounded-full transition-opacity opacity-50"
+        aria-label="Toggle theme"
+      >
+        <div className="h-4 w-4" />
+      </button>
+    );
+  }
+
+  const isDark = theme === 'dark';
+
+  return (
+    <button
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      className={`btn-press inline-flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300 cursor-pointer border active:scale-95 ${
+        scrolled
+          ? 'border-idm-gold-warm/20 bg-idm-gold-warm/5 hover:bg-idm-gold-warm/15 text-idm-gold-warm'
+          : 'border-white/15 bg-white/5 hover:bg-white/15 text-white/70 hover:text-white'
+      }`}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+    >
+      <div className="relative h-4 w-4 overflow-hidden">
+        <Sun
+          className={`absolute inset-0 h-4 w-4 transition-all duration-300 ${
+            isDark
+              ? 'rotate-90 scale-0 opacity-0'
+              : 'rotate-0 scale-100 opacity-100'
+          }`}
+        />
+        <Moon
+          className={`absolute inset-0 h-4 w-4 transition-all duration-300 ${
+            isDark
+              ? 'rotate-0 scale-100 opacity-100'
+              : '-rotate-90 scale-0 opacity-0'
+          }`}
+        />
+      </div>
+    </button>
+  );
+}
+
+/* ═══ Mobile Theme Toggle — Bottom Nav ═══
+   Compact theme toggle for the mobile bottom navigation bar.
+   Matches the bottom nav item style with icon + label.
+*/
+function MobileThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const mounted = useIsMounted();
+
+  if (!mounted) {
+    return (
+      <button className="flex flex-col items-center justify-center py-2 px-2 opacity-50" aria-label="Toggle theme">
+        <div className="w-5 h-5" />
+        <span className="text-[11px] font-medium mt-1">Tema</span>
+      </button>
+    );
+  }
+
+  const isDark = theme === 'dark';
+
+  return (
+    <button
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      className="btn-press relative flex flex-col items-center justify-center py-2 px-2 rounded-lg transition-all duration-300 cursor-pointer text-muted-foreground hover:text-idm-gold-warm/70"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+    >
+      <div className="relative w-5 h-5 overflow-hidden">
+        <Sun
+          className={`absolute inset-0 w-5 h-5 transition-all duration-300 ${
+            isDark ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
+          }`}
+        />
+        <Moon
+          className={`absolute inset-0 w-5 h-5 transition-all duration-300 ${
+            isDark ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'
+          }`}
+        />
+      </div>
+      <span className="relative z-10 text-[11px] font-medium mt-1">Tema</span>
+    </button>
+  );
+}
 
 // Modal & utility components
 import { PlayerProfile } from './player-profile';
@@ -441,8 +542,10 @@ export function LandingPage() {
             ))}
           </div>
 
-          {/* Right Actions: Login only */}
+          {/* Right Actions: Theme Toggle + Login */}
           <div className="flex items-center gap-1.5">
+            {/* Theme Toggle */}
+            <LandingThemeToggle scrolled={scrolled} />
             {/* Login / User Button */}
             <LandingAuthButton
               onOpenLogin={(tab) => { setLoginDefaultTab(tab); setLoginModalOpen(true); }}
@@ -500,6 +603,8 @@ export function LandingPage() {
             );
           })}
 
+          {/* Mobile Theme Toggle — compact button at the end of bottom nav */}
+          <MobileThemeToggle />
         </div>
       </nav>
 

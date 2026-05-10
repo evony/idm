@@ -440,3 +440,28 @@ Stage Summary:
 - Glass surfaces and premium cards have proper light mode appearances
 - No TypeScript errors introduced (lint only shows pre-existing upload/ folder issues)
 - App compiles and serves 200 OK
+
+---
+Task ID: 1
+Agent: main
+Task: Add theme toggle switch to landing page
+
+Work Log:
+- Read existing ThemeToggle component at src/components/theme-toggle.tsx
+- Read landing-page.tsx to understand the nav structure
+- Created LandingThemeToggle component that adapts to scrolled state (white icons on transparent nav, gold-themed icons on solid nav)
+- Created MobileThemeToggle component for the mobile bottom nav (matches bottom nav item style with icon + "Tema" label)
+- Added LandingThemeToggle to desktop header right actions area (before login button)
+- Added MobileThemeToggle to mobile bottom navigation bar (after nav items)
+- Added Sun/Moon icon imports from lucide-react
+- Added useTheme import from next-themes
+- Added useSyncExternalStore for hydration-safe mounting check
+- Both toggles feature smooth rotate/scale animations on theme switch
+
+Stage Summary:
+- Theme toggle now available on landing page in two locations:
+  1. Desktop: Header nav right side (next to login button) - adapts style to scrolled state
+  2. Mobile: Bottom navigation bar (labeled "Tema") - matches bottom nav item style
+- Uses next-themes (already configured in layout.tsx with ThemeProvider)
+- Smooth Sun/Moon icon rotation animation on toggle
+- Hydration-safe with useIsMounted pattern
