@@ -377,7 +377,7 @@ export function ClubProfile({ club, onClose, rank, onPlayerClick }: ClubProfileP
               <div className="absolute top-14 left-3 z-10">
                 <Badge className={`text-xs font-bold border-0 ${
                   rank === 1 ? 'bg-yellow-500/20 text-yellow-500' :
-                  rank === 2 ? 'bg-gray-400/20 text-gray-400' :
+                  rank === 2 ? 'bg-gray-400/20 text-muted-foreground' :
                   'bg-amber-600/20 text-amber-600'
                 }`}>
                   {rankLabel}

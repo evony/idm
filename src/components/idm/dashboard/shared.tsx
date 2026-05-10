@@ -198,7 +198,7 @@ export const ParticipantRow = React.memo(function ParticipantRow({ player, rank,
       {/* Rank */}
       <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
         rank === 1 ? 'bg-yellow-500/20 text-yellow-500' :
-        rank === 2 ? 'bg-gray-400/20 text-gray-400' :
+        rank === 2 ? 'bg-gray-400/20 text-muted-foreground' :
         rank === 3 ? 'bg-amber-600/20 text-amber-600' :
         `${dt.bgSubtle} text-muted-foreground`
       }`}>

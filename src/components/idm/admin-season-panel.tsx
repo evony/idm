@@ -1174,7 +1174,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                                           >
                                             <span className={`w-5 text-center font-bold text-[10px] ${
                                               idx === 0 ? 'text-yellow-500' :
-                                              idx === 1 ? 'text-gray-400' :
+                                              idx === 1 ? 'text-muted-foreground' :
                                               idx === 2 ? 'text-amber-600' :
                                               'text-muted-foreground'
                                             }`}>#{idx + 1}</span>
@@ -1232,7 +1232,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                                     >
                                       <span className={`w-5 text-center font-bold text-[10px] ${
                                         idx === 0 ? 'text-yellow-500' :
-                                        idx === 1 ? 'text-gray-400' :
+                                        idx === 1 ? 'text-muted-foreground' :
                                         idx === 2 ? 'text-amber-600' :
                                         'text-muted-foreground'
                                       }`}>#{idx + 1}</span>

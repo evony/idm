@@ -662,7 +662,7 @@ export function AdminSponsorPanel() {
               <Card className={dt.casinoCard}>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-2">
-                    <Star className={`w-4 h-4 ${tier === 'platinum' ? 'text-slate-300' : tier === 'gold' ? 'text-amber-400' : tier === 'silver' ? 'text-slate-400' : 'text-amber-700'}`} />
+                    <Star className={`w-4 h-4 ${tier === 'platinum' ? 'text-muted-foreground' : tier === 'gold' ? 'text-amber-400' : tier === 'silver' ? 'text-muted-foreground' : 'text-amber-700'}`} />
                     {tier.charAt(0).toUpperCase() + tier.slice(1)} Sponsors
                     <Badge className="text-[9px] border-0 bg-muted">{(tierSponsors as Sponsor[]).length}</Badge>
                   </CardTitle>

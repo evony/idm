@@ -34,7 +34,7 @@ const TIER_LABELS: Record<string, string> = {
 const TIER_STYLES: Record<string, string> = {
   platinum: 'border-idm-gold-warm/25 bg-idm-gold-warm/[0.04]',
   gold: 'border-idm-amber/20 bg-idm-amber/[0.03]',
-  silver: 'border-white/15 bg-white/[0.03]',
+  silver: 'border-border/30 bg-muted/5',
   bronze: 'border-idm-gold-warm/10 bg-idm-gold-warm/[0.02]',
   other: 'border-idm-gold-warm/10 bg-idm-gold-warm/[0.02]',
 };

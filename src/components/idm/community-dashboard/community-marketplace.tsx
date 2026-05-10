@@ -48,7 +48,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   item: 'from-orange-500/20 to-orange-900/10 border-orange-500/20',
   char: 'from-purple-500/20 to-purple-900/10 border-purple-500/20',
   jasa: 'from-emerald-500/20 to-emerald-900/10 border-emerald-500/20',
-  dll: 'from-gray-500/20 to-gray-900/10 border-gray-500/20',
+  dll: 'from-muted-foreground/20 to-muted/10 border-border/20',
 };
 
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -166,7 +166,7 @@ export function CommunityMarketplace({ onLoginRequired }: { onLoginRequired?: ()
           placeholder="Cari item atau jasa..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-9 pr-4 py-2.5 rounded-2xl bg-white/5 border border-orange-500/10 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-orange-500/30 focus:ring-1 focus:ring-orange-500/20 transition-colors"
+          className="w-full pl-9 pr-4 py-2.5 rounded-2xl bg-muted/30 border border-orange-500/10 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-orange-500/30 focus:ring-1 focus:ring-orange-500/20 transition-colors"
         />
       </div>
 

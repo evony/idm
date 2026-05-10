@@ -186,7 +186,7 @@ function ParticipantTableRow({ player, rank, onClick }: {
       {/* Rank — esports poster style large number */}
       <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black shrink-0 ${
         rank === 1 ? 'bg-yellow-500/20 text-yellow-500' :
-        rank === 2 ? 'bg-gray-400/15 text-gray-400' :
+        rank === 2 ? 'bg-gray-400/15 text-muted-foreground' :
         rank === 3 ? 'bg-amber-600/15 text-amber-600' :
         `${dt.bgSubtle} text-muted-foreground`
       }`}>

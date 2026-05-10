@@ -111,7 +111,7 @@ export function ClubsSection({ maleData, femaleData, isDataLoading, cmsSections,
                           transition-all duration-200 cursor-pointer border
                           ${isSelected
                             ? 'bg-[#d4a853]/15 border-[#d4a853]/40 text-[#d4a853] shadow-[0_0_12px_rgba(212,168,83,0.15)]'
-                            : 'bg-transparent border-[#d4a853]/10 text-[#a09880]/70 hover:border-[#d4a853]/25 hover:text-[#d4a853]/60'
+                            : 'bg-transparent border-[#d4a853]/10 text-muted-foreground/70 hover:border-[#d4a853]/25 hover:text-[#d4a853]/60'
                           }
                         `}
                         aria-label={`Select ${season.name}`}
@@ -154,18 +154,18 @@ export function ClubsSection({ maleData, femaleData, isDataLoading, cmsSections,
                     <Crown className="w-3.5 h-3.5 text-[#d4a853] relative" />
                     {seasonChampions.map((ch, i) => (
                       <span key={`${ch.id}-${ch.division}-S${ch.seasonNumber}`} className="flex items-center gap-2 relative">
-                        {i > 0 && <span className="text-[10px] text-[#a09880]/40">•</span>}
+                        {i > 0 && <span className="text-[10px] text-muted-foreground/40">•</span>}
                         <span className="text-[10px] font-bold text-[#d4a853]/70 uppercase tracking-wider">
                           Tarkam {ch.division === 'female' ? '♀' : '♂'} S{ch.seasonNumber} Champion
                         </span>
                         {ch.logo && (
                           <ClubLogoImage clubName={ch.name} dbLogo={ch.logo} alt={ch.name} width={20} height={20} className="w-5 h-5 rounded object-cover" />
                         )}
-                        <span className="text-xs font-black text-white">{ch.name}</span>
+                        <span className="text-xs font-black text-foreground">{ch.name}</span>
                       </span>
                     ))}
-                    <span className="text-[10px] text-[#a09880]/40 relative">•</span>
-                    <span className="text-[10px] text-[#a09880]/60 relative">{leagueData?.stats?.totalClubs || (maleData?.clubs?.length || 0) + (femaleData?.clubs?.length || 0)} club bertanding</span>
+                    <span className="text-[10px] text-muted-foreground/40 relative">•</span>
+                    <span className="text-[10px] text-muted-foreground/60 relative">{leagueData?.stats?.totalClubs || (maleData?.clubs?.length || 0) + (femaleData?.clubs?.length || 0)} club bertanding</span>
                   </div>
                 </div>
               </div>
@@ -307,8 +307,8 @@ export function ClubsSection({ maleData, femaleData, isDataLoading, cmsSections,
                                   {/* Member count & Tarkam points */}
                                   <div className="mt-2 flex items-center justify-center gap-3">
                                     <div className="flex items-center gap-1">
-                                      <Users className="w-3 h-3 text-[#a09880]/50" />
-                                      <span className="text-[10px] text-[#a09880]/60 font-medium">{club.memberCount || (('_count' in club) && (club as { _count: { members: number } })._count.members) || 0} anggota</span>
+                                      <Users className="w-3 h-3 text-muted-foreground/50" />
+                                      <span className="text-[10px] text-muted-foreground/60 font-medium">{club.memberCount || (('_count' in club) && (club as { _count: { members: number } })._count.members) || 0} anggota</span>
                                     </div>
                                     <div className="flex items-center gap-1">
                                       <Trophy className="w-3 h-3 text-[#d4a853]/50" />

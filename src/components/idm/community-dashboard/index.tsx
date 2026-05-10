@@ -1604,7 +1604,7 @@ export function CommunityDashboard() {
       {/* ═══ UNIFIED CONTENT SURFACE ═══
           Mobile: Full-bleed, no border-radius, no border — edge-to-edge like iOS apps
           Desktop: Premium elevated surface with rounded corners and border */}
-      <div className="lg:community-surface lg:rounded-3xl lg:border lg:border-white/[0.06] overflow-hidden relative">
+      <div className="lg:community-surface lg:rounded-3xl lg:border lg:border-border/30 overflow-hidden relative">
         {/* Subtle navy depth glow at top — dark canvas, no gold wash (desktop only) */}
         <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-48 bg-slate-800/[0.08] rounded-full blur-3xl pointer-events-none" />
 

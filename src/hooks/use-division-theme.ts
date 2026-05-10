@@ -59,16 +59,16 @@ export interface DivisionTheme {
    ═══════════════════════════════════════════════════════ */
 const maleTheme: DivisionTheme = {
   division: 'male',
-  /* Shell/UI — GOLD identity for text/badges, NEUTRAL dark for surfaces */
+  /* Shell/UI — GOLD identity for text/badges, NEUTRAL surfaces with light/dark support */
   text: 'text-idm-gold-warm',
   textLight: 'text-idm-amber',
-  bg: 'bg-white/[0.04]',
-  bgSubtle: 'bg-white/[0.02]',
-  border: 'border-white/[0.06]',
-  borderSubtle: 'border-white/[0.04]',
+  bg: 'dark:bg-white/[0.04] bg-muted/30',
+  bgSubtle: 'dark:bg-white/[0.02] bg-muted/15',
+  border: 'dark:border-white/[0.06] border-border/40',
+  borderSubtle: 'dark:border-white/[0.04] border-border/25',
   glow: 'glow-gold',
   gradientText: 'text-gradient-fury',
-  iconBg: 'bg-white/[0.06]',
+  iconBg: 'dark:bg-white/[0.06] bg-muted/30',
   color: '#d4a853',
   colorLight: '#e5be4a',
   tabBg: 'bg-idm-gold-warm/15',
@@ -113,16 +113,16 @@ const maleTheme: DivisionTheme = {
    ═══════════════════════════════════════════════════════ */
 const femaleTheme: DivisionTheme = {
   division: 'female',
-  /* Shell/UI — GOLD identity for text/badges, NEUTRAL dark for surfaces */
+  /* Shell/UI — GOLD identity for text/badges, NEUTRAL surfaces with light/dark support */
   text: 'text-idm-gold-warm',
   textLight: 'text-idm-amber',
-  bg: 'bg-white/[0.04]',
-  bgSubtle: 'bg-white/[0.02]',
-  border: 'border-white/[0.06]',
-  borderSubtle: 'border-white/[0.04]',
+  bg: 'dark:bg-white/[0.04] bg-muted/30',
+  bgSubtle: 'dark:bg-white/[0.02] bg-muted/15',
+  border: 'dark:border-white/[0.06] border-border/40',
+  borderSubtle: 'dark:border-white/[0.04] border-border/25',
   glow: 'glow-gold',
   gradientText: 'text-gradient-fury',
-  iconBg: 'bg-white/[0.06]',
+  iconBg: 'dark:bg-white/[0.06] bg-muted/30',
   color: '#d4a853',
   colorLight: '#e5be4a',
   tabBg: 'bg-idm-gold-warm/15',

@@ -22,9 +22,9 @@ interface RankingPanelProps {
 const REASON_LABELS: Record<string, { label: string; icon: string; color: string }> = {
   participation: { label: 'Partisipasi', icon: '🎫', color: 'text-blue-400' },
   match_win: { label: 'Menang Match', icon: '⚔️', color: 'text-green-400' },
-  match_draw: { label: 'Seri Match', icon: '🤝', color: 'text-gray-400' },
+  match_draw: { label: 'Seri Match', icon: '🤝', color: 'text-muted-foreground' },
   prize_juara1: { label: 'Juara 1', icon: '🥇', color: 'text-yellow-400' },
-  prize_juara2: { label: 'Juara 2', icon: '🥈', color: 'text-gray-300' },
+  prize_juara2: { label: 'Juara 2', icon: '🥈', color: 'text-muted-foreground' },
   prize_juara3: { label: 'Juara 3', icon: '🥉', color: 'text-amber-600' },
   prize_mvp: { label: 'MVP', icon: '⭐', color: 'text-purple-400' },
   prize_other: { label: 'Hadiah Lain', icon: '🎁', color: 'text-pink-400' },

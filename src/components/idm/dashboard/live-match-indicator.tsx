@@ -87,7 +87,7 @@ function ResultCard({ result, index }: { result: RecentResult; index: number }) 
 
   return (
     <div
-      className="live-indicator-result-card shrink-0 w-[180px] rounded-lg bg-white/[0.07] border border-white/[0.06] p-3 sm:p-4 hover:border-idm-gold-warm/20 transition-all"
+      className="live-indicator-result-card shrink-0 w-[180px] rounded-lg bg-muted/30 border border-border/30 p-3 sm:p-4 hover:border-idm-gold-warm/20 transition-all"
       style={{ animationDelay: `${index * 60}ms` }}
     >
       <div className="flex items-center justify-between gap-1.5">
@@ -113,7 +113,7 @@ function ResultCard({ result, index }: { result: RecentResult; index: number }) 
 /* ========== Loading Skeleton ========== */
 function LiveMatchIndicatorSkeleton() {
   return (
-    <div className="rounded-2xl bg-white/[0.06] border border-white/[0.06] overflow-hidden">
+    <div className="rounded-2xl bg-muted/30 border border-border/30 overflow-hidden">
       <div className="h-1 bg-gradient-to-r from-transparent via-idm-gold-warm/20 to-transparent" />
       <div className="p-4 space-y-3">
         <div className="flex items-center gap-2">
@@ -157,7 +157,7 @@ export function LiveMatchIndicator() {
   const hasUpcoming = !!nextMatch?.scheduledAt;
 
   return (
-    <div className="live-match-indicator-card rounded-2xl bg-white/[0.06] border border-white/[0.06] overflow-hidden">
+    <div className="live-match-indicator-card rounded-2xl bg-muted/30 border border-border/30 overflow-hidden">
       {/* Top accent bar */}
       <div className={`h-1 ${hasLive ? 'bg-gradient-to-r from-red-500/60 via-red-400/40 to-red-500/60 animate-pulse' : 'bg-gradient-to-r from-transparent via-idm-gold-warm/20 to-transparent'}`} />
 
@@ -165,7 +165,7 @@ export function LiveMatchIndicator() {
         {/* Row 1: LIVE badge + Next match info */}
         <div className="flex items-center gap-2 flex-wrap">
           {/* LIVE badge with animated red ping */}
-          <div className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full ${hasLive ? 'bg-red-500/15 border border-red-500/30' : 'bg-white/[0.04] border border-white/[0.06]'}`}>
+          <div className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full ${hasLive ? 'bg-red-500/15 border border-red-500/30' : 'bg-muted/30 border border-border/30'}`}>
             <span className="relative flex h-2 w-2">
               {hasLive && (
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />

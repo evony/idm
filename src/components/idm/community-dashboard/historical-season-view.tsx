@@ -217,7 +217,7 @@ function StandingsTable({ standings, division }: { standings: StandingPlayer[]; 
                 <td className="py-2.5 px-2">
                   <div className={`w-6 h-6 rounded-md flex items-center justify-center text-[10px] font-bold ${
                     rank === 1 ? 'bg-amber-500/20 text-amber-400' :
-                    rank === 2 ? 'bg-gray-400/15 text-gray-300' :
+                    rank === 2 ? 'bg-muted/15 text-muted-foreground' :
                     rank === 3 ? 'bg-orange-500/15 text-orange-400' :
                     'bg-muted/20 text-muted-foreground'
                   }`}>
@@ -292,7 +292,7 @@ function ClubRankingsTable({ clubs }: { clubs: StandingClub[] }) {
                 <td className="py-2.5 px-2">
                   <div className={`w-6 h-6 rounded-md flex items-center justify-center text-[10px] font-bold ${
                     rank === 1 ? 'bg-amber-500/20 text-amber-400' :
-                    rank === 2 ? 'bg-gray-400/15 text-gray-300' :
+                    rank === 2 ? 'bg-muted/15 text-muted-foreground' :
                     rank === 3 ? 'bg-orange-500/15 text-orange-400' :
                     'bg-muted/20 text-muted-foreground'
                   }`}>

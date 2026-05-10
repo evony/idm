@@ -165,7 +165,7 @@ export function MarketplaceDetailModal({ open, onClose, item }: MarketplaceDetai
                         className={`w-1.5 h-1.5 rounded-full transition-all cursor-pointer ${
                           i === currentImageIndex
                             ? 'bg-orange-400 w-4'
-                            : 'bg-white/40 hover:bg-white/60'
+                            : 'bg-muted-foreground/40 hover:bg-muted-foreground/60'
                         }`}
                       />
                     ))}

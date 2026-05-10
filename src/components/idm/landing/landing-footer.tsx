@@ -38,7 +38,7 @@ function SocialLink({ href, label, children }: { href: string; label: string; ch
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="footer-social-enhanced p-2.5 text-[#a09880]"
+      className="footer-social-enhanced p-2.5 text-muted-foreground"
     >
       {children}
     </a>
@@ -55,7 +55,7 @@ function QuickLink({ label, sectionId }: { label: string; sectionId: string }) {
   return (
     <button
       onClick={handleClick}
-      className="text-[#a09880] text-sm hover:text-[#d4a853] transition-colors duration-200 cursor-pointer py-0.5 text-left"
+      className="text-muted-foreground text-sm hover:text-[#d4a853] transition-colors duration-200 cursor-pointer py-0.5 text-left"
     >
       {label}
     </button>
@@ -81,7 +81,7 @@ export function LandingFooter({ cmsSettings }: LandingFooterProps) {
   const hasSocial = discordUrl || instagramUrl || youtubeUrl || whatsappUrl;
 
   return (
-    <footer className="landing-footer relative bg-[#06060c] border-t border-[rgba(212,168,83,0.08)] overflow-hidden">
+    <footer className="landing-footer relative bg-background border-t border-[rgba(212,168,83,0.08)] overflow-hidden">
       {/* ── Premium gold gradient line at top ── */}
       <div className="footer-premium-line absolute top-0 left-0 right-0 h-[2px] overflow-hidden" aria-hidden="true">
         <div
@@ -135,7 +135,7 @@ export function LandingFooter({ cmsSettings }: LandingFooterProps) {
             </div>
 
             {/* Tagline */}
-            <p className="text-[#a09880]/70 text-xs leading-relaxed">
+            <p className="text-muted-foreground/70 text-xs leading-relaxed">
               {tagline}
             </p>
 
@@ -183,10 +183,10 @@ export function LandingFooter({ cmsSettings }: LandingFooterProps) {
         {/* ═══ Copyright Bar ═══ */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
-            <p className="text-[#a09880]/50 text-[11px]">
+            <p className="text-muted-foreground/50 text-[11px]">
               {footerText}
             </p>
-            <span className="hidden sm:inline text-[#a09880]/20 text-[11px]">|</span>
+            <span className="hidden sm:inline text-muted-foreground/20 text-[11px]">|</span>
             <span
               className="text-[11px] font-medium tracking-wide"
               style={{
@@ -200,14 +200,14 @@ export function LandingFooter({ cmsSettings }: LandingFooterProps) {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-[#a09880]/40 text-[11px] flex items-center gap-1.5">
-              Made with <span className="text-red-500/70 text-sm">❤️</span> by <span className="text-[#a09880]/60 font-medium">BorneoPride</span>
+            <span className="text-muted-foreground/40 text-[11px] flex items-center gap-1.5">
+              Made with <span className="text-red-500/70 text-sm">❤️</span> by <span className="text-muted-foreground/60 font-medium">BorneoPride</span>
             </span>
 
             {/* Back to Top — Premium enhanced */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="footer-back-to-top text-[#a09880]/40 hover:text-[#d4a853] text-[11px] cursor-pointer"
+              className="footer-back-to-top text-muted-foreground/40 hover:text-[#d4a853] text-[11px] cursor-pointer"
               aria-label="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5 footer-back-to-top-arrow" />

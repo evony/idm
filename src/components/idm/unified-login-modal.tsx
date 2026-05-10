@@ -558,7 +558,7 @@ export function UnifiedLoginModal({ open, onOpenChange, defaultTab = 'peserta' }
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-sm leading-none">⭐</span>
-                          <span className="text-[10px] text-muted-foreground">MVP — <strong className="text-gray-300">Platinum Star ✨</strong> (1 minggu)</span>
+                          <span className="text-[10px] text-muted-foreground">MVP — <strong className="text-muted-foreground">Platinum Star ✨</strong> (1 minggu)</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-sm leading-none">🥉</span>
@@ -566,7 +566,7 @@ export function UnifiedLoginModal({ open, onOpenChange, defaultTab = 'peserta' }
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-sm leading-none">🥈</span>
-                          <span className="text-[10px] text-muted-foreground">Sawer Silver — <strong className="text-gray-300">≥50K</strong></span>
+                          <span className="text-[10px] text-muted-foreground">Sawer Silver — <strong className="text-muted-foreground">≥50K</strong></span>
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-sm leading-none">🥇</span>

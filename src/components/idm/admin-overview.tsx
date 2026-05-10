@@ -217,9 +217,9 @@ export function AdminOverview({ division, onNavigateToTab }: AdminOverviewProps)
               <button
                 type="button"
                 onClick={() => onNavigateToTab?.(action.tabKey)}
-                className={`w-full h-full rounded-2xl border border-white/[0.06] p-3 flex flex-col items-center justify-center text-center transition-all duration-200 cursor-pointer group ${action.accent}`}
+                className={`w-full h-full rounded-2xl border border-border/50 p-3 flex flex-col items-center justify-center text-center transition-all duration-200 cursor-pointer group ${action.accent}`}
               >
-                <div className="p-2 rounded-lg bg-white/[0.06] group-hover:bg-white/[0.12] transition-colors mb-1.5">
+                <div className="p-2 rounded-lg bg-muted/30 group-hover:bg-muted/50 transition-colors mb-1.5">
                   <ActionIcon className="w-4 h-4" />
                 </div>
                 <p className="text-[11px] font-semibold leading-tight">{action.label}</p>

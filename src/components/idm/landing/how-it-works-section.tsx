@@ -57,10 +57,10 @@ function StepCard({ step, index }: { step: { number: number; icon: React.Compone
         </div>
 
         {/* Title */}
-        <h3 className="relative z-10 text-lg font-bold text-[#f5f0e8] mb-2">{step.title}</h3>
+        <h3 className="relative z-10 text-lg font-bold text-foreground mb-2">{step.title}</h3>
 
         {/* Description */}
-        <p className="relative z-10 text-sm text-[#a09880] leading-relaxed">{step.description}</p>
+        <p className="relative z-10 text-sm text-muted-foreground leading-relaxed">{step.description}</p>
       </div>
     </div>
   );

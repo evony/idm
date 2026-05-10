@@ -46,7 +46,7 @@ function StatCard({
       style={style}
       {...handlers}
       variants={iosCardVariants.item}
-      className={`relative overflow-hidden rounded-2xl md:rounded-3xl border border-border bg-card p-5 md:p-6 cursor-default transition-shadow duration-300 hover:border-white/10`}
+      className={`relative overflow-hidden rounded-2xl md:rounded-3xl border border-border bg-card p-5 md:p-6 cursor-default transition-shadow duration-300 hover:border-border`}
       onMouseEnter={(e) => {
         handlers.onMouseMove(e)
       }}

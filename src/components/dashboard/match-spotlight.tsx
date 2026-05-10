@@ -49,7 +49,7 @@ export function MatchSpotlight({ tournament, tournamentDetail }: MatchSpotlightP
           {/* Frosted glass content overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
             {/* Header pill */}
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-background/20 backdrop-blur-xl border border-white/10 mb-6">
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-background/20 backdrop-blur-xl border border-border/40 mb-6">
               <Swords className="h-3.5 w-3.5 text-muted-foreground" />
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                 Match Spotlight
@@ -126,7 +126,7 @@ export function MatchSpotlight({ tournament, tournamentDetail }: MatchSpotlightP
 
         {/* Top bar — frosted glass pills */}
         <div className="relative z-10 flex items-center justify-between px-5 pt-4">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/20 backdrop-blur-xl border border-white/10">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/20 backdrop-blur-xl border border-border/40">
             <Swords className="h-3.5 w-3.5 text-muted-foreground" />
             <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
               Match Spotlight
@@ -145,13 +145,13 @@ export function MatchSpotlight({ tournament, tournamentDetail }: MatchSpotlightP
         {/* Team name pills over image — glassmorphism */}
         <div className="relative z-10 flex items-center justify-between px-5 mt-4 sm:mt-6">
           {/* Team A */}
-          <div className="px-3 py-2.5 rounded-2xl bg-background/20 backdrop-blur-xl border border-white/10 max-w-[38%]">
+          <div className="px-3 py-2.5 rounded-2xl bg-background/20 backdrop-blur-xl border border-border/40 max-w-[38%]">
             <p className="font-bold text-sm text-white truncate">{teamA.name}</p>
             <p className="text-[10px] text-white/40 font-medium mt-0.5">{getTeamTiers(teamA)}</p>
           </div>
 
           {/* Team B */}
-          <div className="px-3 py-2.5 rounded-2xl bg-background/20 backdrop-blur-xl border border-white/10 max-w-[38%] text-right">
+          <div className="px-3 py-2.5 rounded-2xl bg-background/20 backdrop-blur-xl border border-border/40 max-w-[38%] text-right">
             <p className="font-bold text-sm text-white truncate">{teamB.name}</p>
             <p className="text-[10px] text-white/40 font-medium mt-0.5">{getTeamTiers(teamB)}</p>
           </div>
@@ -180,7 +180,7 @@ export function MatchSpotlight({ tournament, tournamentDetail }: MatchSpotlightP
             </div>
             {/* Inner circle */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-white/[0.06] backdrop-blur-sm" />
+              <div className="w-16 h-16 rounded-full bg-muted/30 backdrop-blur-sm" />
             </div>
             {/* VS text with glow */}
             <span className="relative text-4xl sm:text-5xl font-black tracking-[0.25em] bg-gradient-to-b from-white/90 via-white/60 to-white/25 bg-clip-text text-transparent">
@@ -195,7 +195,7 @@ export function MatchSpotlight({ tournament, tournamentDetail }: MatchSpotlightP
 
       {/* Power comparison — fighting game style */}
       <div className="relative z-10 px-4 sm:px-5 pb-5 -mt-4">
-        <div className="rounded-2xl bg-background/60 backdrop-blur-xl border border-white/10 p-4 space-y-4">
+        <div className="rounded-2xl bg-background/60 backdrop-blur-xl border border-border/40 p-4 space-y-4">
           {/* Team details row with 3 avatar circles */}
           <div className="flex items-center justify-between">
             {/* Team A */}

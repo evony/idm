@@ -44,7 +44,7 @@ export function AboutSection({ cmsSections, cmsSettings }: AboutSectionProps) {
             <div className="h-px w-8 bg-gradient-to-l from-transparent to-[#d4a853]/40" />
           </div>
           <h3 className="text-lg sm:text-xl font-black text-[#d4a853] mb-3">{sectionTitle}</h3>
-          <p className="text-sm text-[#a09880] leading-relaxed max-w-xl mx-auto" dangerouslySetInnerHTML={{ __html: highlighted }} />
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto" dangerouslySetInnerHTML={{ __html: highlighted }} />
           <div className="mt-4 flex items-center justify-center gap-2">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#d4a853]/20" />
             <span className="text-[10px] font-bold text-[#d4a853]/40 uppercase tracking-widest">{bottomTagline}</span>

@@ -56,7 +56,7 @@ export function SocialShareButton({ playerGamertag, playerId, className = '' }: 
       className={`inline-flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-200 ${
         copied
           ? 'bg-green-500/15 text-green-400'
-          : 'bg-white/[0.06] text-muted-foreground hover:text-idm-gold-warm hover:bg-idm-gold-warm/10'
+          : 'bg-muted/30 text-muted-foreground hover:text-idm-gold-warm hover:bg-idm-gold-warm/10'
       } ${className}`}
       title={copied ? 'Link tersalin!' : 'Bagikan profil'}
       aria-label={copied ? 'Link tersalin' : 'Bagikan profil'}

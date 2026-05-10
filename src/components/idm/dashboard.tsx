@@ -220,7 +220,7 @@ const ParticipantRow = React.memo(function ParticipantRow({ player, rank, onClic
       {/* Rank */}
       <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
         rank === 1 ? 'bg-yellow-500/20 text-yellow-500' :
-        rank === 2 ? 'bg-gray-400/20 text-gray-400' :
+        rank === 2 ? 'bg-gray-400/20 text-muted-foreground' :
         rank === 3 ? 'bg-amber-600/20 text-amber-600' :
         `${dt.bgSubtle} text-muted-foreground`
       }`}>
@@ -749,7 +749,7 @@ export function Dashboard() {
                         <span className="flex items-center gap-2">
                           <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${
                             i === 0 ? 'bg-yellow-500/20 text-yellow-500' :
-                            i === 1 ? 'bg-gray-400/20 text-gray-400' :
+                            i === 1 ? 'bg-gray-400/20 text-muted-foreground' :
                             `${dt.iconBg} ${dt.text}`
                           }`}>{i + 1}</span>
                           {d.donorName}
@@ -883,7 +883,7 @@ export function Dashboard() {
                               <TableCell className="text-center">
                                 <span className={`w-6 h-6 rounded-full inline-flex items-center justify-center text-[10px] font-bold ${
                                   idx === 0 ? 'bg-yellow-500/20 text-yellow-500' :
-                                  idx === 1 ? 'bg-gray-400/20 text-gray-400' :
+                                  idx === 1 ? 'bg-gray-400/20 text-muted-foreground' :
                                   idx === 2 ? 'bg-amber-600/20 text-amber-600' :
                                   'text-muted-foreground'
                                 }`}>
@@ -977,7 +977,7 @@ export function Dashboard() {
                                 <TableCell className="text-center">
                                   <span className={`w-6 h-6 rounded-full inline-flex items-center justify-center text-[10px] font-bold ${
                                     idx === 0 ? 'bg-yellow-500/20 text-yellow-500' :
-                                    idx === 1 ? 'bg-gray-400/20 text-gray-400' :
+                                    idx === 1 ? 'bg-gray-400/20 text-muted-foreground' :
                                     idx === 2 ? 'bg-amber-600/20 text-amber-600' :
                                     'text-muted-foreground'
                                   }`}>

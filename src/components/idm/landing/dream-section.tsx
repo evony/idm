@@ -110,7 +110,7 @@ export function DreamSection({ maleData, femaleData, leagueData, nextSeason, com
           <h2 className="stagger-item-fast stagger-d1 text-4xl sm:text-7xl font-black text-gradient-champion leading-none">
             The Dream
           </h2>
-          <p className="stagger-item-fast stagger-d2 text-sm text-[#a09880] mt-4 max-w-lg mx-auto leading-relaxed">
+          <p className="stagger-item-fast stagger-d2 text-sm text-muted-foreground mt-4 max-w-lg mx-auto leading-relaxed">
             {leagueData?.tarkamChampion && leagueData.tarkamChampion.seasonNumber !== 1
               ? dreamDescCompleted
               : dreamDescActive
@@ -129,7 +129,7 @@ export function DreamSection({ maleData, femaleData, leagueData, nextSeason, com
                 </div>
                 <div className="text-left">
                   <p className="text-xs text-[#d4a853]/60 font-semibold uppercase tracking-wider">Season {leagueData.tarkamChampion.seasonNumber} Champion</p>
-                  <p className="text-lg font-black text-white">{leagueData.tarkamChampion.name}</p>
+                  <p className="text-lg font-black text-foreground">{leagueData.tarkamChampion.name}</p>
                 </div>
               </div>
             </div>
@@ -146,8 +146,8 @@ export function DreamSection({ maleData, femaleData, leagueData, nextSeason, com
                 {/* Subtle radial glow behind icon */}
                 <div className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover/stat:opacity-100 transition-opacity duration-500" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(212,168,83,0.05), transparent 70%)' }} />
                 <s.icon className="w-4 h-4 text-[#d4a853] mx-auto mb-2 relative z-10 group-hover/stat:scale-110 transition-transform duration-300" />
-                <p className="text-lg sm:text-2xl font-black text-white truncate relative z-10 stat-count-up">{s.value}</p>
-                <p className="text-[10px] sm:text-[10px] text-[#a09880]/80 uppercase tracking-wider mt-1 relative z-10">{s.label}</p>
+                <p className="text-lg sm:text-2xl font-black text-foreground truncate relative z-10 stat-count-up">{s.value}</p>
+                <p className="text-[10px] sm:text-[10px] text-muted-foreground/80 uppercase tracking-wider mt-1 relative z-10">{s.label}</p>
               </div>
             ))}
           </div>
@@ -169,7 +169,7 @@ export function DreamSection({ maleData, femaleData, leagueData, nextSeason, com
                         <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg sm:rounded-2xl bg-[#d4a853]/10 border border-[#d4a853]/20 flex items-center justify-center">
                           <span className="text-lg sm:text-2xl font-black text-[#d4a853] tabular-nums">{String(unit.value).padStart(2, '0')}</span>
                         </div>
-                        <span className="text-[10px] text-[#a09880]/60 uppercase tracking-wider mt-1">{unit.label}</span>
+                        <span className="text-[10px] text-muted-foreground/60 uppercase tracking-wider mt-1">{unit.label}</span>
                       </div>
                       {i < 3 && (
                         <span className="text-[#d4a853]/40 font-bold text-base sm:text-xl mb-4">:</span>
@@ -189,7 +189,7 @@ export function DreamSection({ maleData, femaleData, leagueData, nextSeason, com
                 <h4 className="text-sm font-bold text-[#d4a853]">Tarkam IDM Season {nextSeason}</h4>
                 <Badge className="bg-yellow-500/10 text-yellow-500 text-[10px] border-0">Menunggu</Badge>
               </div>
-              <p className="text-xs text-[#a09880] leading-relaxed max-w-md mx-auto">
+              <p className="text-xs text-muted-foreground leading-relaxed max-w-md mx-auto">
                 {dreamSeasonNextText}
               </p>
             </div>
@@ -249,7 +249,7 @@ export function DreamSection({ maleData, femaleData, leagueData, nextSeason, com
           <h2 className="stagger-item-fast stagger-d0 text-3xl sm:text-5xl font-black text-gradient-champion mb-3">
             {cmsSections.cta?.title || 'Punya Skill? Buktikan.'}
           </h2>
-          <p className="stagger-item-fast stagger-d1 text-sm text-[#a09880] mb-8">
+          <p className="stagger-item-fast stagger-d1 text-sm text-muted-foreground mb-8">
             {cmsSections.cta?.description || 'Daftar sekarang dan tunjukkan siapa dancer terbaik.'}
           </p>
           <div className="stagger-item-fast stagger-d2 flex flex-col sm:flex-row items-center justify-center gap-3">

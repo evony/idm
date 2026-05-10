@@ -200,7 +200,7 @@ export function Podium({ rankings, division }: PodiumProps) {
                   }}
                 >
                   {/* Rank icon with glow */}
-                  <div className={`mb-2.5 flex items-center justify-center h-9 w-9 rounded-full ${config.iconBg} backdrop-blur-md shadow-lg ${config.glowClass} border border-white/[0.06]`}>
+                  <div className={`mb-2.5 flex items-center justify-center h-9 w-9 rounded-full ${config.iconBg} backdrop-blur-md shadow-lg ${config.glowClass} border border-border/40`}>
                     <IconComp className={`h-4.5 w-4.5 ${config.iconColor} ${config.crownGlow}`} />
                   </div>
 

@@ -26,8 +26,8 @@ function TrustBadge({ icon: Icon, value, label }: { icon: React.ComponentType<{ 
       <div className="cta-badge-ring w-12 h-12 rounded-2xl bg-[rgba(212,168,83,0.06)] flex items-center justify-center relative">
         <Icon className="w-5 h-5 text-[#d4a853]/80 relative z-10" />
       </div>
-      <span className="cta-count-up text-[#f5f0e8] text-lg font-extrabold tabular-nums tracking-tight">{value}</span>
-      <span className="text-[#a09880] text-[10px] uppercase tracking-widest">{label}</span>
+      <span className="cta-count-up text-foreground text-lg font-extrabold tabular-nums tracking-tight">{value}</span>
+      <span className="text-muted-foreground text-[10px] uppercase tracking-widest">{label}</span>
     </div>
   );
 }

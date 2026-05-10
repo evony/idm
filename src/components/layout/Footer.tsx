@@ -34,7 +34,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 border-t border-cyan-500/20 mt-auto">
+    <footer className="bg-card border-t border-cyan-500/20 mt-auto">
       {/* Neon line */}
       <div className="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
 
@@ -51,25 +51,25 @@ export function Footer() {
                 Idol Meta Weekly
               </span>
             </Link>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-muted-foreground text-sm mb-4">
               Professional Esports Tournament Management System. Organize, compete, and win!
             </p>
             <div className="flex space-x-4">
               <a
                 href="#instagram"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-pink-400 hover:bg-gray-700 transition-all"
+                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-pink-400 hover:bg-muted/80 transition-all"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="#youtube"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-red-400 hover:bg-gray-700 transition-all"
+                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-red-400 hover:bg-muted/80 transition-all"
               >
                 <Youtube className="w-5 h-5" />
               </a>
               <a
                 href="#discord"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:bg-gray-700 transition-all"
+                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-indigo-400 hover:bg-muted/80 transition-all"
               >
                 <MessageCircle className="w-5 h-5" />
               </a>
@@ -78,7 +78,7 @@ export function Footer() {
 
           {/* Platform Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-foreground font-semibold mb-4 flex items-center gap-2">
               <Trophy className="w-4 h-4 text-cyan-400" />
               Platform
             </h3>
@@ -87,7 +87,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-cyan-400 transition-colors text-sm"
+                    className="text-muted-foreground hover:text-cyan-400 transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -98,7 +98,7 @@ export function Footer() {
 
           {/* Support Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-foreground font-semibold mb-4 flex items-center gap-2">
               <Users className="w-4 h-4 text-purple-400" />
               Support
             </h3>
@@ -107,7 +107,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
+                    className="text-muted-foreground hover:text-purple-400 transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -118,7 +118,7 @@ export function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
+            <h3 className="text-foreground font-semibold mb-4 flex items-center gap-2">
               <ExternalLink className="w-4 h-4 text-pink-400" />
               Legal
             </h3>
@@ -127,7 +127,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-pink-400 transition-colors text-sm"
+                    className="text-muted-foreground hover:text-pink-400 transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -138,11 +138,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">
+        <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Idol Meta Weekly. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               System Online

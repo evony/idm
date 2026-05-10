@@ -102,7 +102,7 @@ export function LiveMatchCounter() {
         )}
 
         {!data?.liveNow && !isLoading && (
-          <div className="ml-auto flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06]">
+          <div className="ml-auto flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-muted/30 border border-border/30">
             <Radio className="w-2.5 h-2.5 text-muted-foreground/50" />
             <span className="text-[10px] font-semibold text-muted-foreground/50 tracking-wider">OFFLINE</span>
           </div>

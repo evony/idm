@@ -78,7 +78,7 @@ export function TournamentBracket({ matches, bracketType, totalRounds, onMatchCl
         {/* Bracket Type Header */}
         <div className="flex items-center justify-center gap-4 mb-6">
           <Trophy className="w-6 h-6 text-cyan-400" />
-          <h2 className="text-xl font-bold text-white">
+          <h2 className="text-xl font-bold text-foreground">
             {bracketType.replace(/_/g, ' ')}
             {bracketType === BracketType.DOUBLE_ELIMINATION && matches[0]?.bracketRound && (
               <span className="text-cyan-400 ml-2">
@@ -94,7 +94,7 @@ export function TournamentBracket({ matches, bracketType, totalRounds, onMatchCl
             <div key={round} className="flex flex-col gap-4">
               {/* Round Header */}
               <div className="text-center mb-4">
-                <span className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 text-cyan-400 text-sm font-semibold">
+                <span className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-border text-cyan-400 text-sm font-semibold">
                   {getRoundName(round)}
                 </span>
               </div>
@@ -126,16 +126,16 @@ export function TournamentBracket({ matches, bracketType, totalRounds, onMatchCl
                 Champion
               </span>
             </div>
-            <div className="w-48 h-24 rounded-2xl bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border-2 border-yellow-500/30 flex items-center justify-center">
+            <div className="w-48 h-24 rounded-2xl bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border-2 border-border flex items-center justify-center">
               {matches.find(m => m.round === totalRounds && m.status === MatchStatus.COMPLETED)?.winner ? (
                 <div className="text-center">
                   <Crown className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
-                  <span className="text-white font-bold">
+                  <span className="text-foreground font-bold">
                     {matches.find(m => m.round === totalRounds && m.status === MatchStatus.COMPLETED)?.winner?.name}
                   </span>
                 </div>
               ) : (
-                <span className="text-gray-500 text-sm">TBD</span>
+                <span className="text-muted-foreground text-sm">TBD</span>
               )}
             </div>
           </div>
@@ -164,8 +164,8 @@ function MatchCard({ match, onClick }: MatchCardProps) {
       className={cn(
         "w-48 rounded-2xl border overflow-hidden transition-all duration-300 cursor-pointer",
         isLive && "border-green-500 shadow-lg shadow-green-500/20 animate-pulse",
-        isCompleted && "border-gray-700",
-        !isLive && !isCompleted && "border-gray-700 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10",
+        isCompleted && "border-border",
+        !isLive && !isCompleted && "border-border hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10",
         isBye && "opacity-50"
       )}
     >
@@ -173,8 +173,8 @@ function MatchCard({ match, onClick }: MatchCardProps) {
       <div className={cn(
         "px-3 py-1.5 text-xs font-medium flex items-center justify-between",
         isLive && "bg-green-500/20 text-green-400",
-        isCompleted && "bg-gray-800 text-gray-400",
-        !isLive && !isCompleted && "bg-gray-800/50 text-gray-400"
+        isCompleted && "bg-muted text-muted-foreground",
+        !isLive && !isCompleted && "bg-muted/50 text-muted-foreground"
       )}>
         <span>Match {match.matchNumber}</span>
         {isLive && (
@@ -192,11 +192,11 @@ function MatchCard({ match, onClick }: MatchCardProps) {
       </div>
 
       {/* Teams */}
-      <div className="bg-gray-900">
+      <div className="bg-card">
         {/* Home Team */}
         <div
           className={cn(
-            "flex items-center justify-between p-3 border-b border-gray-800",
+            "flex items-center justify-between p-3 border-b border-border",
             homeWinner && "bg-cyan-500/10"
           )}
         >
@@ -213,7 +213,7 @@ function MatchCard({ match, onClick }: MatchCardProps) {
             )}
             <span className={cn(
               "text-sm font-medium truncate max-w-[80px]",
-              homeWinner ? "text-cyan-400" : "text-white"
+              homeWinner ? "text-cyan-400" : "text-foreground"
             )}>
               {match.homeTeam?.name || 'TBD'}
             </span>
@@ -221,7 +221,7 @@ function MatchCard({ match, onClick }: MatchCardProps) {
           </div>
           <span className={cn(
             "text-sm font-bold",
-            homeWinner ? "text-cyan-400" : "text-gray-400"
+            homeWinner ? "text-cyan-400" : "text-muted-foreground"
           )}>
             {match.homeScore || 0}
           </span>
@@ -247,7 +247,7 @@ function MatchCard({ match, onClick }: MatchCardProps) {
             )}
             <span className={cn(
               "text-sm font-medium truncate max-w-[80px]",
-              awayWinner ? "text-cyan-400" : "text-white"
+              awayWinner ? "text-cyan-400" : "text-foreground"
             )}>
               {match.awayTeam?.name || 'TBD'}
             </span>
@@ -255,7 +255,7 @@ function MatchCard({ match, onClick }: MatchCardProps) {
           </div>
           <span className={cn(
             "text-sm font-bold",
-            awayWinner ? "text-cyan-400" : "text-gray-400"
+            awayWinner ? "text-cyan-400" : "text-muted-foreground"
           )}>
             {match.awayScore || 0}
           </span>
@@ -284,14 +284,14 @@ interface GroupStageTableProps {
 
 export function GroupStageTable({ groupName, members }: GroupStageTableProps) {
   return (
-    <div className="rounded-2xl border border-gray-700 overflow-hidden">
-      <div className="px-4 py-3 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-b border-gray-700">
-        <h3 className="text-white font-semibold">{groupName}</h3>
+    <div className="rounded-2xl border border-border overflow-hidden">
+      <div className="px-4 py-3 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-b border-border">
+        <h3 className="text-foreground font-semibold">{groupName}</h3>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-gray-800/50 text-gray-400">
+            <tr className="bg-muted/50 text-muted-foreground">
               <th className="px-4 py-2 text-left">#</th>
               <th className="px-4 py-2 text-left">Team</th>
               <th className="px-4 py-2 text-center">P</th>
@@ -309,28 +309,28 @@ export function GroupStageTable({ groupName, members }: GroupStageTableProps) {
               <tr
                 key={member.team.id}
                 className={cn(
-                  "border-t border-gray-800",
+                  "border-t border-border",
                   index < 2 && "bg-cyan-500/5"
                 )}
               >
-                <td className="px-4 py-3 text-gray-400">{index + 1}</td>
+                <td className="px-4 py-3 text-muted-foreground">{index + 1}</td>
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-2">
                     {member.team.logo ? (
                       <Image src={member.team.logo} alt="" width={20} height={20} className="w-5 h-5 rounded" unoptimized />
                     ) : (
-                      <div className="w-5 h-5 rounded bg-gray-700" />
+                      <div className="w-5 h-5 rounded bg-muted" />
                     )}
-                    <span className="text-white font-medium">{member.team.name}</span>
+                    <span className="text-foreground font-medium">{member.team.name}</span>
                   </div>
                 </td>
-                <td className="px-4 py-3 text-center text-gray-300">{member.played}</td>
+                <td className="px-4 py-3 text-center text-muted-foreground">{member.played}</td>
                 <td className="px-4 py-3 text-center text-green-400">{member.won}</td>
                 <td className="px-4 py-3 text-center text-yellow-400">{member.drawn}</td>
                 <td className="px-4 py-3 text-center text-red-400">{member.lost}</td>
-                <td className="px-4 py-3 text-center text-gray-300">{member.goalsFor}</td>
-                <td className="px-4 py-3 text-center text-gray-300">{member.goalsAgainst}</td>
-                <td className="px-4 py-3 text-center text-gray-300">
+                <td className="px-4 py-3 text-center text-muted-foreground">{member.goalsFor}</td>
+                <td className="px-4 py-3 text-center text-muted-foreground">{member.goalsAgainst}</td>
+                <td className="px-4 py-3 text-center text-muted-foreground">
                   {member.goalsFor - member.goalsAgainst}
                 </td>
                 <td className="px-4 py-3 text-center">

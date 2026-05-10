@@ -119,7 +119,7 @@ export function AdminPlayersTab({
             placeholder="Cari pemain..."
             value={searchPlayer}
             onChange={(e) => setSearchPlayer(e.target.value)}
-            className="pl-9 bg-white/[0.07] border-white/[0.08] focus:border-idm-gold-warm/30 focus:bg-white/[0.10] transition-colors"
+            className="pl-9 bg-muted/30 border-border/50 focus:border-idm-gold-warm/30 focus:bg-muted/50 transition-colors"
           />
         </div>
         <Button onClick={openNewPlayerForm} size="sm" className="shrink-0 text-[11px] h-8 sm:h-9">

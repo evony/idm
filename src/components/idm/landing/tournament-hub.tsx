@@ -159,9 +159,9 @@ function TournamentCard({
 
         {/* Tournament count — top right */}
         <div className="absolute top-4 right-4 z-10">
-          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-black/50 border border-white/[0.06]">
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-black/50 border border-border/40">
             <Gamepad2 className="w-3 h-3 text-[#d4a853]" />
-            <span className="text-[10px] font-bold text-white/80">
+            <span className="text-[10px] font-bold text-foreground/80">
               {weeklyCount} Week{weeklyCount !== 1 ? 's' : ''}
             </span>
           </div>
@@ -227,13 +227,13 @@ function TournamentCard({
             <Icon className="w-5 h-5 tournament-icon-pulse" style={{ color: division.color }} />
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-bold text-white dark:text-white text-foreground truncate ios-heading">{cardTitle}</h3>
-            <p className="text-[11px] text-[#a09880] dark:text-[#a09880] text-muted-foreground">{cardFormat}</p>
+            <h3 className="text-lg font-bold text-foreground dark:text-white text-foreground truncate ios-heading">{cardTitle}</h3>
+            <p className="text-[11px] text-muted-foreground dark:text-[#a09880] text-muted-foreground">{cardFormat}</p>
           </div>
         </div>
 
         {/* Description — iOS lighter secondary text */}
-        <p className="text-sm text-[#a09880] dark:text-[#a09880] text-muted-foreground leading-relaxed mb-4">
+        <p className="text-sm text-muted-foreground dark:text-[#a09880] text-muted-foreground leading-relaxed mb-4">
           {cardDescription}
         </p>
 
@@ -244,7 +244,7 @@ function TournamentCard({
             <p className="relative text-lg font-extrabold tabular-nums" style={{ color: division.color }}>
               {totalPlayers}
             </p>
-            <p className="relative text-[10px] text-[#a09880] dark:text-[#a09880] text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
+            <p className="relative text-[10px] text-muted-foreground dark:text-[#a09880] text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
               <Users className="w-2.5 h-2.5" />
               Pemain
             </p>
@@ -254,7 +254,7 @@ function TournamentCard({
             <p className="relative text-lg font-extrabold tabular-nums" style={{ color: division.color }}>
               {totalClubs}
             </p>
-            <p className="relative text-[10px] text-[#a09880] dark:text-[#a09880] text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
+            <p className="relative text-[10px] text-muted-foreground dark:text-[#a09880] text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
               <Building2 className="w-2.5 h-2.5" />
               Club
             </p>
@@ -264,7 +264,7 @@ function TournamentCard({
             <p className="relative text-lg font-extrabold tabular-nums" style={{ color: division.color }}>
               {weeklyCount}
             </p>
-            <p className="relative text-[10px] text-[#a09880] dark:text-[#a09880] text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
+            <p className="relative text-[10px] text-muted-foreground dark:text-[#a09880] text-muted-foreground flex items-center justify-center gap-1 mt-0.5">
               <Gamepad2 className="w-2.5 h-2.5" />
               Match
             </p>
@@ -275,7 +275,7 @@ function TournamentCard({
         {prizePool > 0 && (
           <div className="ios-card flex items-center gap-2 mb-4 px-3 py-2" style={{ background: 'rgba(212,168,83,0.06)', borderColor: 'rgba(212,168,83,0.1)' }}>
             <Crown className="w-3.5 h-3.5 text-[#d4a853]" />
-            <span className="text-[11px] text-[#a09880] dark:text-[#a09880] text-muted-foreground">Prize Pool</span>
+            <span className="text-[11px] text-muted-foreground dark:text-[#a09880] text-muted-foreground">Prize Pool</span>
             <span className="text-sm font-bold text-gradient-champion ml-auto">
               {formatCurrency(prizePool)}
             </span>

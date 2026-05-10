@@ -119,7 +119,7 @@ export function PlayersSection({
                         transition-all duration-200 cursor-pointer border
                         ${isSelected
                           ? 'bg-[#d4a853]/15 border-[#d4a853]/40 text-[#d4a853] shadow-[0_0_12px_rgba(212,168,83,0.15)]'
-                          : 'bg-transparent border-[#d4a853]/10 text-[#a09880]/70 hover:border-[#d4a853]/25 hover:text-[#d4a853]/60'
+                          : 'bg-transparent border-[#d4a853]/10 text-muted-foreground/70 hover:border-[#d4a853]/25 hover:text-[#d4a853]/60'
                         }
                       `}
                       aria-label={`Select ${season.name}`}
@@ -205,7 +205,7 @@ export function PlayersSection({
               {malePlayers.length === 0 ? (
                 <div className="py-12 text-center">
                   <Music className="w-10 h-10 text-[#2E9FFF]/15 mx-auto mb-2" />
-                  <p className="text-sm text-[#a09880]">Belum ada player male</p>
+                  <p className="text-sm text-muted-foreground">Belum ada player male</p>
                 </div>
               ) : (
                 <>
@@ -431,7 +431,7 @@ export function PlayersSection({
               {femalePlayers.length === 0 ? (
                 <div className="py-12 text-center">
                   <Shield className="w-10 h-10 text-[#FF2D78]/15 mx-auto mb-2" />
-                  <p className="text-sm text-[#a09880]">Belum ada player female</p>
+                  <p className="text-sm text-muted-foreground">Belum ada player female</p>
                 </div>
               ) : (
                 <>

@@ -460,7 +460,7 @@ export function TeamSpinReveal({ spinRevealOrder, teamCount, onComplete, divisio
           <div className="hidden lg:block h-1 bg-gradient-to-r from-idm-gold-warm via-amber-400 to-idm-gold-warm" />
 
           {/* ===== HEADER ===== */}
-          <div className="bg-black/95 lg:bg-card/95 border-b border-white/10 lg:border-idm-gold-warm/10 px-4 py-3 shrink-0">
+          <div className="bg-black/95 lg:bg-card/95 border-b border-border/30 lg:border-idm-gold-warm/10 px-4 py-3 shrink-0">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-idm-gold-warm" />
@@ -479,7 +479,7 @@ export function TeamSpinReveal({ spinRevealOrder, teamCount, onComplete, divisio
                   <Button
                     size="sm"
                     variant={autoPlay ? 'default' : 'outline'}
-                    className={`h-6 text-[9px] px-2 ${autoPlay ? 'bg-amber-500 hover:bg-amber-600 text-black' : 'border-white/20 lg:border-idm-gold-warm/20 text-white/60 lg:text-idm-gold-warm/60'}`}
+                    className={`h-6 text-[9px] px-2 ${autoPlay ? 'bg-amber-500 hover:bg-amber-600 text-black' : 'border-border/30 lg:border-idm-gold-warm/20 text-muted-foreground lg:text-idm-gold-warm/60'}`}
                     onClick={toggleAutoPlay}
                   >
                     <Zap className="w-3 h-3 mr-0.5" />
@@ -569,7 +569,7 @@ export function TeamSpinReveal({ spinRevealOrder, teamCount, onComplete, divisio
                     {/* Center highlight line */}
                     <div
                       className={`absolute inset-x-2 z-10 pointer-events-none rounded border-y-2 transition-colors duration-300
-                        ${showReveal ? 'border-idm-gold-warm/60 bg-idm-gold-warm/5' : `border-white/10 lg:border-idm-gold-warm/10`}`}
+                        ${showReveal ? 'border-idm-gold-warm/60 bg-idm-gold-warm/5' : `border-border/30 lg:border-idm-gold-warm/10`}`}
                       style={{ top: Math.floor(VISIBLE_COUNT / 2) * ITEM_H, height: ITEM_H }}
                     />
 
@@ -690,7 +690,7 @@ export function TeamSpinReveal({ spinRevealOrder, teamCount, onComplete, divisio
                         className={`
                           font-bold text-base h-12 px-10 shadow-lg border-0 transition-all duration-200
                           ${playDisabled
-                            ? 'bg-gray-600/50 text-gray-400 shadow-none cursor-not-allowed'
+                            ? 'bg-gray-600/50 text-muted-foreground shadow-none cursor-not-allowed'
                             : 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white shadow-green-500/25'
                           }
                         `}

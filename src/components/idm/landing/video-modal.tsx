@@ -46,7 +46,7 @@ export function VideoModal({ isOpen, onClose, videoUrl, title }: VideoModalProps
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
-      <DialogContent className="sm:max-w-3xl p-0 overflow-hidden border-border/50 bg-black/95 backdrop-blur-xl">
+      <DialogContent className="sm:max-w-3xl p-0 overflow-hidden border-border/50 bg-background/95 backdrop-blur-xl">
         <DialogHeader className="sr-only">
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>Video player for {title}</DialogDescription>
@@ -82,8 +82,8 @@ export function VideoModal({ isOpen, onClose, videoUrl, title }: VideoModalProps
         </div>
 
         {/* Title bar */}
-        <div className="p-4 sm:p-6 bg-black/80 border-t border-white/10">
-          <p className="text-sm font-semibold text-white/90 truncate">{title}</p>
+        <div className="p-4 sm:p-6 bg-background/80 border-t border-border/40">
+          <p className="text-sm font-semibold text-foreground/90 truncate">{title}</p>
         </div>
       </DialogContent>
     </Dialog>

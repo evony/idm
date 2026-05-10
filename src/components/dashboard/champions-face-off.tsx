@@ -37,7 +37,7 @@ export function ChampionsFaceOff({ maleRankings, femaleRankings }: ChampionsFace
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
         <div className="relative z-10 flex items-center justify-center gap-2 h-full">
-          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-background/20 backdrop-blur-xl border border-white/10">
+          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-background/20 backdrop-blur-xl border border-border/40">
             <Trophy className="h-4 w-4 text-emerald-400" />
             <h3 className="font-semibold text-sm text-foreground tracking-wide">Champions Face-Off</h3>
           </div>
@@ -203,7 +203,7 @@ function ChampionTeamCard({
                 className={`relative h-12 w-12 rounded-full overflow-hidden border-2 ${
                   member.isLeader
                     ? `ring-2 ${theme.leaderRing} ${theme.leaderBorder} shadow-md ${theme.leaderShadow}`
-                    : 'border-white/15'
+                    : 'border-border/40'
                 }`}
               >
                 <img

@@ -127,7 +127,7 @@ export function HeroSection({ stats, tournament, division, onSawer, onRegister }
             </span>
             Live
           </span>
-          <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-black/40 text-foreground/90 border border-white/10 backdrop-blur-xl">
+          <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-black/40 text-foreground/90 border border-border/40 backdrop-blur-xl">
             <Trophy className={`h-3 w-3 ${textColor}`} />
             Tournament
           </span>
@@ -233,7 +233,7 @@ export function HeroSection({ stats, tournament, division, onSawer, onRegister }
                   onClick={onRegister}
                   variant="outline"
                   size="sm"
-                  className="border-white/15 bg-white/5 hover:bg-white/10 text-white/90 h-10 text-xs rounded-2xl px-5 backdrop-blur-xl"
+                  className="border-border/40 bg-muted/10 hover:bg-muted/20 text-foreground/90 h-10 text-xs rounded-2xl px-5 backdrop-blur-xl"
                 >
                   <Users className="h-4 w-4 mr-1.5" />
                   Daftar ({tournament._count.participants})
@@ -257,7 +257,7 @@ function GlassPill({ icon, label, value, highlight, textColor }: {
 }) {
   return (
     <motion.div
-      className="flex items-center gap-3 rounded-2xl bg-black/30 border border-white/[0.08] px-4 py-3 backdrop-blur-xl"
+      className="flex items-center gap-3 rounded-2xl bg-black/30 border border-border/40 px-4 py-3 backdrop-blur-xl"
       variants={{
         initial: { opacity: 0, y: 16, scale: 0.95 },
         animate: {

@@ -86,8 +86,8 @@ const skinThemeConfig: Record<string, {
   },
   mvp: {
     accentBg: 'bg-slate-400/10',
-    accentText: 'text-slate-300',
-    accentBorder: 'border-slate-400/25',
+    accentText: 'text-muted-foreground',
+    accentBorder: 'border-border/30',
     swatchBg: 'bg-slate-300',
     lucideIcon: Star,
   },
@@ -100,8 +100,8 @@ const skinThemeConfig: Record<string, {
   },
   sawer_silver: {
     accentBg: 'bg-gray-400/10',
-    accentText: 'text-gray-300',
-    accentBorder: 'border-gray-400/25',
+    accentText: 'text-muted-foreground',
+    accentBorder: 'border-border/30',
     swatchBg: 'bg-gray-400',
     lucideIcon: Award,
   },
@@ -335,7 +335,7 @@ export function AdminSkinPanel() {
                       <div
                         className="w-11 h-11 rounded-lg flex items-center justify-center text-lg shrink-0"
                         style={{
-                          background: badgeColors?.bg || 'rgba(255,255,255,0.1)',
+                          background: badgeColors?.bg || 'hsl(var(--muted) / 0.3)',
                         }}
                       >
                         <span className="text-xl">{skin.icon}</span>
@@ -358,7 +358,7 @@ export function AdminSkinPanel() {
                           {/* Color swatch */}
                           <div className="flex items-center gap-1">
                             <div
-                              className="w-3 h-3 rounded-full border border-white/20"
+                              className="w-3 h-3 rounded-full border border-border/40"
                               style={{ background: colors?.frame || '#888' }}
                               title="Frame color"
                             />
@@ -456,7 +456,7 @@ export function AdminSkinPanel() {
                         <div className="flex items-center gap-2 flex-1 min-w-0">
                           <div
                             className="w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0"
-                            style={{ background: badgeColors?.bg || 'rgba(255,255,255,0.1)' }}
+                            style={{ background: badgeColors?.bg || 'hsl(var(--muted) / 0.3)' }}
                           >
                             {holder.icon}
                           </div>
@@ -619,7 +619,7 @@ export function AdminSkinPanel() {
                 <div className={`p-4 sm:p-5 rounded-2xl border ${theme.accentBorder} ${theme.accentBg}`}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xl"
-                      style={{ background: 'rgba(255,255,255,0.1)' }}
+                      style={{ background: 'hsl(var(--muted) / 0.3)' }}
                     >
                       {skinDef.icon}
                     </div>

@@ -795,7 +795,7 @@ export function MyTournamentCard() {
                         }`}>
                           <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 ${
                             idx === 0 ? 'bg-yellow-500/20 text-yellow-500' :
-                            idx === 1 ? 'bg-gray-400/20 text-gray-400' :
+                            idx === 1 ? 'bg-gray-400/20 text-muted-foreground' :
                             idx === 2 ? 'bg-amber-600/20 text-amber-600' :
                             'bg-muted/30 text-muted-foreground'
                           }`}>

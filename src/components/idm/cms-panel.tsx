@@ -656,7 +656,7 @@ function MarketplaceManager() {
             {items.map((item: any) => {
               const statusBadge = STATUS_BADGE[item.status] || STATUS_BADGE.pending;
               return (
-                <div key={item.id} className="flex items-center gap-3 p-3 sm:p-4 rounded-lg bg-white/[0.02] border border-border/10 hover:border-border/20 transition-colors">
+                <div key={item.id} className="flex items-center gap-3 p-3 sm:p-4 rounded-lg bg-muted/20 border border-border/10 hover:border-border/20 transition-colors">
                   <div className="relative w-10 h-10 rounded-lg bg-muted/30 flex items-center justify-center flex-shrink-0 overflow-hidden">
                     {item.imageUrl ? <Image src={getOptimizedCloudinaryUrl(item.imageUrl, 80)} alt="" fill className="w-full h-full object-cover" sizes="40px" /> : <ShoppingBag className="w-4 h-4 text-muted-foreground/30" />}
                   </div>

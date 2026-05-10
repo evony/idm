@@ -60,8 +60,8 @@ function GhostPortraits({ accent, division }: { accent: string; division: 'male'
       </div>
       <div className="text-center py-2">
         <Zap className="w-6 h-6 mx-auto mb-1.5 opacity-15" style={{ color: accent }} />
-        <p className="text-xs font-bold text-white/30 uppercase tracking-wider">Musim Baru Dimulai</p>
-        <p className="text-[10px] text-white/15 mt-0.5">Jadilah champion pertama — daftar sekarang!</p>
+        <p className="text-xs font-bold text-muted-foreground/50 uppercase tracking-wider">Musim Baru Dimulai</p>
+        <p className="text-[10px] text-muted-foreground/30 mt-0.5">Jadilah champion pertama — daftar sekarang!</p>
       </div>
     </div>
   );
@@ -84,7 +84,7 @@ export function ChampionsSection({
         role="region"
         aria-label="Season Champions"
         className="relative py-24 px-4 sm:px-6 lg:px-8"
-        style={{ backgroundColor: '#000000' }}
+        style={{ backgroundColor: 'var(--background)' }}
       >
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Section Header */}
@@ -114,7 +114,7 @@ export function ChampionsSection({
               <div
                 className="relative rounded-[20px] overflow-hidden"
                 style={{
-                  backgroundColor: '#1c1c1e',
+                  backgroundColor: 'var(--card)',
                   border: '2px solid rgba(212,168,83,0.4)',
                 }}
               >
@@ -174,7 +174,7 @@ export function ChampionsSection({
                       </div>
                       <h3
                         className="text-lg sm:text-xl font-black mt-1"
-                        style={{ color: '#f5f5f7' }}
+                        style={{ color: 'var(--foreground)' }}
                       >
                         Liga IDM Season {leagueData.ligaChampion.seasonNumber}
                       </h3>
@@ -213,7 +213,7 @@ export function ChampionsSection({
                       <div>
                         <h4
                           className="text-2xl sm:text-3xl font-black tracking-wide"
-                          style={{ color: '#f5f5f7' }}
+                          style={{ color: 'var(--foreground)' }}
                         >
                           {leagueData.ligaChampion.name}
                         </h4>
@@ -223,7 +223,7 @@ export function ChampionsSection({
                         >
                           Liga IDM Season {leagueData.ligaChampion.seasonNumber} Champion
                         </p>
-                        <p className="text-xs mt-1" style={{ color: '#8e8e93' }}>
+                        <p className="text-xs mt-1" style={{ color: 'var(--muted-foreground)' }}>
                           Club terbaik di Liga IDM Season {leagueData.ligaChampion.seasonNumber}
                         </p>
                         {/* Division member counts */}
@@ -269,7 +269,7 @@ export function ChampionsSection({
                     <div className="flex-1 w-full sm:w-auto">
                       <p
                         className="text-[10px] uppercase tracking-wider font-semibold mb-3 text-center sm:text-left"
-                        style={{ color: '#8e8e93' }}
+                        style={{ color: 'var(--muted-foreground)' }}
                       >
                         Skuad Champion
                       </p>
@@ -308,7 +308,7 @@ export function ChampionsSection({
                             )}
                             <p
                               className="text-[9px] font-bold mt-1 truncate max-w-[64px] text-center"
-                              style={{ color: '#f5f5f7' }}
+                              style={{ color: 'var(--foreground)' }}
                             >
                               {member.gamertag}
                             </p>
@@ -327,12 +327,12 @@ export function ChampionsSection({
                               style={{
                                 border: '2px dashed rgba(142,142,147,0.3)',
                                 backgroundColor: 'rgba(142,142,147,0.05)',
-                                color: '#8e8e93',
+                                color: 'var(--muted-foreground)',
                               }}
                             >
                               +{leagueData.ligaChampion.members.length - 5}
                             </div>
-                            <p className="text-[9px] mt-1" style={{ color: '#8e8e93' }}>lainnya</p>
+                            <p className="text-[9px] mt-1" style={{ color: 'var(--muted-foreground)' }}>lainnya</p>
                           </div>
                         )}
                       </div>
@@ -341,13 +341,13 @@ export function ChampionsSection({
 
                   {/* Bottom Label */}
                   <div className="mt-6 flex items-center gap-3">
-                    <div className="h-px flex-1" style={{ backgroundColor: 'rgba(56,56,58,1)' }} />
+                    <div className="h-px flex-1" style={{ backgroundColor: 'var(--border)' }} />
                     <div className="flex items-center gap-1.5" style={{ color: 'rgba(212,168,83,0.4)' }}>
                       <Trophy className="w-3 h-3" />
                       <span className="text-[9px] font-bold uppercase tracking-widest">Liga IDM Champion</span>
                       <Trophy className="w-3 h-3" />
                     </div>
-                    <div className="h-px flex-1" style={{ backgroundColor: 'rgba(56,56,58,1)' }} />
+                    <div className="h-px flex-1" style={{ backgroundColor: 'var(--border)' }} />
                   </div>
                 </div>
               </div>
@@ -382,7 +382,7 @@ export function ChampionsSection({
                   viewport={{ once: true, margin: '-80px' }}
                   transition={{ duration: 0.4, delay: divIdx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div className="esports-storm-bg rounded-[20px] border border-white/[0.06] overflow-hidden">
+                  <div className="esports-storm-bg rounded-[20px] border border-border/40 overflow-hidden">
                     {/* Division Accent Bar */}
                     <div className="h-[3px]" style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }} />
 
@@ -427,15 +427,15 @@ export function ChampionsSection({
                     {hasChampions && winnerTeam ? (
                       <div className="relative z-10 px-4 sm:px-5 lg:px-6 pb-2">
                         <div
-                          className="flex items-center gap-3 p-4 sm:p-5 rounded-2xl border border-white/[0.06]"
+                          className="flex items-center gap-3 p-4 sm:p-5 rounded-2xl border border-border/40"
                           style={{ background: 'rgba(229, 190, 74, 0.04)' }}
                         >
                           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center shadow-lg shrink-0">
-                            <Crown className="w-5 h-5 text-white" />
+                            <Crown className="w-5 h-5 text-primary-foreground" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="text-sm font-black text-yellow-400 truncate">{winnerTeam.name || 'TBD'}</p>
-                            <p className="text-[9px] text-white/40">{selected?.tournamentName || 'Weekly Tournament'}</p>
+                            <p className="text-[9px] text-muted-foreground">{selected?.tournamentName || 'Weekly Tournament'}</p>
                           </div>
                           {selected && selected.prizePool > 0 && (
                             <div
@@ -459,7 +459,7 @@ export function ChampionsSection({
                             >
                               <Star className="w-3 h-3 text-yellow-400" />
                               <span className="text-[10px] font-black text-yellow-400">MVP</span>
-                              <span className="text-[10px] font-bold text-white/60">{mvpPlayer.gamertag}</span>
+                              <span className="text-[10px] font-bold text-foreground/70">{mvpPlayer.gamertag}</span>
                             </div>
                           )}
                         </div>
@@ -589,9 +589,9 @@ export function ChampionsSection({
                     {hasChampions && championPlayers.length > 3 && (
                       <div className="relative z-10 px-4 sm:px-5 lg:px-6 pb-2">
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="text-[8px] text-white/30 uppercase tracking-wider font-semibold">Also:</span>
+                          <span className="text-[8px] text-muted-foreground/50 uppercase tracking-wider font-semibold">Also:</span>
                           {championPlayers.slice(3).map((p) => (
-                            <Badge key={p.id} variant="outline" className="text-[8px] h-5 px-1.5 border-white/10 text-white/50">
+                            <Badge key={p.id} variant="outline" className="text-[8px] h-5 px-1.5 border-border/40 text-muted-foreground">
                               {p.gamertag}
                             </Badge>
                           ))}
@@ -602,13 +602,13 @@ export function ChampionsSection({
                     {/* ─── FOOTER BADGE ─── */}
                     <div className="relative z-10 px-4 sm:px-5 lg:px-6 pb-4">
                       <div className="flex items-center gap-3">
-                        <div className="h-px flex-1" style={{ backgroundColor: 'rgba(56,56,58,0.5)' }} />
+                        <div className="h-px flex-1" style={{ backgroundColor: 'var(--border)' }} />
                         <div className="flex items-center gap-1.5" style={{ color: `${accent}50` }}>
                           <Trophy className="w-3 h-3" />
                           <span className="text-[8px] font-bold uppercase tracking-widest">{division} Division</span>
                           <Trophy className="w-3 h-3" />
                         </div>
-                        <div className="h-px flex-1" style={{ backgroundColor: 'rgba(56,56,58,0.5)' }} />
+                        <div className="h-px flex-1" style={{ backgroundColor: 'var(--border)' }} />
                       </div>
                     </div>
                   </div>

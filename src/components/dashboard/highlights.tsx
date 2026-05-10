@@ -73,7 +73,7 @@ function HighlightCard({
         {/* Icon with division-colored glow */}
         <div className="mb-auto">
           <div
-            className={`inline-flex items-center justify-center h-10 w-10 rounded-2xl bg-black/30 backdrop-blur-md shadow-xl ${glowColor} border border-white/[0.06]`}
+            className={`inline-flex items-center justify-center h-10 w-10 rounded-2xl bg-black/30 backdrop-blur-md shadow-xl ${glowColor} border border-border/40`}
             style={{ transform: 'translateZ(20px)' }}
           >
             <Icon className={`h-5 w-5 ${iconColor} drop-shadow-[0_0_8px_currentColor]`} />

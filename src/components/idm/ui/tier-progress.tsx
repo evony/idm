@@ -113,7 +113,7 @@ export function TierProgress({
 
   return (
     <div
-      className={`relative rounded-2xl border border-white/10 bg-white/[0.08] p-4 sm:p-6 overflow-hidden ${className}`}
+      className={`relative rounded-2xl border border-border/30 bg-muted/30 p-4 sm:p-6 overflow-hidden ${className}`}
     >
       {/* Ambient glow */}
       <div
@@ -185,7 +185,7 @@ export function TierProgress({
         {/* Progress bar with tier markers */}
         <div className="relative">
           {/* Track */}
-          <div className="relative h-2.5 bg-muted/50 rounded-full overflow-hidden border border-white/5">
+          <div className="relative h-2.5 bg-muted/50 rounded-full overflow-hidden border border-border/20">
             {/* Fill bar */}
             <div
               className="absolute inset-y-0 left-0 rounded-full"
@@ -273,7 +273,7 @@ export function TierProgress({
         </div>
 
         {/* Bottom info row */}
-        <div className="flex items-center justify-between mt-10 pt-3 border-t border-white/5">
+        <div className="flex items-center justify-between mt-10 pt-3 border-t border-border/20">
           <div className="flex items-center gap-1.5">
             <div
               className="w-1.5 h-1.5 rounded-full"

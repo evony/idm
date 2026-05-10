@@ -116,11 +116,11 @@ function SeasonProgressBar({ seasonProgress }: {
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-1.5">
           <Calendar className="w-3 h-3 text-[#eab308]" />
-          <span className="text-[11px] font-bold text-[#f5f0e8]">
+          <span className="text-[11px] font-bold text-foreground">
             Week {completedWeeks} / {totalWeeks}
           </span>
         </div>
-        <span className="text-[10px] font-bold text-[#a09880]">
+        <span className="text-[10px] font-bold text-muted-foreground">
           {clampedPercentage}%
         </span>
       </div>
@@ -205,7 +205,7 @@ function BintangMingguIniDuo({
 
   return (
     <div
-      className="champion-card reveal reveal-fade-up rounded-2xl overflow-hidden bg-[#0d0d1a] border transition-colors duration-500"
+      className="champion-card reveal reveal-fade-up rounded-2xl overflow-hidden bg-card border transition-colors duration-500"
       style={{ borderColor: hasAny ? 'rgba(234,179,8,0.15)' : 'rgba(234,179,8,0.08)' }}
     >
       {/* ═══ Gold Flame Line — "Bintang" streak signature ═══ */}
@@ -234,7 +234,7 @@ function BintangMingguIniDuo({
                 <Shield className="w-3.5 h-3.5" style={{ color: femaleAccentLight }} />
               </div>
             </div>
-            <span className="text-xs font-black uppercase tracking-wider text-[#a09880]">Male & Female</span>
+            <span className="text-xs font-black uppercase tracking-wider text-muted-foreground">Male & Female</span>
           </div>
           <span className="text-[10px] font-bold px-2 py-0.5 rounded-md border" style={{ color: maleAccent, backgroundColor: hexToRgba(maleAccent, 0.08), borderColor: hexToRgba(maleAccent, 0.15) }}>
             <Swords className="w-2.5 h-2.5 inline mr-1" />Berlangsung
@@ -295,7 +295,7 @@ function BintangMingguIniDuo({
             <div className="absolute bottom-0 inset-x-0 px-3 pb-3 pt-8 z-10" style={{ background: 'linear-gradient(to top, rgba(13,13,26,0.95) 0%, transparent 100%)' }}>
               <div className="flex items-center gap-1 mb-0.5">
                 <span className="text-[10px] font-black" style={{ color: maleAccentLight }}>♂</span>
-                <p className="text-sm sm:text-base font-black text-[#f5f0e8] truncate drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                <p className="text-sm sm:text-base font-black text-foreground truncate drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                   {malePerformer.gamertag}
                 </p>
               </div>
@@ -369,7 +369,7 @@ function BintangMingguIniDuo({
             <div className="absolute bottom-0 inset-x-0 px-3 pb-3 pt-8 z-10" style={{ background: 'linear-gradient(to top, rgba(13,13,26,0.95) 0%, transparent 100%)' }}>
               <div className="flex items-center gap-1 mb-0.5">
                 <span className="text-[10px] font-black" style={{ color: femaleAccentLight }}>♀</span>
-                <p className="text-sm sm:text-base font-black text-[#f5f0e8] truncate drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                <p className="text-sm sm:text-base font-black text-foreground truncate drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                   {femalePerformer.gamertag}
                 </p>
               </div>
@@ -397,7 +397,7 @@ function BintangMingguIniDuo({
 
       {/* Subtitle */}
       <div className="px-4 pb-3 text-center">
-        <p className="text-[10px] text-[#a09880] italic">
+        <p className="text-[10px] text-muted-foreground italic">
           Performa terbaik minggu berjalan — menuju Top Season
         </p>
       </div>
@@ -427,7 +427,7 @@ function SultanOfSeasonCard({ sultans, setSelectedPlayer }: {
   const { sultan, seasonNumber } = latestSultan;
 
   return (
-    <div className="rounded-2xl overflow-hidden border bg-[#0d0d1a] p-4 sm:p-5"
+    <div className="rounded-2xl overflow-hidden border bg-card p-4 sm:p-5"
       style={{ borderColor: hexToRgba(SULTAN_EMERALD, 0.2) }}>
       {/* Header */}
       <div className="flex items-center gap-2 mb-3">
@@ -481,9 +481,9 @@ function SultanOfSeasonCard({ sultans, setSelectedPlayer }: {
         {/* Info */}
         <div className="flex-1 min-w-0">
           <h3 className="text-sm font-black truncate" style={{ color: SULTAN_EMERALD_LIGHT }}>{sultan.gamertag}</h3>
-          <p className="text-[9px] text-[#a09880]/70 mt-0.5">Top Penyawer Season {seasonNumber}</p>
+          <p className="text-[9px] text-muted-foreground/70 mt-0.5">Top Penyawer Season {seasonNumber}</p>
           {sultan.club?.name && (
-            <p className="text-[8px] text-[#a09880]/50 mt-0.5 truncate">{sultan.club.name}</p>
+            <p className="text-[8px] text-muted-foreground/50 mt-0.5 truncate">{sultan.club.name}</p>
           )}
         </div>
 
@@ -566,7 +566,7 @@ function DuoChampionCard({
 
   return (
     <div
-      className="champion-card reveal reveal-fade-up group rounded-3xl overflow-hidden bg-[#0d0d1a] border transition-all duration-500 hover:border-[rgba(212,168,83,0.25)] hover:shadow-[0_0_40px_rgba(212,168,83,0.06)]"
+      className="champion-card reveal reveal-fade-up group rounded-3xl overflow-hidden bg-card border transition-all duration-500 hover:border-[rgba(212,168,83,0.25)] hover:shadow-[0_0_40px_rgba(212,168,83,0.06)]"
       style={{ borderColor: 'rgba(212,168,83,0.12)' }}
     >
       {/* ═══ Gold Diamond Emblem — Royal seal signature ═══ */}
@@ -607,7 +607,7 @@ function DuoChampionCard({
       <div className="px-4 sm:px-6 pt-3 pb-2 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 min-w-0">
           <Trophy className="w-4 h-4 shrink-0 text-[#d4a853]" />
-          <span className="text-base sm:text-lg font-black text-[#f5f0e8] truncate">
+          <span className="text-base sm:text-lg font-black text-foreground truncate">
             {hasMale && hasFemale ? `${latestMale.player.gamertag} & ${latestFemale.player.gamertag}` : hasMale ? latestMale.player.gamertag : latestFemale.player.gamertag}
           </span>
         </div>
@@ -681,7 +681,7 @@ function DuoChampionCard({
                   </div>
                   <div className="flex items-center gap-1.5 mb-3">
                     {clubToString(latestMale.player.club) && (
-                      <span className="text-[9px] lg:text-[10px] text-[#a09880]/70 truncate">{clubToString(latestMale.player.club)}</span>
+                      <span className="text-[9px] lg:text-[10px] text-muted-foreground/70 truncate">{clubToString(latestMale.player.club)}</span>
                     )}
                     <span className="bg-idm-male/15 text-idm-male-light text-[7px] lg:text-[8px] border border-idm-male/20 px-1.5 py-0.5 rounded font-bold">
                       🕺 Male
@@ -695,28 +695,28 @@ function DuoChampionCard({
                     <Trophy className="w-3 h-3 shrink-0 text-idm-gold-warm" />
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-xs font-black tabular-nums text-idm-gold-warm leading-tight">{latestMale.player.points}</p>
-                      <p className="text-[7px] sm:text-[8px] text-[#a09880]/60 uppercase tracking-wider font-semibold leading-tight">Points</p>
+                      <p className="text-[7px] sm:text-[8px] text-muted-foreground/60 uppercase tracking-wider font-semibold leading-tight">Points</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-green-500/5 border border-green-500/10">
                     <Crown className="w-3 h-3 shrink-0 text-green-400" />
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-xs font-black tabular-nums text-green-400 leading-tight">{latestMale.player.totalWins}</p>
-                      <p className="text-[7px] sm:text-[8px] text-[#a09880]/60 uppercase tracking-wider font-semibold leading-tight">Wins</p>
+                      <p className="text-[7px] sm:text-[8px] text-muted-foreground/60 uppercase tracking-wider font-semibold leading-tight">Wins</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-yellow-500/5 border border-yellow-500/10">
                     <Medal className="w-3 h-3 shrink-0 text-yellow-400" />
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-xs font-black tabular-nums text-yellow-400 leading-tight">{latestMale.player.totalMvp ?? 0}</p>
-                      <p className="text-[7px] sm:text-[8px] text-[#a09880]/60 uppercase tracking-wider font-semibold leading-tight">MVP</p>
+                      <p className="text-[7px] sm:text-[8px] text-muted-foreground/60 uppercase tracking-wider font-semibold leading-tight">MVP</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-orange-500/5 border border-orange-500/10">
                     <Flame className="w-3 h-3 shrink-0 text-orange-400" />
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-xs font-black tabular-nums text-orange-400 leading-tight">{latestMale.player.streak ?? 0}</p>
-                      <p className="text-[7px] sm:text-[8px] text-[#a09880]/60 uppercase tracking-wider font-semibold leading-tight">Streak</p>
+                      <p className="text-[7px] sm:text-[8px] text-muted-foreground/60 uppercase tracking-wider font-semibold leading-tight">Streak</p>
                     </div>
                   </div>
                 </div>
@@ -729,8 +729,8 @@ function DuoChampionCard({
                 <Music className="w-8 h-8 text-idm-male/30" />
               </div>
               <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
-                <p className="text-sm font-bold text-[#a09880]">Male Champion</p>
-                <p className="text-[10px] text-[#a09880]/60">Belum ada juara</p>
+                <p className="text-sm font-bold text-muted-foreground">Male Champion</p>
+                <p className="text-[10px] text-muted-foreground/60">Belum ada juara</p>
               </div>
             </div>
           )}
@@ -821,7 +821,7 @@ function DuoChampionCard({
                   </div>
                   <div className="flex items-center gap-1.5 mb-3">
                     {clubToString(latestFemale.player.club) && (
-                      <span className="text-[9px] lg:text-[10px] text-[#a09880]/70 truncate">{clubToString(latestFemale.player.club)}</span>
+                      <span className="text-[9px] lg:text-[10px] text-muted-foreground/70 truncate">{clubToString(latestFemale.player.club)}</span>
                     )}
                     <span className="bg-idm-female/15 text-idm-female-light text-[7px] lg:text-[8px] border border-idm-female/20 px-1.5 py-0.5 rounded font-bold">
                       💃 Female
@@ -835,28 +835,28 @@ function DuoChampionCard({
                     <Trophy className="w-3 h-3 shrink-0 text-idm-gold-warm" />
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-xs font-black tabular-nums text-idm-gold-warm leading-tight">{latestFemale.player.points}</p>
-                      <p className="text-[7px] sm:text-[8px] text-[#a09880]/60 uppercase tracking-wider font-semibold leading-tight">Points</p>
+                      <p className="text-[7px] sm:text-[8px] text-muted-foreground/60 uppercase tracking-wider font-semibold leading-tight">Points</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-green-500/5 border border-green-500/10">
                     <Crown className="w-3 h-3 shrink-0 text-green-400" />
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-xs font-black tabular-nums text-green-400 leading-tight">{latestFemale.player.totalWins}</p>
-                      <p className="text-[7px] sm:text-[8px] text-[#a09880]/60 uppercase tracking-wider font-semibold leading-tight">Wins</p>
+                      <p className="text-[7px] sm:text-[8px] text-muted-foreground/60 uppercase tracking-wider font-semibold leading-tight">Wins</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-yellow-500/5 border border-yellow-500/10">
                     <Medal className="w-3 h-3 shrink-0 text-yellow-400" />
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-xs font-black tabular-nums text-yellow-400 leading-tight">{latestFemale.player.totalMvp ?? 0}</p>
-                      <p className="text-[7px] sm:text-[8px] text-[#a09880]/60 uppercase tracking-wider font-semibold leading-tight">MVP</p>
+                      <p className="text-[7px] sm:text-[8px] text-muted-foreground/60 uppercase tracking-wider font-semibold leading-tight">MVP</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-orange-500/5 border border-orange-500/10">
                     <Flame className="w-3 h-3 shrink-0 text-orange-400" />
                     <div className="min-w-0">
                       <p className="text-[10px] sm:text-xs font-black tabular-nums text-orange-400 leading-tight">{latestFemale.player.streak ?? 0}</p>
-                      <p className="text-[7px] sm:text-[8px] text-[#a09880]/60 uppercase tracking-wider font-semibold leading-tight">Streak</p>
+                      <p className="text-[7px] sm:text-[8px] text-muted-foreground/60 uppercase tracking-wider font-semibold leading-tight">Streak</p>
                     </div>
                   </div>
                 </div>
@@ -869,8 +869,8 @@ function DuoChampionCard({
                 <Shield className="w-8 h-8 text-idm-female/30" />
               </div>
               <div className="flex-1 min-w-0 flex flex-col justify-center py-0.5">
-                <p className="text-sm font-bold text-[#a09880]">Female Champion</p>
-                <p className="text-[10px] text-[#a09880]/60">Belum ada juara</p>
+                <p className="text-sm font-bold text-muted-foreground">Female Champion</p>
+                <p className="text-[10px] text-muted-foreground/60">Belum ada juara</p>
               </div>
             </div>
           )}
@@ -915,7 +915,7 @@ function DuoChampionCard({
               {sortedSeasons.map(([seasonNum, { male, female }]) => (
                 <div key={seasonNum}>
                   {/* Season label */}
-                  <span className="text-[8px] font-bold uppercase tracking-wider text-[#a09880]/50 mb-1 block">Season {seasonNum}</span>
+                  <span className="text-[8px] font-bold uppercase tracking-wider text-muted-foreground/50 mb-1 block">Season {seasonNum}</span>
                   <div className="flex gap-2">
                     {/* Male champion mini card */}
                     {male ? (
@@ -954,7 +954,7 @@ function DuoChampionCard({
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-1">
                             <span className="text-[9px] font-black" style={{ color: maleAccentLight }}>♂</span>
-                            <p className="text-xs font-bold text-[#f5f0e8] truncate">{male.player.gamertag}</p>
+                            <p className="text-xs font-bold text-foreground truncate">{male.player.gamertag}</p>
                           </div>
                           <div className="flex items-center gap-1 mt-0.5">
                             <span className="text-[8px] font-bold" style={{ color: maleAccentLight }}>{male.player.points}pts</span>
@@ -1003,7 +1003,7 @@ function DuoChampionCard({
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-1">
                             <span className="text-[9px] font-black" style={{ color: femaleAccentLight }}>♀</span>
-                            <p className="text-xs font-bold text-[#f5f0e8] truncate">{female.player.gamertag}</p>
+                            <p className="text-xs font-bold text-foreground truncate">{female.player.gamertag}</p>
                           </div>
                           <div className="flex items-center gap-1 mt-0.5">
                             <span className="text-[8px] font-bold" style={{ color: femaleAccentLight }}>{female.player.points}pts</span>
@@ -1120,9 +1120,9 @@ function ClubChampionCard({
             <div>
               <div className="flex items-center gap-2">
                 <span className="bg-idm-gold-warm/8 text-idm-gold-warm/70 text-[9px] border border-idm-gold-warm/15 font-bold uppercase tracking-wider px-2 py-0.5 rounded-md">Tarkam IDM</span>
-                <span className="bg-white/5 text-white/50 text-[9px] border border-white/10 font-bold px-2 py-0.5 rounded-md">SEASON {latestSeasonNumber} CHAMPION</span>
+                <span className="bg-muted/5 text-muted-foreground text-[9px] border border-border/20 font-bold px-2 py-0.5 rounded-md">SEASON {latestSeasonNumber} CHAMPION</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-black mt-1 text-white/90">
+              <h3 className="text-lg sm:text-xl font-black mt-1 text-foreground/90">
                 Tarkam IDM Season {latestSeasonNumber}
               </h3>
             </div>
@@ -1173,7 +1173,7 @@ function ClubChampionCard({
             {/* Club Name — Dark canvas with gold accent */}
             <div>
               <h4
-                className="text-2xl sm:text-3xl font-black uppercase tracking-wide cursor-pointer hover:opacity-90 transition-opacity text-[#f5f0e8]"
+                className="text-2xl sm:text-3xl font-black uppercase tracking-wide cursor-pointer hover:opacity-90 transition-opacity text-foreground"
                 style={{
                   textShadow: '0 0 30px rgba(212,168,83,0.08)',
                 }}
@@ -1194,10 +1194,10 @@ function ClubChampionCard({
               >
                 {clubData.name}
               </h4>
-              <p className="text-sm text-white/40 font-semibold mt-1">
+              <p className="text-sm text-muted-foreground font-semibold mt-1">
                 Tarkam IDM Season {latestSeasonNumber} Champion
               </p>
-              <p className="text-xs text-white/25 mt-1">
+              <p className="text-xs text-muted-foreground/50 mt-1">
                 Club terbaik di Tarkam IDM Season {latestSeasonNumber}
               </p>
               {/* Member count by division */}
@@ -1212,7 +1212,7 @@ function ClubChampionCard({
                     <Users className="w-3 h-3" />{femaleMembers.length} Female
                   </span>
                 )}
-                <span className="bg-white/5 text-white/40 text-[10px] border border-white/8 px-2.5 py-1 rounded-md font-bold flex items-center gap-1">
+                <span className="bg-muted/5 text-muted-foreground text-[10px] border border-border/15 px-2.5 py-1 rounded-md font-bold flex items-center gap-1">
                   <Users className="w-3 h-3" />{memberCount} Total
                 </span>
               </div>
@@ -1222,7 +1222,7 @@ function ClubChampionCard({
           {/* ═══ Top Performers — Top 5 by points + "+X more" ═══ */}
           {allMembers.length > 0 && (
             <div className="flex-1 w-full sm:w-auto">
-              <p className="text-[10px] text-white/25 uppercase tracking-wider font-semibold mb-3 text-center sm:text-left">Top Performers</p>
+              <p className="text-[10px] text-muted-foreground/50 uppercase tracking-wider font-semibold mb-3 text-center sm:text-left">Top Performers</p>
               <div className="flex flex-wrap justify-center sm:justify-start gap-2">
                 {allMembers.slice(0, 5).map((member, i) => (
                   <div key={`squad-${member.id}`} className="group/member relative flex flex-col items-center">
@@ -1249,17 +1249,17 @@ function ClubChampionCard({
                       )}
                     </div>
                     {/* Gamertag + points below avatar */}
-                    <p className="text-[9px] font-bold mt-1 truncate max-w-[64px] text-center text-white/60">{member.gamertag}</p>
+                    <p className="text-[9px] font-bold mt-1 truncate max-w-[64px] text-center text-foreground/70">{member.gamertag}</p>
                     <p className="text-[8px] font-black tabular-nums" style={{ color: member.division === 'male' ? 'rgba(87,181,255,0.7)' : 'rgba(255,92,154,0.7)' }}>{member.points}pts</p>
                   </div>
                 ))}
                 {allMembers.length > 5 && (
                   <div className="flex flex-col items-center">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex flex-col items-center justify-center border border-dashed border-white/10 bg-white/[0.02]">
-                      <span className="text-xs font-black text-white/35">+{allMembers.length - 5}</span>
-                      <span className="text-[7px] font-bold text-white/20 uppercase">more</span>
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex flex-col items-center justify-center border border-dashed border-border/30 bg-muted/5">
+                      <span className="text-xs font-black text-muted-foreground/50">+{allMembers.length - 5}</span>
+                      <span className="text-[7px] font-bold text-muted-foreground/30 uppercase">more</span>
                     </div>
-                    <p className="text-[9px] font-bold mt-1 text-white/25">lainnya</p>
+                    <p className="text-[9px] font-bold mt-1 text-muted-foreground/50">lainnya</p>
                   </div>
                 )}
               </div>
@@ -1269,8 +1269,8 @@ function ClubChampionCard({
 
         {/* ═══ Bottom decorative line ═══ */}
         <div className="mt-6 flex items-center gap-3">
-          <div className="h-px flex-1 bg-gradient-to-r from-white/8 to-transparent" />
-          <div className="flex items-center gap-1.5 text-white/15">
+          <div className="h-px flex-1 bg-gradient-to-r from-border/20 to-transparent" />
+          <div className="flex items-center gap-1.5 text-muted-foreground/30">
             <Trophy className="w-3 h-3" />
             <span className="text-[9px] font-bold uppercase tracking-widest">Tarkam IDM Champion</span>
             <Trophy className="w-3 h-3" />
@@ -1345,7 +1345,7 @@ export function SeasonChampionSection({
   return (
     <section id="season-champion" role="region" aria-label="Top Season" className="landing-section relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[#0a0a14]" />
+      <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'linear-gradient(rgba(212,168,83,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,83,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 30% 20%, rgba(46,159,255,0.06) 0%, transparent 45%), radial-gradient(ellipse at 70% 20%, rgba(255,45,120,0.06) 0%, transparent 45%)' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 10%, rgba(212,168,83,0.08) 0%, transparent 50%)' }} />
@@ -1366,7 +1366,7 @@ export function SeasonChampionSection({
         {/* Player Champion Card */}
         <div className="mt-10 sm:mt-14">
           {(isDataLoading || isSeasonDataPlaceholder) ? (
-            <div className="rounded-2xl bg-[#0d0d1a] border border-idm-gold-warm/10 h-80 animate-pulse" />
+            <div className="rounded-2xl bg-card border border-idm-gold-warm/10 h-80 animate-pulse" />
           ) : (
             <DuoChampionCard
               maleChampions={maleChampions}

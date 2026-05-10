@@ -248,7 +248,7 @@ function SingleDivisionStreakCard({
                 {/* Rank number */}
                 <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
                   i === 0
-                    ? 'bg-gray-400/20 text-gray-300'
+                    ? 'bg-gray-400/20 text-muted-foreground'
                     : 'bg-amber-600/20 text-amber-300'
                 }`}>
                   {i + 2}

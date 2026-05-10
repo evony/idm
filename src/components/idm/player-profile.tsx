@@ -457,7 +457,7 @@ export function PlayerProfile({ player, onClose, rank, skinMap, preferredSkinTyp
               <div className="absolute top-3 left-3 z-10">
                 <Badge className={`text-[10px] font-black border-0 px-2.5 py-1 ${
                   effectiveRank === 1 ? 'bg-yellow-500/25 text-yellow-400 shadow-lg shadow-yellow-500/10' :
-                  effectiveRank === 2 ? 'bg-gray-400/20 text-gray-300' :
+                  effectiveRank === 2 ? 'bg-gray-400/20 text-muted-foreground' :
                   'bg-amber-600/20 text-amber-500'
                 }`}>
                   {effectiveRank === 1 ? '👑' : ''} {rankLabel}

@@ -85,7 +85,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-cyan-500/20">
+      <DialogContent className="sm:max-w-md bg-card border-border">
         <DialogHeader className="text-center">
           <div className="flex justify-center mb-4">
             <div className="relative">
@@ -96,13 +96,13 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
           <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
             Idol Meta Weekly
           </DialogTitle>
-          <DialogDescription className="text-gray-400">
+          <DialogDescription className="text-muted-foreground">
             Tournament Management System
           </DialogDescription>
         </DialogHeader>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-4">
-          <TabsList className="grid w-full grid-cols-2 bg-gray-800/50">
+          <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="login" className="data-[state=active]:bg-cyan-600 data-[state=active]:text-white">
               Login
             </TabsTrigger>
@@ -114,32 +114,32 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
           <TabsContent value="login" className="mt-4">
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="login-phone" className="text-gray-300">Phone Number</Label>
+                <Label htmlFor="login-phone" className="text-muted-foreground">Phone Number</Label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="login-phone"
                     type="text"
                     placeholder="628xxxxxxxxxx"
                     value={loginPhone}
                     onChange={(e) => setLoginPhone(e.target.value)}
-                    className="pl-10 bg-gray-800/50 border-gray-700 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="pl-10 bg-muted/30 border-border focus:border-cyan-500 focus:ring-cyan-500/20"
                     required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="login-password" className="text-gray-300">Password</Label>
+                <Label htmlFor="login-password" className="text-muted-foreground">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="login-password"
                     type="password"
                     placeholder="••••••••"
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
-                    className="pl-10 bg-gray-800/50 border-gray-700 focus:border-cyan-500 focus:ring-cyan-500/20"
+                    className="pl-10 bg-muted/30 border-border focus:border-cyan-500 focus:ring-cyan-500/20"
                     required
                   />
                 </div>
@@ -169,62 +169,62 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
           <TabsContent value="register" className="mt-4">
             <form onSubmit={handleRegister} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="reg-name" className="text-gray-300">Name (Optional)</Label>
+                <Label htmlFor="reg-name" className="text-muted-foreground">Name (Optional)</Label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="reg-name"
                     type="text"
                     placeholder="Your name"
                     value={regName}
                     onChange={(e) => setRegName(e.target.value)}
-                    className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500 focus:ring-purple-500/20"
+                    className="pl-10 bg-muted/30 border-border focus:border-purple-500 focus:ring-purple-500/20"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="reg-phone" className="text-gray-300">Phone Number</Label>
+                <Label htmlFor="reg-phone" className="text-muted-foreground">Phone Number</Label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="reg-phone"
                     type="text"
                     placeholder="628xxxxxxxxxx"
                     value={regPhone}
                     onChange={(e) => setRegPhone(e.target.value)}
-                    className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500 focus:ring-purple-500/20"
+                    className="pl-10 bg-muted/30 border-border focus:border-purple-500 focus:ring-purple-500/20"
                     required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="reg-email" className="text-gray-300">Email (Optional)</Label>
+                <Label htmlFor="reg-email" className="text-muted-foreground">Email (Optional)</Label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="reg-email"
                     type="email"
                     placeholder="email@example.com"
                     value={regEmail}
                     onChange={(e) => setRegEmail(e.target.value)}
-                    className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500 focus:ring-purple-500/20"
+                    className="pl-10 bg-muted/30 border-border focus:border-purple-500 focus:ring-purple-500/20"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="reg-password" className="text-gray-300">Password</Label>
+                <Label htmlFor="reg-password" className="text-muted-foreground">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="reg-password"
                     type="password"
                     placeholder="Min 6 characters"
                     value={regPassword}
                     onChange={(e) => setRegPassword(e.target.value)}
-                    className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500 focus:ring-purple-500/20"
+                    className="pl-10 bg-muted/30 border-border focus:border-purple-500 focus:ring-purple-500/20"
                     required
                     minLength={6}
                   />

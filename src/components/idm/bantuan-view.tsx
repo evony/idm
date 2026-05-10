@@ -199,7 +199,7 @@ export function BantuanView() {
           {/* Back button for mobile FAB navigation */}
           <button
             onClick={() => setCurrentView('dashboard')}
-            className="lg:hidden flex items-center gap-1.5 mb-4 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors text-xs"
+            className="lg:hidden flex items-center gap-1.5 mb-4 px-3 py-1.5 rounded-lg bg-muted/50 border border-border/30 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors text-xs"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Kembali

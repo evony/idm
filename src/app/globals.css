@@ -214,6 +214,18 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
+:root:not(.dark) .glass-strong {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(28, 25, 23, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+:root:not(.dark) .glass-strong-male,
+:root:not(.dark) .glass-strong-female {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-color: rgba(28, 25, 23, 0.08) !important;
+}
+
 :root:not(.dark) .standings-row-glass { background: rgba(255, 255, 255, 0.8); }
 :root:not(.dark) .standings-row-glass-even { background: rgba(184, 134, 11, 0.03); }
 :root:not(.dark) .standings-row-glass-odd { background: rgba(0, 0, 0, 0.02); }
@@ -307,6 +319,60 @@
 /* Light mode chart container accents */
 :root:not(.dark) .chart-container-accent::before { border-top: 2px solid rgba(184,134,11,0.2); border-left: 2px solid rgba(184,134,11,0.2); opacity: 0.2; }
 :root:not(.dark) .chart-container-accent::after { border-bottom: 2px solid rgba(184,134,11,0.2); border-right: 2px solid rgba(184,134,11,0.2); opacity: 0.2; }
+
+/* Light mode section divider — more visible on white */
+:root:not(.dark) .section-divider { opacity: 0.3; }
+
+/* Light mode gradient text — deeper gold for readability on white */
+:root:not(.dark) .text-gradient-fury {
+  background: linear-gradient(135deg, #92400e, #b8860b, #d4a017, #92400e, #78350f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:root:not(.dark) .text-gradient-gold {
+  background: linear-gradient(
+    90deg,
+    #92400e,
+    #b8860b,
+    #92400e,
+    #d4a017,
+    #92400e
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:root:not(.dark) .text-gradient-male {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb, #3b82f6, #2563eb, #1d4ed8);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:root:not(.dark) .text-gradient-female {
+  background: linear-gradient(135deg, #9d174d, #db2777, #ec4899, #db2777, #9d174d);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Light mode skeleton shimmer — darker shimmer on light bg */
+:root:not(.dark) .skeleton-shimmer {
+  background: linear-gradient(90deg, rgba(0,0,0,0.04) 25%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Light mode card-premium borders — visible border on white */
+:root:not(.dark) .card-premium { border: 1px solid rgba(28, 25, 23, 0.08); }
+:root:not(.dark) .card-premium-male { border-color: rgba(37, 99, 235, 0.15); }
+:root:not(.dark) .card-premium-female { border-color: rgba(219, 39, 119, 0.15); }
 
 @layer base {
   * {
@@ -1954,6 +2020,13 @@ div.group:hover .donor-rank-badge {
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
 }
 
+:root:not(.dark) .glass-strong-community {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(28, 25, 23, 0.08) !important;
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+}
+
 .dark .glass-strong-community::before {
   display: none;
 }
@@ -1973,6 +2046,12 @@ div.group:hover .donor-rank-badge {
   background: rgba(18, 20, 36, 0.9) !important;
   border-color: rgba(255, 255, 255, 0.05) !important;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+:root:not(.dark) .card-premium-community {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(28, 25, 23, 0.08) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* Glow effects — Gold themed */
@@ -4454,6 +4533,16 @@ div.group:hover .donor-rank-badge {
     0 2px 8px rgba(0, 0, 0, 0.08),
     0 8px 32px rgba(0, 0, 0, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+}
+
+:root:not(.dark) .casino-card-community {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(28, 25, 23, 0.08) !important;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 4px 16px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(20px) saturate(1.2);
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
 }

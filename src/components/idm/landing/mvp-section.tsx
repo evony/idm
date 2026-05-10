@@ -33,7 +33,7 @@ export function MvpSection({
         role="region"
         aria-label="MVP Arena"
         className="py-24 px-4 relative"
-        style={{ backgroundColor: '#000000' }}
+        style={{ backgroundColor: 'var(--background)' }}
       >
         <div className="relative z-10 max-w-6xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }} variants={stagger}>
@@ -60,8 +60,8 @@ export function MvpSection({
                     <div
                       className="rounded-[20px] min-h-[520px] flex flex-col items-center justify-center p-8"
                       style={{
-                        backgroundColor: '#1c1c1e',
-                        border: '1px solid #38383a',
+                        backgroundColor: 'var(--card)',
+                        border: '1px solid var(--border)',
                       }}
                     >
                       {/* Cyan accent bar top */}
@@ -78,11 +78,11 @@ export function MvpSection({
                       </div>
                       <p
                         className="text-sm font-bold uppercase tracking-widest mb-2"
-                        style={{ color: '#f5f5f7' }}
+                        style={{ color: 'var(--foreground)' }}
                       >
                         MVP Belum Dipilih
                       </p>
-                      <p className="text-xs" style={{ color: '#8e8e93' }}>
+                      <p className="text-xs" style={{ color: 'var(--muted-foreground)' }}>
                         Tunjukkan skillmu — jadilah MVP pertama di divisi ini!
                       </p>
                     </div>
@@ -91,8 +91,8 @@ export function MvpSection({
                     <div
                       className="relative rounded-[20px] overflow-hidden cursor-pointer group min-h-[520px] transition-colors duration-300"
                       style={{
-                        backgroundColor: '#1c1c1e',
-                        border: '1px solid #38383a',
+                        backgroundColor: 'var(--card)',
+                        border: '1px solid var(--border)',
                       }}
                       role="button"
                       tabIndex={0}
@@ -122,8 +122,8 @@ export function MvpSection({
                       />
 
                       {/* Clean gradient overlay from bottom */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1c1c1e] via-[#1c1c1e]/60 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-b from-[#1c1c1e]/40 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-b from-card/40 via-transparent to-transparent" />
 
                       {/* Top Badges */}
                       <div className="absolute top-5 left-5 right-5 flex items-center justify-between z-10">
@@ -164,7 +164,7 @@ export function MvpSection({
                         {/* Gamertag */}
                         <p
                           className="text-3xl sm:text-4xl font-black leading-none"
-                          style={{ color: '#f5f5f7' }}
+                          style={{ color: 'var(--foreground)' }}
                         >
                           {mvp.gamertag}
                         </p>
@@ -188,22 +188,22 @@ export function MvpSection({
                         <div className="flex items-center gap-5 mt-4 pt-3" style={{ borderTop: '1px solid rgba(56,56,58,0.8)' }}>
                           <div>
                             <p className="text-2xl font-black" style={{ color: '#22d3ee' }}>{mvp.points}</p>
-                            <p className="text-[9px] uppercase font-semibold" style={{ color: '#8e8e93' }}>Points</p>
+                            <p className="text-[9px] uppercase font-semibold" style={{ color: 'var(--muted-foreground)' }}>Points</p>
                           </div>
-                          <div className="w-px h-8" style={{ backgroundColor: '#38383a' }} />
+                          <div className="w-px h-8" style={{ backgroundColor: 'var(--border)' }} />
                           <div>
                             <p className="text-2xl font-black" style={{ color: '#30d158' }}>{mvp.totalWins}</p>
-                            <p className="text-[9px] uppercase font-semibold" style={{ color: '#8e8e93' }}>Wins</p>
+                            <p className="text-[9px] uppercase font-semibold" style={{ color: 'var(--muted-foreground)' }}>Wins</p>
                           </div>
                           {mvp.streak > 0 && (
                             <>
-                              <div className="w-px h-8" style={{ backgroundColor: '#38383a' }} />
+                              <div className="w-px h-8" style={{ backgroundColor: 'var(--border)' }} />
                               <div>
                                 <p className="text-2xl font-black flex items-center gap-1.5" style={{ color: '#ff9f0a' }}>
                                   <Flame className="w-5 h-5" />
                                   {mvp.streak}
                                 </p>
-                                <p className="text-[9px] uppercase font-semibold" style={{ color: '#8e8e93' }}>Streak</p>
+                                <p className="text-[9px] uppercase font-semibold" style={{ color: 'var(--muted-foreground)' }}>Streak</p>
                               </div>
                             </>
                           )}
@@ -222,8 +222,8 @@ export function MvpSection({
                     <div
                       className="rounded-[20px] min-h-[520px] flex flex-col items-center justify-center p-8"
                       style={{
-                        backgroundColor: '#1c1c1e',
-                        border: '1px solid #38383a',
+                        backgroundColor: 'var(--card)',
+                        border: '1px solid var(--border)',
                       }}
                     >
                       {/* Purple accent bar top */}
@@ -240,11 +240,11 @@ export function MvpSection({
                       </div>
                       <p
                         className="text-sm font-bold uppercase tracking-widest mb-2"
-                        style={{ color: '#f5f5f7' }}
+                        style={{ color: 'var(--foreground)' }}
                       >
                         MVP Belum Dipilih
                       </p>
-                      <p className="text-xs" style={{ color: '#8e8e93' }}>
+                      <p className="text-xs" style={{ color: 'var(--muted-foreground)' }}>
                         Tunjukkan skillmu — jadilah MVP pertama di divisi ini!
                       </p>
                     </div>
@@ -253,8 +253,8 @@ export function MvpSection({
                     <div
                       className="relative rounded-[20px] overflow-hidden cursor-pointer group min-h-[520px] transition-colors duration-300"
                       style={{
-                        backgroundColor: '#1c1c1e',
-                        border: '1px solid #38383a',
+                        backgroundColor: 'var(--card)',
+                        border: '1px solid var(--border)',
                       }}
                       role="button"
                       tabIndex={0}
@@ -284,8 +284,8 @@ export function MvpSection({
                       />
 
                       {/* Clean gradient overlay from bottom */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1c1c1e] via-[#1c1c1e]/60 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-b from-[#1c1c1e]/40 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-b from-card/40 via-transparent to-transparent" />
 
                       {/* Top Badges */}
                       <div className="absolute top-5 left-5 right-5 flex items-center justify-between z-10">
@@ -326,7 +326,7 @@ export function MvpSection({
                         {/* Gamertag */}
                         <p
                           className="text-3xl sm:text-4xl font-black leading-none"
-                          style={{ color: '#f5f5f7' }}
+                          style={{ color: 'var(--foreground)' }}
                         >
                           {mvp.gamertag}
                         </p>
@@ -350,22 +350,22 @@ export function MvpSection({
                         <div className="flex items-center gap-5 mt-4 pt-3" style={{ borderTop: '1px solid rgba(56,56,58,0.8)' }}>
                           <div>
                             <p className="text-2xl font-black" style={{ color: '#c084fc' }}>{mvp.points}</p>
-                            <p className="text-[9px] uppercase font-semibold" style={{ color: '#8e8e93' }}>Points</p>
+                            <p className="text-[9px] uppercase font-semibold" style={{ color: 'var(--muted-foreground)' }}>Points</p>
                           </div>
-                          <div className="w-px h-8" style={{ backgroundColor: '#38383a' }} />
+                          <div className="w-px h-8" style={{ backgroundColor: 'var(--border)' }} />
                           <div>
                             <p className="text-2xl font-black" style={{ color: '#30d158' }}>{mvp.totalWins}</p>
-                            <p className="text-[9px] uppercase font-semibold" style={{ color: '#8e8e93' }}>Wins</p>
+                            <p className="text-[9px] uppercase font-semibold" style={{ color: 'var(--muted-foreground)' }}>Wins</p>
                           </div>
                           {mvp.streak > 0 && (
                             <>
-                              <div className="w-px h-8" style={{ backgroundColor: '#38383a' }} />
+                              <div className="w-px h-8" style={{ backgroundColor: 'var(--border)' }} />
                               <div>
                                 <p className="text-2xl font-black flex items-center gap-1.5" style={{ color: '#ff9f0a' }}>
                                   <Flame className="w-5 h-5" />
                                   {mvp.streak}
                                 </p>
-                                <p className="text-[9px] uppercase font-semibold" style={{ color: '#8e8e93' }}>Streak</p>
+                                <p className="text-[9px] uppercase font-semibold" style={{ color: 'var(--muted-foreground)' }}>Streak</p>
                               </div>
                             </>
                           )}

@@ -312,10 +312,10 @@ function ComparisonRadar({ player1, player2, dt }: { player1: ComparePlayer; pla
     <div className="w-full h-[300px] sm:h-[340px]">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
-          <PolarGrid stroke="rgba(255,255,255,0.06)" />
+          <PolarGrid stroke="hsl(var(--border))" />
           <PolarAngleAxis
             dataKey="subject"
-            tick={{ fill: 'rgba(255,255,255,0.5)', fontSize: 10, fontWeight: 600 }}
+            tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10, fontWeight: 600 }}
           />
           <PolarRadiusAxis
             angle={90}
@@ -378,15 +378,15 @@ function ComparisonBarChart({ player1, player2, dt }: { player1: ComparePlayer; 
     <div className="w-full h-[240px] sm:h-[280px]">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={barData} layout="vertical" margin={{ left: 10, right: 10, top: 5, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" horizontal={false} />
-          <XAxis type="number" tick={{ fill: 'rgba(255,255,255,0.3)', fontSize: 9 }} axisLine={{ stroke: 'rgba(255,255,255,0.06)' }} />
-          <YAxis type="category" dataKey="name" tick={{ fill: 'rgba(255,255,255,0.5)', fontSize: 10, fontWeight: 600 }} axisLine={false} width={55} />
+          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" horizontal={false} />
+          <XAxis type="number" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 9 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+          <YAxis type="category" dataKey="name" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10, fontWeight: 600 }} axisLine={false} width={55} />
           <Tooltip
             content={({ active, payload, label: lbl }) => {
               if (active && payload && payload.length) {
                 return (
-                  <div className="rounded-lg bg-[#1a1712] border border-border/30 p-2 shadow-xl text-xs">
-                    <p className="font-semibold text-white mb-1">{lbl}</p>
+                  <div className="rounded-lg bg-card border border-border/30 p-2 shadow-xl text-xs">
+                    <p className="font-semibold mb-1">{lbl}</p>
                     {payload.map((entry: any, idx: number) => (
                       <p key={idx} style={{ color: entry.color }} className="font-medium">
                         {entry.name}: {entry.value}
@@ -439,7 +439,7 @@ function StatComparisonRow({ label, value1, value2, icon: Icon, dt }: {
       <div className="w-16 text-right shrink-0">
         <span
           className="text-sm font-bold"
-          style={{ color: winner === 'p1' ? color1 : 'rgba(255,255,255,0.5)' }}
+          style={{ color: winner === 'p1' ? color1 : 'hsl(var(--muted-foreground))' }}
         >
           {value1}
         </span>
@@ -458,7 +458,7 @@ function StatComparisonRow({ label, value1, value2, icon: Icon, dt }: {
       <div className="w-16 text-left shrink-0">
         <span
           className="text-sm font-bold"
-          style={{ color: winner === 'p2' ? color2 : 'rgba(255,255,255,0.5)' }}
+          style={{ color: winner === 'p2' ? color2 : 'hsl(var(--muted-foreground))' }}
         >
           {value2}
         </span>

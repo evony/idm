@@ -92,12 +92,12 @@ export function Gallery() {
           {galleryItems.map((item, index) => (
             <Card
               key={index}
-              className="group relative overflow-hidden bg-gray-900 border-gray-800 hover:border-purple-500/50 cursor-pointer transition-all"
+              className="group relative overflow-hidden bg-card border-border hover:border-purple-500/50 cursor-pointer transition-all"
               onClick={() => openLightbox(index)}
             >
               {/* Placeholder Image */}
-              <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                <Camera className="w-12 h-12 text-gray-600" />
+              <div className="aspect-video bg-gradient-to-br from-muted to-card flex items-center justify-center">
+                <Camera className="w-12 h-12 text-muted-foreground" />
               </div>
 
               {/* Overlay */}
@@ -150,8 +150,8 @@ export function Gallery() {
             className="max-w-4xl w-full mx-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="aspect-video bg-gray-900 rounded-lg flex items-center justify-center">
-              <Camera className="w-20 h-20 text-gray-600" />
+            <div className="aspect-video bg-card rounded-lg flex items-center justify-center">
+              <Camera className="w-20 h-20 text-muted-foreground" />
             </div>
             <div className="mt-4 text-center">
               <Badge className="mb-2 bg-purple-500/20 text-purple-400 border-purple-500/30">

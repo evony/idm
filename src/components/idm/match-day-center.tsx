@@ -507,7 +507,7 @@ export function MatchDayCenter() {
   const { division, setDivision } = useAppStore();
 
   return (
-    <div className="lg:community-surface lg:rounded-3xl lg:border lg:border-white/[0.06] overflow-hidden relative">
+    <div className="lg:community-surface lg:rounded-3xl lg:border lg:border-border/30 overflow-hidden relative">
       {/* Subtle gold radial glow at top — desktop only */}
       <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-48 bg-idm-gold-warm/[0.05] rounded-full blur-3xl pointer-events-none" />
 

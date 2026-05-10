@@ -67,7 +67,7 @@ export function QuickStatsBar({ data, division }: QuickStatsBarProps) {
                 relative flex flex-col items-center justify-center
                 p-3 sm:p-4 lg:p-5
                 rounded-2xl
-                bg-white/[0.07] dark:bg-white/[0.05]
+                bg-muted/30 dark:bg-white/[0.05]
                 border
                 ${dt.border}
                 transition-all duration-200

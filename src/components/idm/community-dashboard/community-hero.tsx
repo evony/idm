@@ -148,10 +148,10 @@ const STATUS_CONFIG: Record<TournamentStatus, {
   offseason: {
     label: 'OFFSEASON',
     labelId: 'OFFSEASON',
-    dotClass: 'bg-gray-500',
-    bgClass: 'bg-gray-500/12',
-    borderClass: 'border-gray-500/30',
-    textClass: 'text-gray-400',
+    dotClass: 'bg-muted-foreground',
+    bgClass: 'bg-muted-foreground/12',
+    borderClass: 'border-border/30',
+    textClass: 'text-muted-foreground',
     icon: Calendar,
   },
 };
@@ -258,7 +258,7 @@ function DivisionCard({
       case 'live': return 'bg-red-500/15 text-red-400';
       case 'registration': return 'bg-amber-500/15 text-amber-400';
       case 'completed': return 'bg-emerald-500/15 text-emerald-400';
-      default: return 'bg-gray-500/10 text-gray-400';
+      default: return 'bg-muted/20 text-muted-foreground';
     }
   })();
   const statusLabel = status === 'live' ? 'LIVE' : status === 'registration' ? 'DAFTAR' : status === 'completed' ? 'SELESAI' : '-';
@@ -388,7 +388,7 @@ function DivisionCard({
           className={`group flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-[10px] sm:text-xs font-bold transition-all duration-200 ${
             isRegistrationOpen
               ? `${btnPrimary} hover:scale-[1.02] active:scale-95 cursor-pointer`
-              : 'bg-gray-500/10 border border-gray-500/20 text-gray-500 cursor-not-allowed opacity-60'
+              : 'bg-muted/20 border border-border/30 text-muted-foreground cursor-not-allowed opacity-60'
           }`}
           title={isRegistrationOpen ? 'Daftar sekarang' : 'Pendaftaran belum dibuka'}
         >

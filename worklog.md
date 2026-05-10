@@ -412,3 +412,31 @@ Stage Summary:
 - Railway will now use "npx tsx src/index.ts" instead of "bun run start"
 - nixpacks.toml provides Node.js 22 + npm install during build
 - railway.json provides startCommand override for deploy
+---
+Task ID: 1
+Agent: main
+Task: Fix light theme consistency - text visibility on white backgrounds and color coherence
+
+Work Log:
+- Removed hardcoded `className="dark"` from layout.tsx html tag to allow next-themes to manage theme
+- Enabled `enableSystem` in ThemeProvider so system preference is respected
+- Added light mode CSS overrides for `.glass-strong`, `.glass-strong-male/female`, `.glass-strong-community`, `.card-premium-community`, `.casino-card-community`
+- Added light mode gradient text overrides: `.text-gradient-fury`, `.text-gradient-gold`, `.text-gradient-male`, `.text-gradient-female` (deeper colors for white bg readability)
+- Added light mode `.section-divider` opacity, `.skeleton-shimmer`, `.card-premium` border overrides
+- Fixed `use-division-theme.ts`: Replaced `bg-white/[0.04]`, `border-white/[0.06]`, `iconBg: bg-white/[0.06]` with `dark:` prefixed alternatives that use `bg-muted/30`, `border-border/40` in light mode
+- Dispatched 4 subagents to fix hardcoded dark colors across 50+ components
+
+Subagent fixes summary:
+- Landing page (17 files): Replaced `text-[#f5f0e8]` → `text-foreground`, `text-[#a09880]` → `text-muted-foreground`, `bg-[#0d0d1a]` → `bg-card`, `border-white/[0.06]` → `border-border/40`, inline style `#1c1c1e` → `var(--card)`, `#38383a` → `var(--border)`, `#f5f5f7` → `var(--foreground)`, `#8e8e93` → `var(--muted-foreground)`, etc.
+- Dashboard & shared (28+ files): Replaced `text-gray-300/400/500` → `text-muted-foreground`, `bg-gray-900/800/700` → `bg-card/bg-muted`, `bg-white/[0.xx]` → `bg-muted/xx`, `border-white/[0.xx]` → `border-border/xx`, etc.
+- Layout & admin (12 files): Fixed `Footer.tsx`, `AuthDialog.tsx`, `TournamentBracket.tsx`, `Navbar.tsx`, admin panels - replaced `bg-gray-900` → `bg-card`, `text-white` → `text-foreground`, `border-gray-700/800` → `border-border`, etc.
+- Community dashboard (8 files): Fixed `community-hero.tsx`, `community-marketplace.tsx`, `community-champions.tsx`, `community-streaks.tsx`, etc.
+
+Stage Summary:
+- Light theme now works properly - text visible on white backgrounds
+- Theme toggle (Sun/Moon) functional in both desktop sidebar and mobile header
+- All semantic CSS variables (`--foreground`, `--muted-foreground`, `--card`, `--border`) properly used
+- Gradient text classes have proper dark variants for readability on both themes
+- Glass surfaces and premium cards have proper light mode appearances
+- No TypeScript errors introduced (lint only shows pre-existing upload/ folder issues)
+- App compiles and serves 200 OK

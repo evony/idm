@@ -264,10 +264,10 @@ export function CommunityStreaks({ selectedDivision = 'all' }: CommunityStreaksP
                   {/* Rank number */}
                   <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
                     i === 0
-                      ? 'bg-gray-400/20 text-gray-300'
+                      ? 'bg-muted/15 text-muted-foreground'
                       : i === 1
                         ? 'bg-amber-600/20 text-amber-300'
-                        : 'bg-white/5 text-muted-foreground'
+                        : 'bg-muted/10 text-muted-foreground'
                   }`}>
                     {i + 2}
                   </div>

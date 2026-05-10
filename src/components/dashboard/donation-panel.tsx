@@ -170,7 +170,7 @@ export function DonationPanel({ donations, prizePool, tournamentId, onDonationCo
         {/* Header content */}
         <div className="relative z-10 px-5 pt-5 pb-4">
           <div className="flex items-center justify-between mb-1">
-            <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-background/20 backdrop-blur-xl border border-white/[0.08]">
+            <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-background/20 backdrop-blur-xl border border-border/40">
               <Coins className={`h-4 w-4 ${theme.coinIcon}`} />
               <h3 className="font-semibold text-sm text-foreground">Live Sawer</h3>
               <Sparkles className="h-3 w-3 text-amber-400/60" />

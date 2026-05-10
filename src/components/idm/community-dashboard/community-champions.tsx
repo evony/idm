@@ -198,7 +198,7 @@ export function SultanOfWeekSection({
           <Heart className="w-5 h-5 text-rose-300" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-bold truncate" style={{ color: '#C4A3A5' }}>
+          <p className="text-sm font-bold truncate text-foreground">
             {latestSultan.player?.gamertag || latestSultan.donorName}
           </p>
           <p className="text-[10px] text-muted-foreground">
@@ -206,7 +206,7 @@ export function SultanOfWeekSection({
           </p>
         </div>
         <div className="flex flex-col items-end gap-1">
-          <Badge className="border-0 text-[9px]" style={{ background: 'rgba(128,0,32,0.2)', color: '#C4A3A5' }}>❤️ SULTAN</Badge>
+          <Badge className="border-0 text-[9px]" style={{ background: 'rgba(128,0,32,0.2)', color: 'var(--foreground)' }}>❤️ SULTAN</Badge>
           {isCrossDivision && (
             <Badge className="bg-pink-500/15 text-pink-400 border-0 text-[8px]">
               {crossDivisionEmoji} {crossDivisionLabel}
@@ -251,7 +251,7 @@ export function SultanOfWeekSection({
             <div className="w-12 h-12 rounded-full flex items-center justify-center mb-2" style={{ background: 'linear-gradient(135deg, #800020, #5C0015)' }}>
               <Banknote className="w-6 h-6 text-rose-300" />
             </div>
-            <p className="text-[10px] font-bold text-center truncate max-w-full" style={{ color: '#C4A3A5' }}>
+            <p className="text-[10px] font-bold text-center truncate max-w-full text-foreground">
               {latestSultan.donorName}
             </p>
           </div>

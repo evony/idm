@@ -172,7 +172,7 @@ export function MVPCardSkeleton({
           <ShimmerBlock className="h-5 w-16 rounded-lg" />
         </div>
         {/* Stats Row */}
-        <div className="flex items-center gap-5 mt-4 pt-3 border-t border-white/10">
+        <div className="flex items-center gap-5 mt-4 pt-3 border-t border-border/30">
           <div>
             <ShimmerBlock className="h-6 w-10 mb-1" />
             <ShimmerBlock className="h-2 w-12" />
