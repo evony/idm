@@ -437,6 +437,86 @@ export async function updateBotStatus(data: { status?: string; messagesSent?: nu
   }
 }
 
+// ─── Reset Season (Active Seasons Only) ──────────
+
+export async function resetActiveSeasons(): Promise<{ success: boolean; message: string; details: Record<string, number> }> {
+  const db = getPool();
+  const results: Record<string, number> = {};
+
+  // Find active seasons
+  const activeSeasonsRes = await db.query(`SELECT id FROM "Season" WHERE status = 'active'`);
+  if (activeSeasonsRes.rows.length === 0) {
+    return { success: true, message: 'Tidak ada season aktif. Tidak ada data yang di-reset.', details: results };
+  }
+  const activeSeasonIds = activeSeasonsRes.rows.map((r: any) => r.id);
+
+  // Find tournaments in active seasons
+  const activeTournamentsRes = await db.query(`SELECT id FROM "Tournament" WHERE "seasonId" = ANY($1)`, [activeSeasonIds]);
+  const activeTournamentIds = activeTournamentsRes.rows.map((r: any) => r.id);
+
+  if (activeTournamentIds.length > 0) {
+    // Delete in correct FK order
+    results.playerAchievement = (await db.query(`DELETE FROM "PlayerAchievement" WHERE "tournamentId" = ANY($1)`, [activeTournamentIds])).rowCount ?? 0;
+    results.tournamentPrize = (await db.query(`DELETE FROM "TournamentPrize" WHERE "tournamentId" = ANY($1)`, [activeTournamentIds])).rowCount ?? 0;
+    results.tournamentSponsor = (await db.query(`DELETE FROM "TournamentSponsor" WHERE "tournamentId" = ANY($1)`, [activeTournamentIds])).rowCount ?? 0;
+    results.sponsoredPrize = (await db.query(`DELETE FROM "SponsoredPrize" WHERE "tournamentId" = ANY($1)`, [activeTournamentIds])).rowCount ?? 0;
+
+    // Match & PlayerPoint for matches in active tournaments
+    results.match = (await db.query(`DELETE FROM "Match" WHERE "tournamentId" = ANY($1)`, [activeTournamentIds])).rowCount ?? 0;
+
+    // TeamPlayer → Team → Participation → WaRegistration → Tournament
+    const activeTeamsRes = await db.query(`SELECT id FROM "Team" WHERE "tournamentId" = ANY($1)`, [activeTournamentIds]);
+    const activeTeamIds = activeTeamsRes.rows.map((r: any) => r.id);
+    if (activeTeamIds.length > 0) {
+      results.teamPlayer = (await db.query(`DELETE FROM "TeamPlayer" WHERE "teamId" = ANY($1)`, [activeTeamIds])).rowCount ?? 0;
+    }
+    results.team = (await db.query(`DELETE FROM "Team" WHERE "tournamentId" = ANY($1)`, [activeTournamentIds])).rowCount ?? 0;
+    results.participation = (await db.query(`DELETE FROM "Participation" WHERE "tournamentId" = ANY($1)`, [activeTournamentIds])).rowCount ?? 0;
+    results.waRegistration = (await db.query(`DELETE FROM "WaRegistration" WHERE "tournamentId" = ANY($1)`, [activeTournamentIds])).rowCount ?? 0;
+    results.tournament = (await db.query(`DELETE FROM "Tournament" WHERE "seasonId" = ANY($1)`, [activeSeasonIds])).rowCount ?? 0;
+  }
+
+  // PlayerPoint for active seasons
+  results.playerPoint = (await db.query(`DELETE FROM "PlayerPoint" WHERE "seasonId" = ANY($1)`, [activeSeasonIds])).rowCount ?? 0;
+
+  // League & playoff matches
+  results.leagueMatch = (await db.query(`DELETE FROM "LeagueMatch" WHERE "seasonId" = ANY($1)`, [activeSeasonIds])).rowCount ?? 0;
+  results.playoffMatch = (await db.query(`DELETE FROM "PlayoffMatch" WHERE "seasonId" = ANY($1)`, [activeSeasonIds])).rowCount ?? 0;
+
+  // Donations for active seasons
+  results.donation = (await db.query(`DELETE FROM "Donation" WHERE "seasonId" = ANY($1)`, [activeSeasonIds])).rowCount ?? 0;
+
+  // PlayerSeasonStats for active seasons
+  results.playerSeasonStats = (await db.query(`DELETE FROM "PlayerSeasonStats" WHERE "seasonId" = ANY($1)`, [activeSeasonIds])).rowCount ?? 0;
+
+  // Reset ALL player flat stats
+  results.playersReset = (await db.query(`
+    UPDATE "Player" SET points = 0, "totalWins" = 0, "totalMvp" = 0, streak = 0, "maxStreak" = 0, matches = 0, tier = 'B'
+  `)).rowCount ?? 0;
+
+  // Reset club entries for active seasons
+  results.clubsReset = (await db.query(`
+    UPDATE "Club" SET points = 0, wins = 0, losses = 0, "gameDiff" = 0 WHERE "seasonId" = ANY($1)
+  `, [activeSeasonIds])).rowCount ?? 0;
+
+  // Reset active season champion data
+  results.seasonsReset = (await db.query(`
+    UPDATE "Season" SET "championClubId" = NULL, "championPlayerId" = NULL, "championPlayerPoints" = NULL,
+      "championPlayerSnapshot" = NULL, "championClubSnapshot" = NULL, "championSquad" = NULL
+    WHERE status = 'active'
+  `)).rowCount ?? 0;
+
+  // Reset skins & badges
+  results.playerSkins = (await db.query(`DELETE FROM "PlayerSkin"`)).rowCount ?? 0;
+  results.badgesReset = (await db.query(`UPDATE "Account" SET "donorBadgeCount" = 0, "sawerBadgeTier" = 'none'`)).rowCount ?? 0;
+
+  return {
+    success: true,
+    message: `Data turnamen season aktif berhasil di-reset! Semua poin pemain di-nol-kan, skin & badge di-reset.`,
+    details: results,
+  };
+}
+
 // ─── WhatsApp Log ─────────────────────────────────
 
 export async function addWaLog(data: { type: string; sender?: string; message?: string; command?: string; response?: string; groupId?: string; isError?: boolean; metadata?: string }): Promise<void> {
