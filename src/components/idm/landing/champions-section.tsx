@@ -471,12 +471,12 @@ export function ChampionsSection({
                       {hasChampions && championPlayers.length > 0 ? (
                         <div className="flex items-end justify-center gap-2 sm:gap-3 lg:gap-5">
                           {/* Reorder: [2nd, 1st, 3rd] for podium layout */}
-                          {championPlayers.length >= 3
+                          {(championPlayers.length >= 3
                             ? [championPlayers[1], championPlayers[0], championPlayers[2]]
                             : championPlayers.length === 2
                               ? [championPlayers[1], championPlayers[0]]
                               : championPlayers
-                          .map((player, podiumIdx) => {
+                          ).map((player, podiumIdx) => {
                             const ranks = championPlayers.length >= 3 ? [2, 1, 3] : championPlayers.length === 2 ? [2, 1] : [1];
                             const rank = ranks[podiumIdx];
                             const isCenter = rank === 1;
