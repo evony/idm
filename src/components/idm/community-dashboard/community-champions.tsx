@@ -134,7 +134,7 @@ function ChampionsSection({
       </div>
 
       {/* Content — top 3 players or empty state */}
-      <div className="p-3 lg:p-6">
+      <div className="p-4 lg:p-6">
         {top3.length > 0 ? (
           <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {top3.map((p, idx) => (
@@ -193,7 +193,7 @@ export function SultanOfWeekSection({
   const content = latestSultan ? (
     <div className="space-y-3">
       {/* Sultan banner — Maroon Heart style matching donasi skin */}
-      <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+      <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
         <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-maroon-700 to-maroon-900 flex items-center justify-center shadow-lg shrink-0" style={{ background: 'linear-gradient(135deg, #800020, #5C0015)' }}>
           <Heart className="w-5 h-5 text-rose-300" />
         </div>
@@ -247,7 +247,7 @@ export function SultanOfWeekSection({
           </div>
         ) : (
           /* Anonymous donor placeholder — Maroon Heart style */
-          <div className={`flex flex-col items-center justify-center p-3 rounded-2xl ${dt.bgSubtle} ${dt.border} aspect-[3/4]`}>
+          <div className={`flex flex-col items-center justify-center p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border} aspect-[3/4]`}>
             <div className="w-12 h-12 rounded-full flex items-center justify-center mb-2" style={{ background: 'linear-gradient(135deg, #800020, #5C0015)' }}>
               <Banknote className="w-6 h-6 text-rose-300" />
             </div>
@@ -257,18 +257,18 @@ export function SultanOfWeekSection({
           </div>
         )}
         {/* Donation Stats — Maroon Heart style */}
-        <div className={`col-span-2 flex flex-col justify-center gap-2 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+        <div className={`col-span-2 flex flex-col justify-center gap-2 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
           <div className="flex items-center gap-2">
             <Heart className="w-4 h-4" style={{ color: '#800020' }} />
             <span className="text-sm font-bold" style={{ color: '#800020' }}>{formatCurrencyShort(latestSultan.totalAmount)}</span>
             <span className="text-[9px] text-muted-foreground">TOTAL SAWER</span>
           </div>
           <div className="grid grid-cols-2 gap-2">
-            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
               <p className="text-sm font-bold" style={{ color: '#800020' }}>{latestSultan.donationCount}x</p>
               <p className="text-[9px] text-muted-foreground">Saweran</p>
             </div>
-            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
               <p className="text-sm font-bold" style={{ color: '#800020' }}>
                 {latestSultan.player?.tier || '—'}
               </p>
@@ -277,7 +277,7 @@ export function SultanOfWeekSection({
           </div>
           {/* Cross-division supporter note */}
           {isCrossDivision && (
-            <div className={`p-2 rounded-lg bg-pink-500/5 border border-pink-500/10 text-center`}>
+            <div className={`p-3 sm:p-4 rounded-lg bg-pink-500/5 border border-pink-500/10 text-center`}>
               <p className="text-[9px] text-pink-400 font-medium">
                 {crossDivisionEmoji} Cross-Division Supporter dari divisi {crossDivisionLabel}
               </p>
@@ -289,7 +289,7 @@ export function SultanOfWeekSection({
   ) : (
     /* Ghost empty state — Maroon Heart style */
     <div className="space-y-3 opacity-50">
-      <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+      <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
         <div className="w-10 h-10 rounded-2xl flex items-center justify-center shrink-0" style={{ background: 'linear-gradient(135deg, rgba(128,0,32,0.25), rgba(92,0,21,0.25))' }}>
           <Heart className="w-5 h-5 opacity-40" style={{ color: '#800020' }} />
         </div>
@@ -312,7 +312,7 @@ export function SultanOfWeekSection({
             <div className="h-2 w-6 mx-auto rounded bg-muted/25" />
           </div>
         </div>
-        <div className={`col-span-2 flex flex-col justify-center gap-2 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+        <div className={`col-span-2 flex flex-col justify-center gap-2 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded" style={{ background: 'rgba(128,0,32,0.2)' }} />
             <div className="h-4 w-8 rounded bg-muted/35" />
@@ -320,7 +320,7 @@ export function SultanOfWeekSection({
           </div>
           <div className="grid grid-cols-2 gap-2">
             {Array.from({ length: 2 }, (_, i) => (
-              <div key={i} className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+              <div key={i} className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                 <div className="h-4 w-8 mx-auto rounded bg-muted/30 mb-1" />
                 <div className="h-2 w-6 mx-auto rounded bg-muted/20" />
               </div>
@@ -350,7 +350,7 @@ export function SultanOfWeekSection({
       </div>
 
       {/* Content */}
-      <div className="p-3 lg:p-6">
+      <div className="p-4 lg:p-6">
         {content}
       </div>
     </Card>
@@ -378,7 +378,7 @@ export function TopFormSection({
   const content = performer ? (
     <div className="space-y-3">
       {/* Top Form banner */}
-      <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+      <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
         <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shrink-0">
           <TrendingUp className="w-5 h-5 text-white" />
         </div>
@@ -413,22 +413,22 @@ export function TopFormSection({
           />
         </div>
         {/* Composite Score Breakdown */}
-        <div className={`col-span-2 flex flex-col justify-center gap-2 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+        <div className={`col-span-2 flex flex-col justify-center gap-2 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
           <div className="flex items-center gap-2">
             <BarChart3 className="w-4 h-4 text-amber-400" />
             <span className="text-sm font-bold text-amber-400">{performer.compositeScore}</span>
             <span className="text-[9px] text-muted-foreground">COMPOSITE</span>
           </div>
           <div className="grid grid-cols-3 gap-2">
-            <div className={`p-2 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+            <div className={`p-3 sm:p-4 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
               <p className={`text-sm font-bold ${dt.neonText}`}>{performer.weeklyWins}W/{performer.weeklyLosses}L</p>
               <p className="text-[9px] text-muted-foreground">Record</p>
             </div>
-            <div className={`p-2 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+            <div className={`p-3 sm:p-4 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
               <p className={`text-sm font-bold ${dt.neonText}`}>{performer.weeklyWinRate}%</p>
               <p className="text-[9px] text-muted-foreground">Win%</p>
             </div>
-            <div className={`p-2 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+            <div className={`p-3 sm:p-4 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
               <div className="flex items-center justify-center gap-0.5">
                 <Flame className="w-3 h-3 text-orange-400" />
                 <p className={`text-sm font-bold ${dt.neonText}`}>{performer.streak}</p>
@@ -443,7 +443,7 @@ export function TopFormSection({
     /* Ghost empty state — mirrors filled layout structure */
     <div className="space-y-3 opacity-50">
       {/* Ghost Top Form banner */}
-      <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+      <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
         <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-500/25 to-orange-600/25 flex items-center justify-center shrink-0">
           <TrendingUp className="w-5 h-5 text-amber-500/40" />
         </div>
@@ -471,7 +471,7 @@ export function TopFormSection({
         </div>
 
         {/* Ghost composite stats */}
-        <div className={`col-span-2 flex flex-col justify-center gap-2 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+        <div className={`col-span-2 flex flex-col justify-center gap-2 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded bg-amber-400/20" />
             <div className="h-4 w-8 rounded bg-muted/35" />
@@ -479,7 +479,7 @@ export function TopFormSection({
           </div>
           <div className="grid grid-cols-3 gap-2">
             {Array.from({ length: 3 }, (_, i) => (
-              <div key={i} className={`p-2 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+              <div key={i} className={`p-3 sm:p-4 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                 <div className="h-4 w-8 mx-auto rounded bg-muted/30 mb-1" />
                 <div className="h-2 w-6 mx-auto rounded bg-muted/20" />
               </div>
@@ -493,7 +493,7 @@ export function TopFormSection({
   /* ─── Bare mode — no Card wrapper, just content with division label ─── */
   if (bare) {
     return (
-      <div className={`p-3 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle}`}>
+      <div className={`p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle}`}>
         {/* Division label */}
         <div className="flex items-center gap-1.5 mb-3">
           <DivisionIcon className="w-3 h-3 shrink-0" style={{ color: accentColor }} />
@@ -526,7 +526,7 @@ export function TopFormSection({
       </div>
 
       {/* Content */}
-      <div className="p-3 lg:p-6">
+      <div className="p-4 lg:p-6">
         {content}
       </div>
     </Card>

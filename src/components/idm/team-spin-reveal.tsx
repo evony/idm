@@ -752,7 +752,7 @@ export function TeamSpinReveal({ spinRevealOrder, teamCount, onComplete, divisio
                       return (
                         <div
                           key={i}
-                          className="animate-fade-enter p-2 rounded-lg border border-white/10 lg:border-idm-gold-warm/10 bg-white/5 lg:bg-idm-gold-warm/5 text-xs"
+                          className="animate-fade-enter p-3 sm:p-4 rounded-lg border border-white/10 lg:border-idm-gold-warm/10 bg-white/5 lg:bg-idm-gold-warm/5 text-xs"
                           style={{ animationDelay: `${i * 50}ms` }}
                         >
                           <div className="font-semibold text-idm-gold-warm truncate flex items-center gap-1">
@@ -803,7 +803,7 @@ export function TeamSpinReveal({ spinRevealOrder, teamCount, onComplete, divisio
                       return (
                         <div
                           key={i}
-                          className={`p-2 rounded-lg border text-xs transition-all duration-300
+                          className={`p-3 sm:p-4 rounded-lg border text-xs transition-all duration-300
                             ${isCurrentlyRevealing ? 'border-idm-gold-warm/50 bg-idm-gold-warm/5 ring-1 ring-idm-gold-warm/20' :
                               hasAny ? 'bg-white/5 lg:bg-idm-gold-warm/5 border-white/10 lg:border-idm-gold-warm/10' : 'bg-white/[0.02] lg:bg-idm-gold-warm/[0.02] border-white/5 lg:border-idm-gold-warm/5'}`}
                         >

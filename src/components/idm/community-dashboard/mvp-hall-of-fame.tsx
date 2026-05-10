@@ -215,7 +215,7 @@ function DivisionTimeline({
   // Bare mode: division label + timeline, no card wrapper
   if (bare) {
     return (
-      <div className={`p-3 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
+      <div className={`p-3 sm:p-4 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
         {/* Division label */}
         <div className="flex items-center gap-1.5 mb-2.5">
           <DivisionIcon className="w-3.5 h-3.5 shrink-0" style={{ color: accentColor }} />
@@ -265,7 +265,7 @@ export function MvpHallOfFame({ maleData, femaleData, selectedDivision = 'all' }
           </Badge>
         </div>
         {/* Content — male + female stacked */}
-        <div className="p-3 lg:p-4">
+        <div className="p-4 sm:p-6">
           <div className="space-y-3">
             {showMale && (
               <DivisionTimeline division="male" entries={maleEntries} bare />
@@ -298,7 +298,7 @@ export function MvpHallOfFame({ maleData, femaleData, selectedDivision = 'all' }
         </Badge>
       </div>
       {/* Content */}
-      <div className="p-3 lg:p-4">
+      <div className="p-4 sm:p-6">
         <DivisionTimeline division={division} entries={entries} />
       </div>
     </Card>

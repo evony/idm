@@ -199,7 +199,7 @@ export function MatchResultTimeline({ matches, currentRound, className = '' }: M
             team2={match.team2}
             status={match.status as 'pending' | 'live' | 'completed'}
             showAnimation={false}
-            className="!p-3"
+            className="!p-4 sm:!p-5"
           />
         </div>
       ))}

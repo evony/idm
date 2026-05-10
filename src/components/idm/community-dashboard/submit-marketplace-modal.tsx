@@ -412,7 +412,7 @@ export function SubmitMarketplaceModal({ open, onClose, onSuccess, onLoginRequir
               /* Form — only shown when logged in, Orange theme */
               <form onSubmit={handleSubmit} className="p-4 space-y-4">
                 {/* Verified Seller Badge */}
-                <div className="flex items-center gap-3 p-3 rounded-2xl bg-emerald-500/5 border border-emerald-500/15">
+                <div className="flex items-center gap-3 p-3 sm:p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/15">
                   <div className="relative flex-shrink-0">
                     {playerAvatar ? (
                       <Image src={playerAvatar} alt="" width={40} height={40} className="w-10 h-10 rounded-full object-cover" />

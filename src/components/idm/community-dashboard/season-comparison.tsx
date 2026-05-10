@@ -178,7 +178,7 @@ export function SeasonComparison({ maleData, femaleData }: SeasonComparisonProps
           <Badge className={`ml-auto ${dt.casinoBadge} text-[9px]`}>VS</Badge>
         </div>
 
-        <CardContent className="p-3 lg:p-6">
+        <CardContent className="p-4 sm:p-6">
           {/* Season labels */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
@@ -226,7 +226,7 @@ export function SeasonComparison({ maleData, femaleData }: SeasonComparisonProps
           </div>
 
           {/* Champion comparison */}
-          <div className={`mt-4 p-3 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
+          <div className={`mt-4 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
             <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-2 flex items-center gap-1.5">
               <Crown className="w-3 h-3" /> Juara Tarkam
             </p>

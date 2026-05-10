@@ -65,7 +65,7 @@ export function QuickStatsBar({ data, division }: QuickStatsBarProps) {
             <div
               className={`
                 relative flex flex-col items-center justify-center
-                p-2.5 sm:p-4 lg:p-5
+                p-3 sm:p-4 lg:p-5
                 rounded-2xl
                 bg-white/[0.07] dark:bg-white/[0.05]
                 border

@@ -413,7 +413,7 @@ export function Dashboard() {
             <CountdownTimer targetDate={t.scheduledAt} />
           </div>
         )}
-        <div className={`p-3 rounded-xl ${dt.bgSubtle} ${dt.border}`}>
+        <div className={`p-4 sm:p-5 rounded-xl ${dt.bgSubtle} ${dt.border}`}>
           <div className="flex items-center justify-between">
             <span className="text-xs text-muted-foreground">💰 Prize Pool</span>
             <span className={`text-lg font-bold ${dt.neonGradient}`}>{formatCurrency(t?.prizePool || 0)}</span>
@@ -590,7 +590,7 @@ export function Dashboard() {
                       return (
                         <div className="space-y-3">
                           {/* Team banner */}
-                          <div className={`flex items-center gap-3 p-3 rounded-xl ${dt.bgSubtle} ${dt.border}`}>
+                          <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-xl ${dt.bgSubtle} ${dt.border}`}>
                             <div className={`w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center shadow-lg shrink-0`}>
                               <Crown className="w-5 h-5 text-white" />
                             </div>
@@ -690,21 +690,21 @@ export function Dashboard() {
                               />
                             </div>
                             {/* MVP stats highlight */}
-                            <div className={`col-span-2 flex flex-col justify-center gap-2 p-3 rounded-xl ${dt.bgSubtle} ${dt.border}`}>
+                            <div className={`col-span-2 flex flex-col justify-center gap-2 p-4 sm:p-5 rounded-xl ${dt.bgSubtle} ${dt.border}`}>
                               <div className="flex items-center gap-2">
                                 <Crown className="w-4 h-4 text-yellow-400" />
                                 <span className="text-sm font-bold text-yellow-400">{selectedMvp.gamertag}</span>
                               </div>
                               <div className="grid grid-cols-3 gap-2">
-                                <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                                <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                                   <p className={`text-sm font-bold ${dt.neonText}`}>{selectedMvp.totalMvp}x</p>
                                   <p className="text-[9px] text-muted-foreground">MVP</p>
                                 </div>
-                                <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                                <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                                   <p className={`text-sm font-bold ${dt.neonText}`}>{selectedMvp.points}</p>
                                   <p className="text-[9px] text-muted-foreground">Points</p>
                                 </div>
-                                <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                                <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                                   <p className={`text-sm font-bold ${dt.neonText}`}>{selectedMvp.totalWins}</p>
                                   <p className="text-[9px] text-muted-foreground">Wins</p>
                                 </div>
@@ -736,7 +736,7 @@ export function Dashboard() {
             </motion.div>
             <motion.div variants={item} className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <SectionCard title="Donasi & Sawer" icon={Gift} badge="LIVE">
-                <div className={`p-3 rounded-xl ${dt.bgSubtle} ${dt.border} mb-3`}>
+                <div className={`p-4 sm:p-5 rounded-xl ${dt.bgSubtle} ${dt.border} mb-3`}>
                   <p className="text-xs text-muted-foreground mb-1">Total Prize Pool</p>
                   <p className={`text-xl font-bold ${dt.neonGradient}`}>{formatCurrency(data.totalPrizePool)}</p>
                   <Progress value={data.totalPrizePool > 0 ? Math.min((data.totalPrizePool / (data.totalPrizePool * 2 || 1)) * 100, 100) : 0} className="mt-2 h-1.5" />
@@ -745,7 +745,7 @@ export function Dashboard() {
                   <p className="text-xs font-semibold text-muted-foreground">Donatur Teratas</p>
                   {data.topDonors?.length > 0 ? (
                     data.topDonors.slice(0, 3).map((d, i) => (
-                      <div key={i} className={`flex items-center justify-between text-xs p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle}`}>
+                      <div key={i} className={`flex items-center justify-between text-xs p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle}`}>
                         <span className="flex items-center gap-2">
                           <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${
                             i === 0 ? 'bg-yellow-500/20 text-yellow-500' :

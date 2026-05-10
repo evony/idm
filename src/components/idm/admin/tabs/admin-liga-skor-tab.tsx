@@ -39,7 +39,7 @@ export function AdminLigaSkorTab({
           </h3>
           <div className="space-y-2 max-h-72 overflow-y-auto custom-scrollbar">
             {stats?.leagueMatches?.filter((m: { status: string }) => m.status === 'upcoming').map((m: { id: string; week: number; club1: { name: string }; club2: { name: string }; format: string }) => (
-              <div key={m.id} className="p-3 rounded-lg bg-muted/50 border border-border/30 space-y-2">
+              <div key={m.id} className="p-4 sm:p-5 rounded-lg bg-muted/50 border border-border/30 space-y-2">
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-xs font-semibold truncate">Week {m.week}: {m.club1.name} vs {m.club2.name}</p>
                   <Badge className={`${dt.casinoBadge}`}>{m.format}</Badge>
@@ -100,7 +100,7 @@ export function AdminLigaSkorTab({
           </h3>
           <div className="space-y-2">
             {stats?.playoffMatches?.map((m: { id: string; round: string; club1: { name: string }; club2: { name: string }; status: string; format: string; score1: number | null; score2: number | null }) => (
-              <div key={m.id} className={`p-3 rounded-lg border ${m.status === 'upcoming' ? 'bg-muted/50 border-border/30' : `${dt.bg} ${dt.border}`}`}>
+              <div key={m.id} className={`p-4 sm:p-5 rounded-lg border ${m.status === 'upcoming' ? 'bg-muted/50 border-border/30' : `${dt.bg} ${dt.border}`}`}>
                 <div className="flex items-center justify-between mb-1">
                   <div>
                     <Badge className="text-[9px] border-0 bg-yellow-500/10 text-yellow-500">

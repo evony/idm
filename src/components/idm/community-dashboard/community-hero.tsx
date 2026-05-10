@@ -291,7 +291,7 @@ function DivisionCard({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border ${borderColor} ${bgBase} p-3 sm:p-4 w-full community-division-card ${isMale ? 'community-division-card-male' : 'community-division-card-female'} ${isMale ? 'hero-mesh-bg-male' : 'hero-mesh-bg-female'}`}
+      className={`relative overflow-hidden rounded-2xl border ${borderColor} ${bgBase} p-4 sm:p-6 w-full community-division-card ${isMale ? 'community-division-card-male' : 'community-division-card-female'} ${isMale ? 'hero-mesh-bg-male' : 'hero-mesh-bg-female'}`}
       style={{ boxShadow: glowShadow, transition: 'box-shadow 0.3s ease, border-color 0.3s ease' }}
     >
       {/* ── Header: Division + Status ── */}
@@ -314,7 +314,7 @@ function DivisionCard({
 
       {/* ── Tournament Detail Info Grid ── */}
       {tournament && (
-        <div className={`grid grid-cols-2 gap-x-3 gap-y-1.5 p-2.5 rounded-lg ${isMale ? 'bg-idm-male/5 border-idm-male/10' : 'bg-idm-female/5 border-idm-female/10'} border mb-2.5`}>
+        <div className={`grid grid-cols-2 gap-x-3 gap-y-1.5 p-3 sm:p-4 rounded-lg ${isMale ? 'bg-idm-male/5 border-idm-male/10' : 'bg-idm-female/5 border-idm-female/10'} border mb-2.5`}>
           {schedule && (
             <>
               <DetailItem
@@ -671,7 +671,7 @@ export function CommunityHero({ maleData, femaleData, leagueData, onSawer, onReg
 
         {/* ── Row 2.5: Personal Stats — shown only when logged in ── */}
         {loggedInPlayer && (
-          <div className="flex items-center gap-3 p-3 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10 mb-4">
+          <div className="flex items-center gap-3 p-4 sm:p-5 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10 mb-4">
             {/* Avatar */}
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-idm-gold-warm/30 to-idm-gold-warm/10 flex items-center justify-center shrink-0 border border-idm-gold-warm/20">
               <span className="text-xs font-black text-idm-gold-warm">
@@ -724,7 +724,7 @@ export function CommunityHero({ maleData, femaleData, leagueData, onSawer, onReg
         )}
 
         {/* ── Row 3: Quick Stats + Progress (inline, compact) ── */}
-        <div className="flex items-center gap-4 sm:gap-6 p-3 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10 transition-all duration-300 hover:border-idm-gold-warm/20 hover:shadow-[0_0_5px_rgba(212,168,83,0.15)]">
+        <div className="flex items-center gap-4 sm:gap-6 p-4 sm:p-5 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10 transition-all duration-300 hover:border-idm-gold-warm/20 hover:shadow-[0_0_5px_rgba(212,168,83,0.15)]">
           {/* Stats */}
           <div className="flex items-center gap-3 sm:gap-5 shrink-0">
             {quickStats.map(stat => (

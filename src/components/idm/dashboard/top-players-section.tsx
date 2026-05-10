@@ -104,7 +104,7 @@ export function TopPlayersSection({ data, division, setSelectedPlayer }: TopPlay
             MVP
           </button>
         </div>
-        <div className="p-3 lg:p-6">
+        <div className="p-4 lg:p-6">
           {/* Top 3 Tab */}
           {topPlayerTab === 'top3' && (
             <>
@@ -152,7 +152,7 @@ export function TopPlayersSection({ data, division, setSelectedPlayer }: TopPlay
                   return (
                     <div className="space-y-3">
                       {/* Sultan banner */}
-                      <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+                      <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
                         <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-600 to-green-800 flex items-center justify-center shadow-lg shrink-0">
                           <Gem className="w-5 h-5 text-emerald-200" />
                         </div>
@@ -214,13 +214,13 @@ export function TopPlayersSection({ data, division, setSelectedPlayer }: TopPlay
                             <span className="text-[9px] text-muted-foreground">TOTAL SAWER</span>
                           </div>
                           <div className="grid grid-cols-2 gap-2">
-                            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                               <p className={`text-sm font-bold text-emerald-400`}>
                                 {selectedSultan.donationCount}x
                               </p>
                               <p className="text-[9px] text-muted-foreground">Saweran</p>
                             </div>
-                            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                               {sawerTier ? (
                                 <>
                                   <p className={`text-sm font-bold text-emerald-400`}>
@@ -275,7 +275,7 @@ export function TopPlayersSection({ data, division, setSelectedPlayer }: TopPlay
                   return (
                     <div className="space-y-3">
                       {/* Team banner */}
-                      <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+                      <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
                         <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center shadow-lg shrink-0`}>
                           <Crown className="w-5 h-5 text-white" />
                         </div>
@@ -387,15 +387,15 @@ export function TopPlayersSection({ data, division, setSelectedPlayer }: TopPlay
                             <span className="text-sm font-bold text-yellow-400">{selectedMvp.gamertag}</span>
                           </div>
                           <div className="grid grid-cols-3 gap-2">
-                            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                               <p className={`text-sm font-bold ${dt.neonText}`}>{selectedMvp.totalMvp}x</p>
                               <p className="text-[9px] text-muted-foreground">MVP</p>
                             </div>
-                            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                               <p className={`text-sm font-bold ${dt.neonText}`}>{selectedMvp.points}</p>
                               <p className="text-[9px] text-muted-foreground">Points</p>
                             </div>
-                            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                               <p className={`text-sm font-bold ${dt.neonText}`}>{selectedMvp.totalWins}</p>
                               <p className="text-[9px] text-muted-foreground">Wins</p>
                             </div>

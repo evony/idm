@@ -186,7 +186,7 @@ export function CommunityStreaks({ selectedDivision = 'all' }: CommunityStreaksP
 
       <div className="p-4 space-y-3">
         {/* ─── Top streak player — hero card ─── */}
-        <div className={`flex items-center gap-3 p-3 rounded-2xl ${topDt.bgSubtle} border ${topDt.borderSubtle} relative overflow-hidden`}>
+        <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${topDt.bgSubtle} border ${topDt.borderSubtle} relative overflow-hidden`}>
           {/* Animated flame glow background */}
           {topStreak.streak >= 3 && (
             <div
@@ -258,7 +258,7 @@ export function CommunityStreaks({ selectedDivision = 'all' }: CommunityStreaksP
               return (
                 <div
                   key={player.id}
-                  className={`flex items-center gap-2 p-2 rounded-lg ${i % 2 === 0 ? playerDt.bgSubtle : ''} transition-colors animate-fade-enter-sm`}
+                  className={`flex items-center gap-2 p-3 rounded-lg ${i % 2 === 0 ? playerDt.bgSubtle : ''} transition-colors animate-fade-enter-sm`}
                   style={{ animationDelay: `${(i + 1) * 60}ms` }}
                 >
                   {/* Rank number */}

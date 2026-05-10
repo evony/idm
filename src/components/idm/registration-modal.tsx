@@ -472,7 +472,7 @@ export function RegistrationModal({ open, onClose, defaultDivision }: Registrati
                       </div>
 
                       {warningState.similarPlayers.length > 0 && (
-                        <div className="mb-4 p-3 rounded-lg bg-muted/50">
+                        <div className="mb-4 p-4 sm:p-5 rounded-lg bg-muted/50">
                           <p className="text-xs font-semibold text-muted-foreground mb-2">Data yang cocok:</p>
                           <div className="space-y-2">
                             {warningState.similarPlayers.slice(0, 3).map((player) => (
@@ -525,7 +525,7 @@ export function RegistrationModal({ open, onClose, defaultDivision }: Registrati
 
                       {/* Approved player re-register info */}
                       {warningState.canReRegister && warningState.isApprovedPlayer && (
-                        <div className="mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20">
+                        <div className="mb-4 p-4 sm:p-5 rounded-lg bg-green-500/10 border border-green-500/20">
                           <div className="flex items-start gap-2">
                             <Music className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                             <div className="text-xs text-green-400">
@@ -537,7 +537,7 @@ export function RegistrationModal({ open, onClose, defaultDivision }: Registrati
 
                       {/* Re-registration info */}
                       {warningState.canReRegister && !warningState.isApprovedPlayer && (
-                        <div className="mb-4 p-3 rounded-lg bg-idm-male/10 border border-idm-male/20">
+                        <div className="mb-4 p-4 sm:p-5 rounded-lg bg-idm-male/10 border border-idm-male/20">
                           <div className="flex items-start gap-2">
                             <UserPlus className="w-4 h-4 text-idm-male mt-0.5 flex-shrink-0" />
                             <div className="text-xs text-idm-male">
@@ -550,7 +550,7 @@ export function RegistrationModal({ open, onClose, defaultDivision }: Registrati
 
                       {/* Already in tournament message */}
                       {warningState.isBlocked && warningState.alreadyInTournament && (
-                        <div className="mb-4 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                        <div className="mb-4 p-4 sm:p-5 rounded-lg bg-blue-500/10 border border-blue-500/20">
                           <div className="flex items-start gap-2">
                             <Info className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
                             <div className="flex-1">
@@ -574,7 +574,7 @@ export function RegistrationModal({ open, onClose, defaultDivision }: Registrati
 
                       {/* Blocked message */}
                       {warningState.isBlocked && !warningState.alreadyInTournament && (
-                        <div className="mb-4 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                        <div className="mb-4 p-4 sm:p-5 rounded-lg bg-red-500/10 border border-red-500/20">
                           <div className="flex items-start gap-2">
                             <Info className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
                             <p className="text-xs text-red-400">
@@ -586,7 +586,7 @@ export function RegistrationModal({ open, onClose, defaultDivision }: Registrati
 
                       {/* High risk message */}
                       {warningState.isHighRisk && !warningState.isBlocked && !warningState.canReRegister && (
-                        <div className="mb-4 p-3 rounded-lg bg-orange-500/10 border border-orange-500/20">
+                        <div className="mb-4 p-4 sm:p-5 rounded-lg bg-orange-500/10 border border-orange-500/20">
                           <p className="text-xs text-orange-400">
                             <strong>Perhatian:</strong> Jika ini adalah Anda, tidak perlu mendaftar ulang. Hubungi admin jika lupa nickname.
                           </p>

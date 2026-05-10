@@ -348,7 +348,7 @@ function ReigningChampionPlaque({
         </div>
 
         {/* Plaque Content — duo or single */}
-        <div className="p-3 lg:p-4">
+        <div className="p-4 sm:p-6">
           <div className={`grid gap-3 ${showBothDivisions ? 'grid-cols-2' : 'grid-cols-1'}`}>
             {/* Male Champion — filled or ghost */}
             {showMale && (
@@ -417,7 +417,7 @@ function ChampionBadge({
   return (
     <button
       onClick={onClick}
-      className={`group relative flex items-center gap-3 p-3 rounded-2xl border ${dt.bgSubtle} ${dt.borderSubtle} hover:${dt.border} transition-all cursor-pointer text-left w-full`}
+      className={`group relative flex items-center gap-3 p-4 sm:p-5 rounded-2xl border ${dt.bgSubtle} ${dt.borderSubtle} hover:${dt.border} transition-all cursor-pointer text-left w-full`}
     >
       {/* Avatar */}
       <div className="relative shrink-0">
@@ -467,7 +467,7 @@ function GhostChampionBadge({ division }: { division: 'male' | 'female' }) {
   const accentColor = division === 'male' ? '#2E9FFF' : '#FF2D78';
 
   return (
-    <div className={`flex items-center gap-3 p-3 rounded-2xl border ${dt.bgSubtle} ${dt.borderSubtle} opacity-55`}>
+    <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl border ${dt.bgSubtle} ${dt.borderSubtle} opacity-55`}>
       {/* Ghost avatar */}
       <div className="relative shrink-0">
         <div
@@ -545,7 +545,7 @@ function CompactWeeklyChampionCard({
       </div>
 
       {/* Content */}
-      <div className="p-3 lg:p-6 flex-1 flex flex-col">
+      <div className="p-4 lg:p-6 flex-1 flex flex-col">
         {champions.length === 0 ? (
           <div className={`flex-1 flex items-center justify-center p-8 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
             <div className="text-center">
@@ -557,7 +557,7 @@ function CompactWeeklyChampionCard({
         ) : (
           <div className="space-y-4 flex-1">
             {/* Team banner */}
-            <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+            <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
               <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center shadow-lg shrink-0`}>
                 <Crown className="w-5 h-5 text-white" />
               </div>
@@ -682,7 +682,7 @@ function CompactMvpCard({
       </div>
 
       {/* Content */}
-      <div className="p-3 lg:p-6 flex-1 flex flex-col">
+      <div className="p-4 lg:p-6 flex-1 flex flex-col">
         {!featuredPlayer ? (
           <div className={`flex-1 flex items-center justify-center p-8 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
             <div className="text-center">
@@ -792,7 +792,7 @@ function CompactTopFormCard({
       </div>
 
       {/* Content */}
-      <div className="p-3 lg:p-6 flex-1 flex flex-col">
+      <div className="p-4 lg:p-6 flex-1 flex flex-col">
         {!performer ? (
           <div className={`flex-1 flex items-center justify-center p-8 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
             <div className="text-center">
@@ -826,22 +826,22 @@ function CompactTopFormCard({
             />
 
             {/* Composite Score + breakdown */}
-            <div className={`p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+            <div className={`p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
               <div className="flex items-center gap-2 mb-2">
                 <Target className="w-4 h-4 text-amber-400" />
                 <span className="text-sm font-black text-amber-400">{performer.compositeScore}</span>
                 <span className="text-[9px] text-muted-foreground/50">COMPOSITE</span>
               </div>
               <div className="grid grid-cols-3 gap-1.5">
-                <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                   <p className={`text-xs font-bold ${dt.neonText}`}>+{performer.weeklyPointsGained}</p>
                   <p className="text-[8px] text-muted-foreground/50">+Pts</p>
                 </div>
-                <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                   <p className={`text-xs font-bold ${dt.neonText}`}>{performer.weeklyWinRate}%</p>
                   <p className="text-[8px] text-muted-foreground/50">Win%</p>
                 </div>
-                <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
+                <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} text-center`}>
                   <div className="flex items-center justify-center gap-0.5">
                     <Flame className="w-3 h-3 text-orange-400" />
                     <p className={`text-xs font-bold ${dt.neonText}`}>{performer.streak}</p>
@@ -1090,7 +1090,7 @@ function TourSayaSection({
               </div>
               
             </div>
-            <div className={`p-3 rounded-lg ${ct.bgSubtle} border ${ct.borderSubtle} mb-4`}>
+            <div className={`p-4 sm:p-5 rounded-lg ${ct.bgSubtle} border ${ct.borderSubtle} mb-4`}>
               <div className="flex items-center justify-between mb-1">
                 <span className="text-xs font-bold">{myStatus.tournament.name}</span>
                 <Badge className={`${ct.casinoBadge} text-[9px]`}>Week {myStatus.tournament.weekNumber}</Badge>
@@ -1146,7 +1146,7 @@ function TourSayaSection({
                 </div>
                 
               </div>
-              <div className={`p-3 rounded-2xl border ${myStatus.isChampion ? 'border-yellow-500/40 bg-yellow-500/5' : myStatus.isEliminated ? 'border-red-500/20 bg-red-500/5' : `${ct.borderSubtle} ${ct.bgSubtle}`}`}>
+              <div className={`p-4 sm:p-5 rounded-2xl border ${myStatus.isChampion ? 'border-yellow-500/40 bg-yellow-500/5' : myStatus.isEliminated ? 'border-red-500/20 bg-red-500/5' : `${ct.borderSubtle} ${ct.bgSubtle}`}`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     {myStatus.isChampion && <Crown className="w-4 h-4 text-yellow-500" />}
@@ -1211,7 +1211,7 @@ function TourSayaSection({
                       <p className="text-[10px] text-muted-foreground">{getRoundLabel(liveMatch.round, totalRounds)}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                  <div className="flex items-center gap-3 p-4 sm:p-5 rounded-lg bg-red-500/10 border border-red-500/20">
                     <span className="text-xs font-bold">{myTeam.name}</span>
                     <span className="text-sm font-bold tabular-nums text-red-400">
                       {liveMatch.myScore ?? 0} - {liveMatch.opponentScore ?? 0}
@@ -1234,7 +1234,7 @@ function TourSayaSection({
                       <p className="text-[10px] text-muted-foreground">{getRoundLabel(nextMatch.round, totalRounds)}</p>
                     </div>
                   </div>
-                  <div className={`p-3 rounded-2xl border ${ct.borderSubtle}`}>
+                  <div className={`p-4 sm:p-5 rounded-2xl border ${ct.borderSubtle}`}>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-bold">{nextOpponent?.name || 'TBD'}</span>
                       <Badge className={`${ct.casinoBadge} text-[9px]`}>Lawan</Badge>
@@ -1289,9 +1289,9 @@ function TourSayaSection({
                   <h3 className="text-xs font-semibold uppercase tracking-wider">Riwayat Match</h3>
                   <Badge className={`${ct.casinoBadge} ml-auto text-[9px]`}>{myStatus.completedMatchCount} Main</Badge>
                 </div>
-                <div className="p-2 space-y-1.5 max-h-80 overflow-y-auto custom-scrollbar">
+                <div className="p-3 space-y-1.5 max-h-80 overflow-y-auto custom-scrollbar">
                   {(showAllMatches ? myMatches : myMatches.slice(0, 5)).map((m: any) => (
-                    <div key={m.id} className={`p-2.5 rounded-lg border ${
+                    <div key={m.id} className={`p-3 sm:p-4 rounded-lg border ${
                       m.won ? `border-green-500/20 ${ct.bgSubtle}` :
                       m.lost ? 'border-red-500/10' :
                       'border-border/20'

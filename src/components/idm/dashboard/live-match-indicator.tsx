@@ -87,7 +87,7 @@ function ResultCard({ result, index }: { result: RecentResult; index: number }) 
 
   return (
     <div
-      className="live-indicator-result-card shrink-0 w-[180px] rounded-lg bg-white/[0.07] border border-white/[0.06] p-2.5 hover:border-idm-gold-warm/20 transition-all"
+      className="live-indicator-result-card shrink-0 w-[180px] rounded-lg bg-white/[0.07] border border-white/[0.06] p-3 sm:p-4 hover:border-idm-gold-warm/20 transition-all"
       style={{ animationDelay: `${index * 60}ms` }}
     >
       <div className="flex items-center justify-between gap-1.5">
@@ -196,7 +196,7 @@ export function LiveMatchIndicator() {
 
         {/* Row 2: Next match details */}
         {nextMatch && (
-          <div className={`flex items-center gap-2 p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle}`}>
+          <div className={`flex items-center gap-2 p-3 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle}`}>
             <Trophy className={`w-3.5 h-3.5 ${dt.neonText} shrink-0`} />
             <div className="min-w-0 flex-1">
               <p className="text-[11px] font-bold text-white/90 truncate">

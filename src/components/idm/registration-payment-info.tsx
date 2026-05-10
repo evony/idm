@@ -64,7 +64,7 @@ export function RegistrationPaymentInfo() {
       </div>
 
       {/* Generic registration fee notice - always shown */}
-      <div className="px-3 py-2 rounded-lg bg-idm-gold-warm/10 border border-idm-gold-warm/20">
+      <div className="p-3 sm:p-4 rounded-lg bg-idm-gold-warm/10 border border-idm-gold-warm/20">
         <div className="flex items-center gap-2">
           <Wallet className="w-3.5 h-3.5 text-idm-gold-warm shrink-0" />
           <p className="text-xs font-semibold text-idm-gold-warm">Biaya Registrasi</p>
@@ -79,7 +79,7 @@ export function RegistrationPaymentInfo() {
 
       {/* Account holder */}
       {holder && (
-        <div className="px-3 py-2 rounded-lg bg-muted/50 border border-border/30">
+        <div className="p-3 sm:p-4 rounded-lg bg-muted/50 border border-border/30">
           <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-0.5">Atas Nama</p>
           <p className="text-xs font-medium">{holder}</p>
         </div>
@@ -92,7 +92,7 @@ export function RegistrationPaymentInfo() {
           {availableMethods.map((method) => {
             const val = cmsSettings?.[method.key] || '';
             return (
-              <div key={method.key} className="flex items-center justify-between px-3 py-2 rounded-lg bg-muted/50 border border-border/30">
+              <div key={method.key} className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-muted/50 border border-border/30">
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: method.color }} />
                   <span className="text-[11px] font-semibold text-muted-foreground shrink-0">{method.label}</span>

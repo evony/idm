@@ -46,7 +46,7 @@ export function SkeletonCard({ className }: SkeletonProps) {
       {/* Avatar area */}
       <Skeleton className="w-full aspect-[3/4]" />
       {/* Info overlay */}
-      <div className="p-3 space-y-2">
+      <div className="p-4 sm:p-5 space-y-2">
         <Skeleton className="h-3 w-2/3" />
         <Skeleton className="h-2 w-1/2" />
         <div className="flex gap-2 pt-1">

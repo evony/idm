@@ -318,7 +318,7 @@ export function MyTournamentCard() {
                   <p className="text-[10px] text-muted-foreground">{data.player.name} • {data.player.city}</p>
                 </div>
               </div>
-              <div className={`p-3 rounded-lg ${dt.bgSubtle} border ${dt.borderSubtle} mb-4`}>
+              <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} border ${dt.borderSubtle} mb-4`}>
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-xs font-bold">{data.tournament.name}</span>
                   <Badge className={`${dt.casinoBadge} text-[9px]`}>Week {data.tournament.weekNumber}</Badge>
@@ -340,7 +340,7 @@ export function MyTournamentCard() {
                    data.message}
                 </p>
                 {data.prizeInfo && (
-                  <div className={`mt-3 p-2.5 rounded-lg ${dt.bgSubtle} border ${dt.borderSubtle} text-left`}>
+                  <div className={`mt-3 p-3 sm:p-4 rounded-lg ${dt.bgSubtle} border ${dt.borderSubtle} text-left`}>
                     <p className="text-[10px] font-semibold mb-1.5">Hasil Turnamen</p>
                     {data.prizeInfo.isWinner && <p className="text-[10px] text-yellow-500 font-bold">Juara!</p>}
                     {data.prizeInfo.teamRank && <p className="text-[10px] text-muted-foreground">Peringkat: #{data.prizeInfo.teamRank}</p>}
@@ -371,7 +371,7 @@ export function MyTournamentCard() {
         <Card className={`${dt.casinoCard} ${dt.cornerAccent} overflow-hidden`}>
           <div className={dt.casinoBar} />
           <CardContent className="p-0 relative z-10">
-            <div className="p-4 sm:p-5">
+            <div className="p-4 sm:p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${dt.iconBg}`}>
                   <Users className={`w-5 h-5 ${dt.neonText}`} />
@@ -381,7 +381,7 @@ export function MyTournamentCard() {
                   <p className="text-[10px] text-muted-foreground">{data.player.name} • {data.player.city}</p>
                 </div>
               </div>
-              <div className={`p-3 rounded-xl border ${data.isChampion ? 'border-yellow-500/40 bg-yellow-500/5' : data.isEliminated ? 'border-red-500/20 bg-red-500/5' : `${dt.borderSubtle} ${dt.bgSubtle}`}`}>
+              <div className={`p-3 sm:p-4 rounded-xl border ${data.isChampion ? 'border-yellow-500/40 bg-yellow-500/5' : data.isEliminated ? 'border-red-500/20 bg-red-500/5' : `${dt.borderSubtle} ${dt.bgSubtle}`}`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     {data.isChampion && <Crown className="w-4 h-4 text-yellow-500" />}
@@ -448,7 +448,7 @@ export function MyTournamentCard() {
                       <p className="text-[10px] text-muted-foreground">{getRoundLabel(liveMatch.round, totalRounds)}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                  <div className="flex items-center gap-3 p-3 sm:p-4 rounded-lg bg-red-500/10 border border-red-500/20">
                     <span className="text-xs font-bold">{myTeam.name}</span>
                     <span className="text-sm font-bold tabular-nums text-red-400">
                       {liveMatch.myScore ?? 0} - {liveMatch.opponentScore ?? 0}
@@ -471,7 +471,7 @@ export function MyTournamentCard() {
                       <p className="text-[10px] text-muted-foreground">{getRoundLabel(nextMatch.round, totalRounds)} • {nextMatch.format || 'BO3'}</p>
                     </div>
                   </div>
-                  <div className={`p-3 rounded-xl border ${dt.borderSubtle}`}>
+                  <div className={`p-3 sm:p-4 rounded-xl border ${dt.borderSubtle}`}>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-bold">{nextOpponent?.name || 'TBD'}</span>
                       <Badge className={`${dt.casinoBadge} text-[9px]`}>Lawan</Badge>
@@ -531,11 +531,11 @@ export function MyTournamentCard() {
                   <h3 className="text-xs font-semibold uppercase tracking-wider">Riwayat Pertandingan</h3>
                   <Badge className={`${dt.casinoBadge} ml-auto text-[9px]`}>{data.completedMatchCount} Main</Badge>
                 </div>
-                <div className="p-2 space-y-1.5 max-h-96 overflow-y-auto custom-scrollbar">
+                <div className="p-3 space-y-1.5 max-h-96 overflow-y-auto custom-scrollbar">
                   {(showAllMatches ? myMatches : myMatches.slice(0, 5)).map((m: MatchInfo) => {
                     const isLive = m.status === 'live';
                     return (
-                      <div key={m.id} className={`p-2.5 rounded-lg border ${
+                      <div key={m.id} className={`p-3 sm:p-4 rounded-lg border ${
                         isLive ? 'border-red-500/30' :
                         m.won ? `border-green-500/20 ${dt.bgSubtle}` :
                         m.lost ? 'border-red-500/10' :
@@ -734,7 +734,7 @@ export function MyTournamentCard() {
                   <h3 className="text-xs font-bold text-red-500 uppercase tracking-wider">Live Sekarang!</h3>
                 </div>
                 {overview.liveMatches.map((m: OverviewMatch) => (
-                  <div key={m.id} className="flex items-center gap-2 p-2 rounded-lg bg-red-500/10 border border-red-500/20 mb-1.5 last:mb-0">
+                  <div key={m.id} className="flex items-center gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20 mb-1.5 last:mb-0">
                     <span className="text-[10px] font-bold flex-1 truncate">{m.team1.name}</span>
                     <span className="text-xs font-bold tabular-nums text-red-400">
                       {m.score1 ?? 0} - {m.score2 ?? 0}
@@ -788,9 +788,9 @@ export function MyTournamentCard() {
                       <h3 className="text-xs font-semibold uppercase tracking-wider">Top Tim</h3>
                       <Badge className={`${dt.casinoBadge} ml-auto text-[9px]`}>{overview.tournament.totalTeams} Tim</Badge>
                     </div>
-                    <div className="p-2 space-y-1">
+                    <div className="p-3 space-y-1">
                       {overview.topTeams.slice(0, 5).map((team: OverviewTeam, idx: number) => (
-                        <div key={team.id} className={`flex items-center gap-2 p-2 rounded-lg ${
+                        <div key={team.id} className={`flex items-center gap-2 p-3 rounded-lg ${
                           idx === 0 ? `${dt.bgSubtle} border ${dt.borderSubtle}` : ''
                         }`}>
                           <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 ${
@@ -832,9 +832,9 @@ export function MyTournamentCard() {
                       </div>
                       <h3 className="text-xs font-semibold uppercase tracking-wider">Hasil Terbaru</h3>
                     </div>
-                    <div className="p-2 space-y-1 max-h-72 overflow-y-auto custom-scrollbar">
+                    <div className="p-3 space-y-1 max-h-72 overflow-y-auto custom-scrollbar">
                       {overview.recentMatches.map((m: OverviewMatch) => (
-                        <div key={m.id} className="flex items-center gap-2 p-2 rounded-lg border border-border/20">
+                        <div key={m.id} className="flex items-center gap-2 p-3 rounded-lg border border-border/20">
                           <span className="text-[10px] font-semibold flex-1 truncate text-right">{m.team1.name}</span>
                           <div className="flex items-center gap-1 shrink-0">
                             <span className="text-xs font-bold tabular-nums">{m.score1}</span>
@@ -864,9 +864,9 @@ export function MyTournamentCard() {
                       </div>
                       <h3 className="text-xs font-semibold uppercase tracking-wider">Match Selanjutnya</h3>
                     </div>
-                    <div className="p-2 space-y-1 max-h-72 overflow-y-auto custom-scrollbar">
+                    <div className="p-3 space-y-1 max-h-72 overflow-y-auto custom-scrollbar">
                       {overview.upcomingMatches.map((m: OverviewMatch) => (
-                        <div key={m.id} className="flex items-center gap-2 p-2 rounded-lg border border-border/20">
+                        <div key={m.id} className="flex items-center gap-2 p-3 rounded-lg border border-border/20">
                           <span className="text-[10px] font-semibold flex-1 truncate text-right">{m.team1.name}</span>
                           <span className="text-[9px] text-muted-foreground px-1.5 py-0.5 rounded bg-muted/50 shrink-0">VS</span>
                           <span className="text-[10px] font-semibold flex-1 truncate">{m.team2.name}</span>
@@ -897,7 +897,7 @@ export function MyTournamentCard() {
                     </div>
                     {/* Approved participants */}
                     {overview.topParticipants && overview.topParticipants.length > 0 && (
-                      <div className="p-2">
+                      <div className="p-3">
                         <p className="text-[9px] font-semibold text-green-400 mb-1.5 px-1">Disetujui</p>
                         <div className="grid grid-cols-2 gap-1.5">
                           {overview.topParticipants.map((p: OverviewPlayer & { status?: string }) => (
@@ -911,7 +911,7 @@ export function MyTournamentCard() {
                     )}
                     {/* Registered but not yet approved */}
                     {overview.registeredParticipants && overview.registeredParticipants.length > 0 && (
-                      <div className="p-2">
+                      <div className="p-3">
                         <p className="text-[9px] font-semibold text-yellow-400 mb-1.5 px-1">Menunggu Persetujuan</p>
                         <div className="grid grid-cols-2 gap-1.5">
                           {overview.registeredParticipants.map((p: OverviewPlayer) => (

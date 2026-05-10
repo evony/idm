@@ -175,7 +175,7 @@ function SingleDivisionRivalryCard({
           </Badge>
         </div>
 
-        <div className="p-3 sm:p-4 flex-1 flex flex-col items-center justify-center">
+        <div className="p-4 sm:p-6 flex-1 flex flex-col items-center justify-center">
           {/* Silhouette player cards with VS — horizontal on all screens */}
           <div className="flex items-center gap-2 sm:gap-4 mb-3 w-full">
             {/* Player 1 silhouette — compact horizontal */}
@@ -241,7 +241,7 @@ function SingleDivisionRivalryCard({
           </div>
 
           {/* Point gap placeholder */}
-          <div className={`w-full flex items-center justify-center gap-2 p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border mb-3`}>
+          <div className={`w-full flex items-center justify-center gap-2 p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border mb-3`}>
             <TrendingUp className="w-3 h-3 text-muted-foreground/20 shrink-0" />
             <span className="text-[10px] text-muted-foreground/30">
               Belum ada data perbandingan
@@ -249,7 +249,7 @@ function SingleDivisionRivalryCard({
           </div>
 
           {/* Total players placeholder */}
-          <div className={`w-full flex items-center justify-between px-3 py-2 rounded-lg ${dt.bgSubtle}`}>
+          <div className={`w-full flex items-center justify-between p-3 sm:p-4 rounded-lg ${dt.bgSubtle}`}>
             <div className="flex items-center gap-2">
               <Users className={`w-3.5 h-3.5 ${dt.neonText} opacity-30`} />
               <span className="text-[10px] text-muted-foreground/40">Total Pemain Tarkam</span>
@@ -295,7 +295,7 @@ function SingleDivisionRivalryCard({
       </div>
 
       {/* Rivalry Display — horizontal side-by-side on all screens */}
-      <div className="p-3 sm:p-4 space-y-3 sm:space-y-4">
+      <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
         <div className="flex items-center gap-2 sm:gap-4">
           {/* Player 1 */}
           <div className="flex-1 min-w-0">
@@ -335,7 +335,7 @@ function SingleDivisionRivalryCard({
         </div>
 
         {/* Point Gap Indicator */}
-        <div className={`flex items-center justify-center gap-2 p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border`}>
+        <div className={`flex items-center justify-center gap-2 p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border`}>
           <TrendingUp className="w-3 h-3 text-idm-gold-warm shrink-0" />
           <span className="text-[10px] text-muted-foreground">
             {pointDiff > 0 ? (
@@ -354,7 +354,7 @@ function SingleDivisionRivalryCard({
         </div>
 
         {/* Total Players in Division */}
-        <div className={`flex items-center justify-between px-3 py-2 rounded-lg ${dt.bgSubtle}`}>
+        <div className={`flex items-center justify-between p-3 sm:p-4 rounded-lg ${dt.bgSubtle}`}>
           <div className="flex items-center gap-2">
             <Users className={`w-3.5 h-3.5 ${dt.neonText}`} />
             <span className="text-[10px] text-muted-foreground">Total Pemain Tarkam</span>

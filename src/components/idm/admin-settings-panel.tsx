@@ -373,7 +373,7 @@ export function AdminSettingsPanel() {
                   const style = ACTION_STYLES[log.action] || { bg: 'bg-muted', text: 'text-muted-foreground', icon: '•' };
                   const entityLabel = ENTITY_LABELS[log.entity] || log.entity;
                   return (
-                    <div key={log.id} className="flex items-start gap-3 p-2.5 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                    <div key={log.id} className="flex items-start gap-3 p-3 sm:p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
                       <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs shrink-0 ${style.bg} ${style.text}`}>
                         {style.icon}
                       </div>

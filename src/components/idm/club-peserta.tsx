@@ -108,17 +108,17 @@ export function ClubPeserta() {
 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-3 mb-4">
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-2 text-center">
+                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 sm:p-4 text-center">
                     <Users className="w-4 h-4 mx-auto mb-1 text-cyan-500" />
                     <p className="text-sm font-bold text-gray-900 dark:text-white">{club.members}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Members</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-2 text-center">
+                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 sm:p-4 text-center">
                     <Trophy className="w-4 h-4 mx-auto mb-1 text-amber-500" />
                     <p className="text-sm font-bold text-gray-900 dark:text-white">{club.tournaments}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Tournaments</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-2 text-center">
+                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 sm:p-4 text-center">
                     <Trophy className="w-4 h-4 mx-auto mb-1 text-green-500" />
                     <p className="text-sm font-bold text-gray-900 dark:text-white">{club.wins}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Wins</p>

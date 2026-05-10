@@ -80,7 +80,7 @@ function MvpDivisionCard({
     // Bare mode: ghost layout with division label
     if (bare) {
       return (
-        <div className={`rounded-2xl border ${dt.bgSubtle} ${dt.borderSubtle} p-3 lg:p-6`}>
+        <div className={`rounded-2xl border ${dt.bgSubtle} ${dt.borderSubtle} p-4 lg:p-6`}>
           {/* Division label */}
           <div className="flex items-center gap-1.5 mb-3">
             <DivisionIcon className="w-3.5 h-3.5 shrink-0" style={{ color: accentColor }} />
@@ -143,7 +143,7 @@ function MvpDivisionCard({
           </div>
           <h3 className="text-xs lg:text-sm font-semibold uppercase tracking-wider">MVP {division === 'male' ? 'Male' : 'Female'}</h3>
         </div>
-        <div className="p-3 lg:p-6">
+        <div className="p-4 lg:p-6">
           <div className="flex gap-3 sm:gap-4 items-stretch opacity-50">
             {/* Ghost avatar panel */}
             <div
@@ -196,7 +196,7 @@ function MvpDivisionCard({
 
   /* ─── Inner content — shared between bare & full modes ─── */
   const mvpContent = (
-    <div className="p-3 lg:p-6">
+    <div className="p-4 lg:p-6">
       {/* Division label — only in bare mode */}
       {bare && (
         <div className="flex items-center gap-1.5 mb-3">
@@ -369,7 +369,7 @@ export function MvpSpotlight({ maleData, femaleData, selectedDivision = 'all', o
 
         {bothEmpty ? (
           /* Unified ghost state — both divisions empty */
-          <div className="p-3 lg:p-4">
+          <div className="p-4 sm:p-6">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className={`border-b lg:border-b-0 lg:border-r ${ct.borderSubtle}`}>
                 <MvpDivisionCard

@@ -120,7 +120,7 @@ function LoadingSkeleton() {
         </div>
         <div className="space-y-2">
           {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="flex items-center gap-2 p-2 rounded-lg">
+            <div key={i} className="flex items-center gap-2 p-3 rounded-lg">
               <Skeleton className="w-6 h-6 rounded-full shrink-0" />
               <Skeleton className="h-3 w-20 rounded flex-1" />
               <Skeleton className="h-3 w-16 rounded" />
@@ -224,7 +224,7 @@ export function TopDonorsWidget({ onDonate }: TopDonorsWidgetProps) {
           {donors.map((donor, i) => (
             <div
               key={donor.donorName}
-              className="donor-row-enter flex items-center gap-2 p-2 rounded-lg hover:bg-idm-gold-warm/5 transition-colors group"
+              className="donor-row-enter flex items-center gap-2 p-3 rounded-lg hover:bg-idm-gold-warm/5 transition-colors group"
               style={{ animationDelay: `${i * 60}ms` }}
             >
               {/* Rank */}

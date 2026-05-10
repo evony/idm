@@ -93,9 +93,9 @@ export function CommunityDonors({ maleData, femaleData, onSawer }: CommunityDono
         <Badge className={`hidden sm:inline-flex ${dt.casinoBadge} ml-auto text-[9px]`}>KOMUNITAS</Badge>
       </div>
 
-      <CardContent className="p-3 lg:p-6">
+      <CardContent className="p-4 sm:p-6">
         {/* Total donation header */}
-        <div className={`flex items-center justify-between mb-4 p-3 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
+        <div className={`flex items-center justify-between mb-4 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
           <div>
             <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">Total Saweran → Prize Pool</p>
             <p className={`text-lg font-black ${dt.neonGradient}`}>
@@ -116,7 +116,7 @@ export function CommunityDonors({ maleData, femaleData, onSawer }: CommunityDono
             return (
               <div
                 key={donor.donorName}
-                className="group flex items-center gap-3 p-2.5 rounded-2xl hover:${dt.hoverBgSubtle} transition-colors duration-200 animate-fade-enter-sm"
+                className="group flex items-center gap-3 p-3 sm:p-4 rounded-2xl hover:${dt.hoverBgSubtle} transition-colors duration-200 animate-fade-enter-sm"
                 style={{ animationDelay: `${i * 50}ms` }}
               >
                 {/* Rank */}

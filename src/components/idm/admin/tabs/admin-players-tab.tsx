@@ -62,7 +62,7 @@ export function AdminPlayersTab({
             </h3>
             <div className="space-y-2 max-h-72 overflow-y-auto custom-scrollbar">
               {pendingRegistrations.map((p: { id: string; name: string; gamertag: string; division: string; city: string; phone: string | null; joki: string | null; createdAt: string }, index) => (
-                <div key={p.id} className="p-3 rounded-2xl bg-card border border-yellow-500/10"
+                <div key={p.id} className="p-4 sm:p-5 rounded-2xl bg-card border border-yellow-500/10"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
@@ -149,7 +149,7 @@ export function AdminPlayersTab({
         }, index) => {
           const avatarSrc = getAvatarUrl(p.gamertag, p.division as 'male' | 'female', p.avatar);
           return (
-          <div key={p.id} className={`flex items-center justify-between p-2 sm:p-3 rounded-2xl bg-card border border-border/50 ${dt.casinoGlow} transition-colors hover:border-border/80`}
+          <div key={p.id} className={`flex items-center justify-between p-3 sm:p-4 rounded-2xl bg-card border border-border/50 ${dt.casinoGlow} transition-colors hover:border-border/80`}
           >
             <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
               <div className="relative group shrink-0">

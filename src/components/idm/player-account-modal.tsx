@@ -267,7 +267,7 @@ export function PlayerAccountModal({ open, onOpenChange }: PlayerAccountModalPro
               </div>
 
               {/* Info */}
-              <div className="mt-5 p-3 rounded-lg bg-muted/20 border border-border/30">
+              <div className="mt-5 p-4 sm:p-5 rounded-lg bg-muted/20 border border-border/30">
                 <div className="flex items-start gap-2">
                   <Sparkles className="w-4 h-4 text-idm-gold shrink-0 mt-0.5" />
                   <div>
@@ -570,7 +570,7 @@ export function PlayerAccountModal({ open, onOpenChange }: PlayerAccountModalPro
                 )}
 
                 {/* Info box */}
-                <div className="p-2.5 rounded-lg bg-muted/20 border border-border/30 flex items-start gap-2">
+                <div className="p-3 sm:p-4 rounded-lg bg-muted/20 border border-border/30 flex items-start gap-2">
                   <Info className="w-3.5 h-3.5 text-idm-gold shrink-0 mt-0.5" />
                   <p className="text-[10px] text-muted-foreground leading-relaxed">
                     Setelah mendaftar, akun kamu perlu disetujui admin sebelum muncul di leaderboard.

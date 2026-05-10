@@ -262,7 +262,7 @@ export function Dashboard() {
           <div className="flex items-center justify-center rounded-2xl border border-border/50 bg-card/60 p-3">
             <Skeleton className="h-8 w-48 rounded-lg" />
           </div>
-          <div className="p-3 rounded-2xl border border-border/50 bg-card/60 space-y-2">
+          <div className="p-3 sm:p-4 rounded-2xl border border-border/50 bg-card/60 space-y-2">
             <Skeleton className="h-3 w-24 rounded" />
             <Skeleton className="h-6 w-32 rounded" />
             <Skeleton className="h-1.5 w-full rounded-full" />
@@ -385,7 +385,7 @@ export function Dashboard() {
                 <p className="text-[10px] text-muted-foreground">{myStatus.player.name} • {myStatus.player.city}</p>
               </div>
             </div>
-            <div className={`p-3 rounded-lg ${dt.bgSubtle} border ${dt.borderSubtle} mb-4`}>
+            <div className={`p-4 sm:p-5 rounded-lg ${dt.bgSubtle} border ${dt.borderSubtle} mb-4`}>
               <div className="flex items-center justify-between mb-1">
                 <span className="text-xs font-bold">{myStatus.tournament.name}</span>
                 <Badge className={`${dt.casinoBadge} text-[9px]`}>Week {myStatus.tournament.weekNumber}</Badge>
@@ -440,7 +440,7 @@ export function Dashboard() {
                   <p className="text-[10px] text-muted-foreground">{myStatus.player.name} • {myStatus.player.city}</p>
                 </div>
                 </div>
-              <div className={`p-3 rounded-2xl border ${myStatus.isChampion ? 'border-yellow-500/40 bg-yellow-500/5' : myStatus.isEliminated ? 'border-red-500/20 bg-red-500/5' : `${dt.borderSubtle} ${dt.bgSubtle}`}`}>
+              <div className={`p-4 sm:p-5 rounded-2xl border ${myStatus.isChampion ? 'border-yellow-500/40 bg-yellow-500/5' : myStatus.isEliminated ? 'border-red-500/20 bg-red-500/5' : `${dt.borderSubtle} ${dt.bgSubtle}`}`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     {myStatus.isChampion && <Crown className="w-4 h-4 text-yellow-500" />}
@@ -505,7 +505,7 @@ export function Dashboard() {
                       <p className="text-[10px] text-muted-foreground">{getRoundLabel(liveMatch.round, totalRounds)}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                  <div className="flex items-center gap-3 p-3 sm:p-4 rounded-lg bg-red-500/10 border border-red-500/20">
                     <span className="text-xs font-bold">{myTeam.name}</span>
                     <span className="text-sm font-bold tabular-nums text-red-400">
                       {liveMatch.myScore ?? 0} - {liveMatch.opponentScore ?? 0}
@@ -528,7 +528,7 @@ export function Dashboard() {
                       <p className="text-[10px] text-muted-foreground">{getRoundLabel(nextMatch.round, totalRounds)}</p>
                     </div>
                   </div>
-                  <div className={`p-3 rounded-2xl border ${dt.borderSubtle}`}>
+                  <div className={`p-4 sm:p-5 rounded-2xl border ${dt.borderSubtle}`}>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-bold">{nextOpponent?.name || 'TBD'}</span>
                       <Badge className={`${dt.casinoBadge} text-[9px]`}>Lawan</Badge>
@@ -583,9 +583,9 @@ export function Dashboard() {
                   <h3 className="text-xs font-semibold uppercase tracking-wider">Riwayat Match</h3>
                   <Badge className={`${dt.casinoBadge} ml-auto text-[9px]`}>{myStatus.completedMatchCount} Main</Badge>
                 </div>
-                <div className="p-2 space-y-1.5 max-h-80 overflow-y-auto custom-scrollbar">
+                <div className="p-3 space-y-1.5 max-h-80 overflow-y-auto custom-scrollbar">
                   {(showAllMatches ? myMatches : myMatches.slice(0, 5)).map((m: any) => (
-                    <div key={m.id} className={`p-2.5 rounded-lg border ${
+                    <div key={m.id} className={`p-3 sm:p-4 rounded-lg border ${
                       m.won ? `border-green-500/20 ${dt.bgSubtle}` :
                       m.lost ? 'border-red-500/10' :
                       'border-border/20'
@@ -890,7 +890,7 @@ export function Dashboard() {
                   <h3 className="text-xs font-semibold uppercase tracking-wider">Hasil Terbaru</h3>
                   <Badge className={`${dt.casinoBadge} ml-auto`}>HASIL</Badge>
                 </div>
-                <div className="p-2 space-y-1.5 max-h-64 overflow-y-auto custom-scrollbar">
+                <div className="p-3 space-y-1.5 max-h-64 overflow-y-auto custom-scrollbar">
                   {t.matches.filter(m => m.status === 'completed').slice(-5).reverse().map(m => (
                     <DanceMatchCard
                       key={m.id}

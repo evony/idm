@@ -120,7 +120,7 @@ export function DreamSection({ maleData, femaleData, leagueData, nextSeason, com
           {/* Champion Highlight Card */}
           {leagueData?.tarkamChampion && leagueData.tarkamChampion.seasonNumber !== 1 && (
             <div className="stagger-item-fast mt-6" style={{ animationDelay: '120ms' }}>
-              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border border-[#d4a853]/20 bg-mid">
+              <div className="inline-flex items-center gap-3 p-4 sm:p-5 rounded-2xl border border-[#d4a853]/20 bg-mid">
                 <div className="relative">
                   <ClubLogoImage clubName={leagueData.tarkamChampion.name} dbLogo={leagueData.tarkamChampion.logo} alt={leagueData.tarkamChampion.name} width={40} height={40} className="w-10 h-10 rounded-2xl object-cover border border-[#d4a853]/30" />
                   <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#d4a853] flex items-center justify-center">

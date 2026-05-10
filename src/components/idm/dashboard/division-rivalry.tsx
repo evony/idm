@@ -229,7 +229,7 @@ export function DivisionRivalry({ setSelectedPlayer }: DivisionRivalryProps) {
         </div>
 
         {/* Point Gap Indicator */}
-        <div className={`flex items-center justify-center gap-2 p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle}`}>
+        <div className={`flex items-center justify-center gap-2 p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle}`}>
           <TrendingUp className="w-3 h-3 text-idm-gold-warm" />
           <span className="text-[10px] text-muted-foreground">
             {pointDiff > 0 ? (

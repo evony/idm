@@ -534,7 +534,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                         ) : (
                           <>
                             {/* ── Champion Management ── */}
-                            <div className="p-3 rounded-lg bg-muted/30 border border-border/20">
+                            <div className="p-4 sm:p-5 rounded-lg bg-muted/30 border border-border/20">
                               <div className="flex items-center justify-between mb-2">
                                 <p className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5">
                                   <Crown className="w-3.5 h-3.5 text-yellow-500" /> {isTarkam ? 'Champion Season (Individu)' : 'Champion Season'}
@@ -598,7 +598,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
 
                                   {/* No champion yet */}
                                   {!championClub && !isChampionEditing && (
-                                    <div className="p-3 rounded-lg bg-muted/30 border border-dashed border-border/40 text-center">
+                                    <div className="p-4 sm:p-5 rounded-lg bg-muted/30 border border-dashed border-border/40 text-center">
                                       <Crown className="w-5 h-5 text-muted-foreground/40 mx-auto mb-1" />
                                       <p className="text-[10px] text-muted-foreground">Belum ada champion untuk season ini</p>
                                     </div>
@@ -619,7 +619,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                                               return (
                                                 <div
                                                   key={club.id}
-                                                  className={`flex items-center gap-3 p-2 rounded-lg border cursor-pointer transition-all ${
+                                                  className={`flex items-center gap-3 p-3 sm:p-4 rounded-lg border cursor-pointer transition-all ${
                                                     selectedChampion === championRef
                                                       ? 'border-yellow-500/30 bg-yellow-500/5'
                                                       : 'border-border/20 bg-card/30 hover:bg-muted/20'
@@ -676,7 +676,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                                             {seasonDetail?.availableProfiles?.map((profile) => (
                                               <div
                                                 key={profile.id}
-                                                className={`flex items-center gap-3 p-2 rounded-lg border cursor-pointer transition-all ${
+                                                className={`flex items-center gap-3 p-3 sm:p-4 rounded-lg border cursor-pointer transition-all ${
                                                   selectedChampion === profile.id
                                                     ? 'border-yellow-500/30 bg-yellow-500/5'
                                                     : 'border-border/20 bg-card/30 hover:bg-muted/20'
@@ -790,7 +790,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
 
                                   {/* No champion yet - Tarkam */}
                                   {!seasonDetail?.championPlayer && !isChampionEditing && (
-                                    <div className="p-3 rounded-lg bg-muted/30 border border-dashed border-border/40 text-center">
+                                    <div className="p-4 sm:p-5 rounded-lg bg-muted/30 border border-dashed border-border/40 text-center">
                                       <Crown className="w-5 h-5 text-muted-foreground/40 mx-auto mb-1" />
                                       <p className="text-[10px] text-muted-foreground">Belum ada champion untuk season ini</p>
                                     </div>
@@ -812,7 +812,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                                           .map((player) => (
                                           <div
                                             key={player.id}
-                                            className={`flex items-center gap-3 p-2 rounded-lg border cursor-pointer transition-all ${
+                                            className={`flex items-center gap-3 p-3 sm:p-4 rounded-lg border cursor-pointer transition-all ${
                                               selectedChampionPlayer === player.id
                                                 ? 'border-yellow-500/30 bg-yellow-500/5'
                                                 : 'border-border/20 bg-card/30 hover:bg-muted/20'
@@ -887,7 +887,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
 
                             {/* ── Champion Squad Management ── */}
                             {!isTarkam && seasonDetail?.championClubId && (
-                              <div className="p-3 rounded-lg bg-muted/30 border border-border/20">
+                              <div className="p-4 sm:p-5 rounded-lg bg-muted/30 border border-border/20">
                                 <div className="flex items-center justify-between mb-2">
                                   <p className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5">
                                     <Star className="w-3.5 h-3.5 text-yellow-500" /> Skuad Champion (5 Perwakilan)
@@ -940,7 +940,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                                     );
                                   }
                                   return (
-                                    <div className="p-3 rounded-lg bg-muted/30 border border-dashed border-border/40 text-center">
+                                    <div className="p-4 sm:p-5 rounded-lg bg-muted/30 border border-dashed border-border/40 text-center">
                                       <Star className="w-5 h-5 text-muted-foreground/40 mx-auto mb-1" />
                                       <p className="text-[10px] text-muted-foreground">Belum ada skuad champion dipilih</p>
                                       <p className="text-[9px] text-muted-foreground/60">Klik "Set Skuad" untuk memilih 5 perwakilan</p>
@@ -1029,7 +1029,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                             )}
 
                             {/* ── Status Management ── */}
-                            <div className="p-3 rounded-lg bg-muted/30 border border-border/20">
+                            <div className="p-4 sm:p-5 rounded-lg bg-muted/30 border border-border/20">
                               <div className="flex items-center justify-between mb-2">
                                 <p className="text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5">
                                   <Flag className="w-3.5 h-3.5" /> Status Season
@@ -1087,7 +1087,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
 
                             {/* ── Tutup Season Button ── */}
                             {(seasonDetail?.status || season.status) === 'active' && (
-                              <div className="p-3 rounded-lg bg-orange-500/5 border border-orange-500/15">
+                              <div className="p-4 sm:p-5 rounded-lg bg-orange-500/5 border border-orange-500/15">
                                 <div className="flex items-center justify-between">
                                   <div>
                                     <p className="text-xs font-semibold text-orange-400 flex items-center gap-1.5">
@@ -1148,7 +1148,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
 
                             {/* ── Clubs in Season (Liga only) ── */}
                             {!isTarkam && (
-                              <div className="p-3 rounded-lg bg-muted/30 border border-border/20">
+                              <div className="p-4 sm:p-5 rounded-lg bg-muted/30 border border-border/20">
                                 <div className="flex items-center justify-between mb-2">
                                   <p className="text-[10px] font-semibold uppercase tracking-wider flex items-center gap-1.5">
                                     <Shield className="w-3.5 h-3.5 text-blue-400" /> Club di Season Ini ({seasonDetail?.clubs?.length || 0})
@@ -1166,7 +1166,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                                         return (
                                           <div
                                             key={club.id}
-                                            className={`flex items-center gap-2 p-2 rounded-lg border text-xs transition-colors ${
+                                            className={`flex items-center gap-2 p-3 sm:p-4 rounded-lg border text-xs transition-colors ${
                                               isChampion
                                                 ? 'border-yellow-500/20 bg-yellow-500/5'
                                                 : 'border-border/20 bg-card/30 hover:bg-muted/20'
@@ -1224,7 +1224,7 @@ export function AdminSeasonPanel({ division, dt, setConfirmDialog, mode = 'liga'
                                   {seasonDetail.players.map((player, idx) => (
                                     <div
                                       key={player.id}
-                                      className={`flex items-center gap-2 p-2 rounded-lg border text-xs ${
+                                      className={`flex items-center gap-2 p-3 sm:p-4 rounded-lg border text-xs ${
                                         player.id === seasonDetail.championPlayerId
                                           ? 'border-yellow-500/20 bg-yellow-500/5'
                                           : 'border-border/20 bg-card/30'
@@ -1462,7 +1462,7 @@ function ChampionSquadSelector({
           return (
             <div
               key={player.id}
-              className={`flex items-center gap-2 p-2 rounded-lg border cursor-pointer transition-all ${
+              className={`flex items-center gap-2 p-3 sm:p-4 rounded-lg border cursor-pointer transition-all ${
                 isSelected
                   ? 'border-yellow-500/30 bg-yellow-500/5'
                   : 'border-border/20 bg-card/30 hover:bg-muted/20'

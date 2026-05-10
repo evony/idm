@@ -767,7 +767,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
             </Button>
           </div>
           {!seasonId ? (
-            <div className="flex items-center gap-2 mt-2 p-2 rounded-lg bg-red-500/10 border border-red-500/20">
+            <div className="flex items-center gap-2 mt-2 p-3 sm:p-4 rounded-lg bg-red-500/10 border border-red-500/20">
               <span className="text-xs">⚠️</span>
               <p className="text-[11px] text-red-400 font-medium">Buat season terlebih dahulu di tab <strong>"Season"</strong> sebelum membuat tournament.</p>
             </div>
@@ -815,7 +815,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
             <Card className={`${dt.casinoCard} ${ss.bg} ${ss.border} cursor-pointer transition-colors duration-150 ${selectedId === t.id ? `ring-1 ring-idm-gold-warm` : ''} ${isLive ? 'shadow-red-500/10 shadow-md' : dt.casinoGlow}`}
               onClick={() => setSelectedId(selectedId === t.id ? null : t.id)}>
               <div className={`${ss.bar} h-1 transition-colors duration-300`} />
-              <CardContent className="p-3 relative z-10">
+              <CardContent className="p-4 sm:p-6 relative z-10">
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
@@ -1151,7 +1151,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                             const effectiveTier = p.tierOverride || p.player?.tier || 'B';
                             const tc = TIER_COLORS[effectiveTier] || TIER_COLORS.B;
                             return (
-                              <div key={p.id} className="flex items-center justify-between p-2 rounded-lg bg-background/50">
+                              <div key={p.id} className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-background/50">
                                 <div className="flex items-center gap-2 min-w-0">
                                   <span className="text-sm flex-shrink-0">{tc.icon}</span>
                                   <TierBadge tier={effectiveTier} />
@@ -1284,7 +1284,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                           <p className="text-xs text-muted-foreground text-center py-4">{searchPlayer ? 'Tidak ditemukan' : 'Semua pemain sudah terdaftar'}</p>
                         )}
                         {filteredUnregistered.slice(0, 20).map((p: { id: string; gamertag: string; name: string; tier: string; points: number }) => (
-                          <div key={p.id} className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/40 transition-colors">
+                          <div key={p.id} className="flex items-center justify-between p-3 sm:p-4 rounded-lg hover:bg-muted/40 transition-colors">
                             <div className="flex items-center gap-2">
                               <TierBadge tier={p.tier} />
                               <span className="text-xs font-medium">{p.gamertag}</span>
@@ -1444,7 +1444,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                             const effectiveTier = p.tierOverride || p.player?.tier || 'B';
                             const tc = TIER_COLORS[effectiveTier] || TIER_COLORS.B;
                             return (
-                              <div key={p.id} className="flex items-center justify-between p-3 rounded-lg bg-green-500/5 border border-green-500/10">
+                              <div key={p.id} className="flex items-center justify-between p-4 sm:p-5 rounded-lg bg-green-500/5 border border-green-500/10">
                                 <div className="flex items-center gap-2.5">
                                   <span className="text-sm">{tc.icon}</span>
                                   <TierBadge tier={effectiveTier} />
@@ -1495,7 +1495,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                             const effectiveTier = tierOverrides[p.playerId] || p.player.tier;
                             const tc = TIER_COLORS[effectiveTier] || TIER_COLORS.B;
                             return (
-                              <div key={p.id} className="flex items-center justify-between p-3 rounded-lg bg-yellow-500/5 border border-yellow-500/10">
+                              <div key={p.id} className="flex items-center justify-between p-4 sm:p-5 rounded-lg bg-yellow-500/5 border border-yellow-500/10">
                                 <div className="flex items-center gap-2.5">
                                   <span className="text-sm">{tc.icon}</span>
                                   <TierBadge tier={effectiveTier} />
@@ -1569,7 +1569,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                         </div>
 
                         {wouldBulkApproveBreakBalance && (
-                          <div className="flex items-center gap-2 p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
+                          <div className="flex items-center gap-2 p-4 sm:p-5 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
                             <AlertTriangle className="w-4 h-4 text-yellow-500 shrink-0" />
                             <p className="text-xs text-yellow-500 font-medium">
                               Menyetujui semua pemain akan menyebabkan tier tidak seimbang. Sebaiknya atur tier dulu sebelum approve, atau approve satu per satu per tier.
@@ -1739,7 +1739,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                           const totalUsed = prizes.reduce((sum, p) => sum + p.prizeAmount, 0);
                           const effectivePool = parseInt(manualPrizePool) || referencePrizePool;
                           return (
-                            <div className="flex items-center justify-between p-2 rounded-lg bg-muted/30 text-[10px]">
+                            <div className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-muted/30 text-[10px]">
                               <span>Total Terpakai:</span>
                               <span className={totalUsed === effectivePool ? 'text-green-500 font-semibold' : totalUsed > effectivePool ? 'text-red-500' : 'text-yellow-500'}>
                                 {formatCurrency(totalUsed)} / {formatCurrency(effectivePool)}
@@ -1783,7 +1783,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                           Generate Tim ({tierDist.S} tim)
                         </Button>
                         {!isTierBalanced && (
-                          <div className="flex items-center gap-2 p-3 rounded-lg bg-red-500/5 border border-red-500/20">
+                          <div className="flex items-center gap-2 p-4 sm:p-5 rounded-lg bg-red-500/5 border border-red-500/20">
                             <ShieldX className="w-4 h-4 text-red-500 shrink-0" />
                             <p className="text-xs text-red-400 font-medium">Tier harus seimbang (S=A=B) untuk generate tim. Kembali ke tab Persetujuan untuk memperbaiki.</p>
                           </div>
@@ -1819,7 +1819,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {selected.teams.map((t: { id: string; name: string; power: number; isWinner: boolean; rank: number | null; teamPlayers: { player: { gamertag: string; tier: string; points: number } }[] }) => (
-                    <div key={t.id} className={`p-3 rounded-lg text-sm ${t.isWinner ? 'bg-idm-gold-warm/5 border border-idm-gold-warm/20' : t.rank ? 'bg-muted/50 border border-border/30' : 'bg-muted/30'}`}>
+                    <div key={t.id} className={`p-4 sm:p-5 rounded-lg text-sm ${t.isWinner ? 'bg-idm-gold-warm/5 border border-idm-gold-warm/20' : t.rank ? 'bg-muted/50 border border-border/30' : 'bg-muted/30'}`}>
                       <div className="flex items-center justify-between mb-2">
                         <span className="font-semibold">{t.name} {t.isWinner && '👑'} {t.rank === 2 && '🥈'} {t.rank === 3 && '🥉'}</span>
                         <span className={dt.neonText}>⚡ {t.power}</span>
@@ -1964,7 +1964,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                           const totalUsed = prizes.reduce((sum, p) => sum + p.prizeAmount, 0);
                           const effectivePool = parseInt(manualPrizePool) || referencePrizePool;
                           return (
-                            <div className="flex items-center justify-between p-2 rounded-lg bg-muted/30 text-[10px]">
+                            <div className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-muted/30 text-[10px]">
                               <span>Total Terpakai:</span>
                               <span className={totalUsed === effectivePool ? 'text-green-500 font-semibold' : totalUsed > effectivePool ? 'text-red-500' : 'text-yellow-500'}>
                                 {formatCurrency(totalUsed)} / {formatCurrency(effectivePool)}
@@ -2009,7 +2009,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                 </div>
 
                 {nextMatch && selected.status === 'main_event' && (
-                  <div className="p-2 rounded-lg bg-idm-gold-warm/5 border border-idm-gold-warm/20">
+                  <div className="p-3 sm:p-4 rounded-lg bg-idm-gold-warm/5 border border-idm-gold-warm/20">
                     <p className="text-[10px] text-idm-gold-warm font-semibold">▶️ Match Selanjutnya: {getTeamName(nextMatch.team1Id)} vs {getTeamName(nextMatch.team2Id)}</p>
                   </div>
                 )}
@@ -2021,7 +2021,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                   const hasIncomplete = playableMatches.some((m: { status: string }) => m.status !== 'completed');
                   if (!hasIncomplete && completedPlayable.length > 0) {
                     return (
-                      <div className="p-3 rounded-lg bg-green-500/5 border border-green-500/20">
+                      <div className="p-4 sm:p-5 rounded-lg bg-green-500/5 border border-green-500/20">
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="text-[10px] font-bold text-green-400">✅ Semua match selesai!</p>
@@ -2201,7 +2201,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                                     <span className="text-[9px] text-muted-foreground">Tim berikut mendapat bye:</span>
                                   </div>
                                   {byeSwiss.map((m: any) => (
-                                    <div key={m.id} className="p-2 rounded-lg border border-amber-500/15 bg-amber-500/5 text-xs opacity-70">
+                                    <div key={m.id} className="p-3 sm:p-4 rounded-lg border border-amber-500/15 bg-amber-500/5 text-xs opacity-70">
                                       <div className="flex items-center gap-2">
                                         <Badge className="text-[8px] border-0 bg-muted/50">R{m.round}M{m.matchNumber}</Badge>
                                         <Badge className="text-[8px] border-0 bg-amber-500/10 text-amber-500">BYE</Badge>
@@ -2520,7 +2520,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                   </div>
                   {selected.prizes?.length > 0 ? (
                     selected.prizes.map((p: { id: string; label: string; prizeAmount: number; pointsPerPlayer: number; recipientCount: number }) => (
-                      <div key={p.id} className="flex items-center justify-between p-2 rounded-lg bg-muted/30 text-xs">
+                      <div key={p.id} className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-muted/30 text-xs">
                         <span className="font-medium">{p.label}</span>
                         <span className="text-idm-gold-warm">
                           {formatCurrency(p.prizeAmount)} → {p.pointsPerPlayer} pts{p.recipientCount > 1 ? `/org × ${p.recipientCount}` : ''}
@@ -2528,14 +2528,14 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                       </div>
                     ))
                   ) : (
-                    <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
+                    <div className="p-4 sm:p-5 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
                       <p className="text-xs text-yellow-500 font-medium">⚠️ Belum ada pembagian hadiah</p>
                       <p className="text-[10px] text-muted-foreground mt-0.5">Klik "Edit Hadiah" untuk mengatur, atau langsung finalisasi tanpa hadiah.</p>
                     </div>
                   )}
 
                   {showPrizeConfig && (
-                    <div className="space-y-2 p-3 rounded-lg bg-muted/20 border border-border/10">
+                    <div className="space-y-2 p-4 sm:p-5 rounded-lg bg-muted/20 border border-border/10">
                       <div>
                         <Label className="text-[10px] font-semibold">💰 Total Prize Pool</Label>
                         <Input type="number" className="h-7 text-xs mt-1"
@@ -2599,7 +2599,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                             const totalUsed = prizes.reduce((sum, p) => sum + p.prizeAmount, 0);
                             const effectivePool = parseInt(manualPrizePool) || referencePrizePool;
                             return (
-                              <div className={`text-[10px] p-2 rounded-lg ${totalUsed > effectivePool ? 'bg-red-500/10 text-red-400' : totalUsed === effectivePool ? 'bg-green-500/10 text-green-400' : 'bg-muted/30 text-muted-foreground'}`}>
+                              <div className={`text-[10px] p-3 sm:p-4 rounded-lg ${totalUsed > effectivePool ? 'bg-red-500/10 text-red-400' : totalUsed === effectivePool ? 'bg-green-500/10 text-green-400' : 'bg-muted/30 text-muted-foreground'}`}>
                                 <div className="flex justify-between"><span>Total Hadiah:</span><span>{formatCurrency(totalUsed)}</span></div>
                                 <div className="flex justify-between"><span>Prize Pool:</span><span>{formatCurrency(effectivePool)}</span></div>
                                 <div className="flex justify-between font-semibold border-t border-current/10 pt-1 mt-1">
@@ -2650,7 +2650,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                 <p className="text-base font-semibold text-green-500 flex items-center gap-2">🎉 Tournament Selesai!</p>
 
                 {selected.teams?.filter((t: { rank: number | null }) => t.rank).sort((a: { rank: number }, b: { rank: number }) => (a.rank || 99) - (b.rank || 99)).map((t: { id: string; name: string; rank: number | null; isWinner: boolean; teamPlayers: { player: { gamertag: string; tier: string } }[] }) => (
-                  <div key={t.id} className={`p-3 rounded-lg border ${t.rank === 1 ? 'bg-idm-gold-warm/5 border-idm-gold-warm/20' : t.rank === 2 ? 'bg-gray-500/5 border-gray-500/20' : 'bg-orange-500/5 border-orange-500/20'}`}>
+                  <div key={t.id} className={`p-4 sm:p-5 rounded-lg border ${t.rank === 1 ? 'bg-idm-gold-warm/5 border-idm-gold-warm/20' : t.rank === 2 ? 'bg-gray-500/5 border-gray-500/20' : 'bg-orange-500/5 border-orange-500/20'}`}>
                     <div className="flex items-center gap-2">
                       <span className="text-lg">{t.rank === 1 ? '🥇' : t.rank === 2 ? '🥈' : '🥉'}</span>
                       <div>
@@ -2668,7 +2668,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                 ))}
 
                 {selected.matches?.map((m: { mvpPlayer: { gamertag: string } | null }) => m.mvpPlayer).filter(Boolean).length > 0 && (
-                  <div className="p-2 rounded-lg bg-idm-gold-warm/5 border border-idm-gold-warm/20">
+                  <div className="p-3 sm:p-4 rounded-lg bg-idm-gold-warm/5 border border-idm-gold-warm/20">
                     <p className="text-[10px] text-idm-gold-warm">⭐ MVP: {selected.matches.find((m: { mvpPlayer: { gamertag: string } | null }) => m.mvpPlayer)?.mvpPlayer?.gamertag}</p>
                   </div>
                 )}
@@ -2799,7 +2799,7 @@ export function TournamentManager({ division, dt, stats, setConfirmDialog }: Tou
                 className="h-9 text-sm"
               />
             </div>
-            <div className="p-2 rounded-lg bg-muted/30 text-[10px] text-muted-foreground">
+            <div className="p-3 sm:p-4 rounded-lg bg-muted/30 text-[10px] text-muted-foreground">
               <p>💡 Perubahan format dan jadwal akan langsung berlaku. Untuk tournament yang sudah berjalan, perubahan hanya mempengaruhi informasi tampilan.</p>
             </div>
           </div>

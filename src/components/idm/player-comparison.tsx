@@ -434,7 +434,7 @@ function StatComparisonRow({ label, value1, value2, icon: Icon, dt }: {
   const color2 = '#f59e0b';
 
   return (
-    <div className={`flex items-center gap-2 p-2.5 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border`}>
+    <div className={`flex items-center gap-2 p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border`}>
       {/* P1 value */}
       <div className="w-16 text-right shrink-0">
         <span

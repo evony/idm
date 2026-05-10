@@ -152,12 +152,12 @@ export function CommunityAchievements({ maleData, femaleData, leagueData }: Comm
           </Badge>
         </div>
 
-        <CardContent className="p-3 lg:p-6">
+        <CardContent className="p-4 sm:p-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
             {achievements.map((ach, i) => (
                 <div
                   key={ach.id}
-                  className={`relative p-3 rounded-2xl border transition-all duration-300 animate-fade-enter-sm ${
+                  className={`relative p-3 sm:p-4 rounded-2xl border transition-all duration-300 animate-fade-enter-sm ${
                     ach.unlocked
                       ? `${dt.bgSubtle} ${dt.borderSubtle}`
                       : 'bg-muted/5 border-border/10 opacity-60'

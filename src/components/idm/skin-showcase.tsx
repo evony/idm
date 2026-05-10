@@ -88,7 +88,7 @@ export function SkinShowcase({ open, onClose }: SkinShowcaseProps) {
               <div key={skin.type} className="rounded-2xl overflow-hidden border border-border/30">
                 {/* Skin Preview Card (with card border effect) */}
                 <SkinCardBorder skin={skin}>
-                  <div className="bg-[#1a1812] p-3">
+                  <div className="bg-[#1a1812] p-3 sm:p-4">
                     {/* Clickable header row */}
                     <button
                       className="w-full flex items-center gap-3 text-left"
@@ -126,7 +126,7 @@ export function SkinShowcase({ open, onClose }: SkinShowcaseProps) {
 
                 {/* Expanded details */}
                 {isExpanded && (
-                  <div className="bg-[#14120e] border-t border-border/20 p-3 space-y-3">
+                  <div className="bg-[#14120e] border-t border-border/20 p-3 sm:p-4 space-y-3">
                     {/* Skin details */}
                     <div className="grid grid-cols-2 gap-2">
                       <DetailItem label="Tipe" value={skin.displayName} />
@@ -188,7 +188,7 @@ export function SkinShowcase({ open, onClose }: SkinShowcaseProps) {
           })}
 
           {/* Donor Heart Badge Section */}
-          <div className="rounded-2xl border border-rose-500/20 bg-rose-500/5 p-3">
+          <div className="rounded-2xl border border-rose-500/20 bg-rose-500/5 p-3 sm:p-4">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-base">❤️</span>
               <h3 className="text-xs font-bold text-rose-400">Donatur Heart Badge</h3>
@@ -199,7 +199,7 @@ export function SkinShowcase({ open, onClose }: SkinShowcaseProps) {
 
             <div className="space-y-2">
               {/* 1-4 donations: small heart */}
-              <div className="flex items-center gap-3 bg-[#1a1812] rounded-lg p-2.5">
+              <div className="flex items-center gap-3 bg-[#1a1812] rounded-lg p-3 sm:p-4">
                 <div className="flex items-center gap-1.5">
                   {/* Small heart badge preview */}
                   <span
@@ -222,7 +222,7 @@ export function SkinShowcase({ open, onClose }: SkinShowcaseProps) {
               </div>
 
               {/* 5+ donations: big heart with pulse */}
-              <div className="flex items-center gap-3 bg-[#1a1812] rounded-lg p-2.5">
+              <div className="flex items-center gap-3 bg-[#1a1812] rounded-lg p-3 sm:p-4">
                 <div className="flex items-center gap-1.5">
                   {/* Big heart badge with pulse glow preview */}
                   <span
@@ -259,7 +259,7 @@ export function SkinShowcase({ open, onClose }: SkinShowcaseProps) {
           </div>
 
           {/* Info note */}
-          <div className="flex items-start gap-2 px-3 py-2 rounded-lg bg-muted/20 border border-border/20">
+          <div className="flex items-start gap-2 p-3 sm:p-4 rounded-lg bg-muted/20 border border-border/20">
             <Info className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
             <p className="text-[10px] text-muted-foreground">
               Skin otomatis diberikan setelah Juara 1 / MVP dipilih oleh admin. Penyawer & Donatur diberikan manual oleh admin. Semua skin berdurasi 1 minggu kecuali badge hati donatur yang permanen.
@@ -329,7 +329,7 @@ function HowToGet({ type }: { type: string }) {
   if (!item) return null;
 
   return (
-    <div className="bg-muted/10 rounded-lg p-2">
+    <div className="bg-muted/10 rounded-lg p-3">
       <div className="flex items-center gap-1.5 mb-0.5">
         <span className="text-[10px] font-semibold">{item.label}</span>
         <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full ${

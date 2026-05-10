@@ -111,7 +111,7 @@ export function TournamentView() {
                       { icon: Music, label: 'Match Inti', desc: 'Pertandingan BO3/BO5' },
                       { icon: Trophy, label: 'Juara Pekanan', desc: 'Pemenang tiap week' },
                     ].map((step, i) => (
-                      <div key={i} className={`p-3 rounded-2xl ${dt.bgSubtle} ${dt.border} text-center`}>
+                      <div key={i} className={`p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border} text-center`}>
                         <step.icon className={`w-5 h-5 mx-auto mb-1.5 ${dt.neonText}`} />
                         <p className="text-xs font-semibold">{step.label}</p>
                         <p className="text-[9px] text-muted-foreground mt-0.5">{step.desc}</p>

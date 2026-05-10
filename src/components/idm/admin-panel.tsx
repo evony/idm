@@ -487,7 +487,7 @@ export function AdminPanel() {
   const donationCount = donations?.donations?.filter((d: { status: string }) => d.status === 'pending').length || 0;
 
   return (
-    <div className="space-y-3 w-full admin-panel-glass rounded-2xl p-3 sm:p-4 border border-white/[0.06]">
+    <div className="space-y-3 w-full admin-panel-glass rounded-2xl p-4 sm:p-6 border border-white/[0.06]">
       {/* Header + Season Info */}
       <div className="flex flex-col gap-2 mb-1">
         <div className="flex items-center gap-2">

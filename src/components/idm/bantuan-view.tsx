@@ -414,7 +414,7 @@ export function BantuanView() {
           </div>
 
           {/* Admin Help */}
-          <div className="mt-4 p-3 rounded-lg bg-idm-gold-warm/5 border border-idm-gold-warm/15">
+          <div className="mt-4 p-4 sm:p-5 rounded-lg bg-idm-gold-warm/5 border border-idm-gold-warm/15">
             <div className="flex items-start gap-2">
               <Shield className="w-4 h-4 text-idm-gold-warm shrink-0 mt-0.5" />
               <div>

@@ -427,7 +427,7 @@ export function ChampionsSection({
                     {hasChampions && winnerTeam ? (
                       <div className="relative z-10 px-4 sm:px-5 lg:px-6 pb-2">
                         <div
-                          className="flex items-center gap-3 p-3 rounded-2xl border border-white/[0.06]"
+                          className="flex items-center gap-3 p-4 sm:p-5 rounded-2xl border border-white/[0.06]"
                           style={{ background: 'rgba(229, 190, 74, 0.04)' }}
                         >
                           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center shadow-lg shrink-0">

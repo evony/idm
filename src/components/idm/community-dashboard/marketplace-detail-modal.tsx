@@ -245,7 +245,7 @@ export function MarketplaceDetailModal({ open, onClose, item }: MarketplaceDetai
               </div>
 
               {/* ═══ Seller Info ═══ */}
-              <div className="p-3.5 rounded-2xl bg-orange-500/5 border border-orange-500/10">
+              <div className="p-4 sm:p-5 rounded-2xl bg-orange-500/5 border border-orange-500/10">
                 <h3 className="text-[10px] font-semibold text-orange-400/70 uppercase tracking-wider mb-2.5">Penjual</h3>
                 <div className="flex items-center gap-3">
                   {item.sellerAvatar ? (
@@ -273,7 +273,7 @@ export function MarketplaceDetailModal({ open, onClose, item }: MarketplaceDetai
               </div>
 
               {/* ═══ How to Buy ═══ */}
-              <div className="p-3.5 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
+              <div className="p-4 sm:p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
                 <h3 className="text-[10px] font-semibold text-emerald-400/70 uppercase tracking-wider mb-2">Cara Membeli</h3>
                 <ol className="space-y-1.5">
                   <li className="flex items-start gap-2 text-xs text-muted-foreground/70">

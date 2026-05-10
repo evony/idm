@@ -121,7 +121,7 @@ export function MatchDayCountdown({ division }: CountdownProps) {
         </div>
 
         {/* Match Day Info */}
-        <div className={`flex items-center justify-between p-2.5 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle}`}>
+        <div className={`flex items-center justify-between p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle}`}>
           <div className="flex items-center gap-2">
             <Clock className="w-3 h-3 text-muted-foreground" />
             <span className="text-[10px] text-muted-foreground">Sabtu, 19:00 WITA</span>

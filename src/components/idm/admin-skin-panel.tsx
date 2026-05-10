@@ -320,7 +320,7 @@ export function AdminSkinPanel() {
                 return (
                   <div
                     key={skin.id}
-                    className={`relative p-3 rounded-2xl border ${theme.accentBorder} ${skin.isActive ? 'bg-card' : 'bg-muted/30 opacity-60'}`}
+                    className={`relative p-4 sm:p-5 rounded-2xl border ${theme.accentBorder} ${skin.isActive ? 'bg-card' : 'bg-muted/30 opacity-60'}`}
                   >
                     {/* Subtle accent glow */}
                     <div
@@ -450,7 +450,7 @@ export function AdminSkinPanel() {
                     return (
                       <div
                         key={holder.id}
-                        className={`flex items-center gap-3 p-2.5 rounded-2xl bg-card border border-border/50 ${theme?.accentBorder || ''}`}
+                        className={`flex items-center gap-3 p-3 sm:p-4 rounded-2xl bg-card border border-border/50 ${theme?.accentBorder || ''}`}
                       >
                         {/* Player info */}
                         <div className="flex items-center gap-2 flex-1 min-w-0">
@@ -542,7 +542,7 @@ export function AdminSkinPanel() {
                     {expiredHolders.map((holder: SkinHolder) => (
                       <div
                         key={holder.id}
-                        className="flex items-center gap-2 p-2 rounded-lg bg-muted/20 text-[10px]"
+                        className="flex items-center gap-2 p-3 sm:p-4 rounded-lg bg-muted/20 text-[10px]"
                       >
                         <span>{holder.icon}</span>
                         <span className="font-medium">{holder.player.gamertag}</span>
@@ -616,7 +616,7 @@ export function AdminSkinPanel() {
               const theme = skinThemeConfig[awardForm.skinType];
               if (!skinDef || !theme) return null;
               return (
-                <div className={`p-3 rounded-2xl border ${theme.accentBorder} ${theme.accentBg}`}>
+                <div className={`p-4 sm:p-5 rounded-2xl border ${theme.accentBorder} ${theme.accentBg}`}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xl"
                       style={{ background: 'rgba(255,255,255,0.1)' }}
@@ -658,7 +658,7 @@ export function AdminSkinPanel() {
                   {filteredPlayers.map((p) => (
                     <div
                       key={p.id}
-                      className={`flex items-center justify-between p-2 rounded-lg cursor-pointer transition-colors ${
+                      className={`flex items-center justify-between p-3 sm:p-4 rounded-lg cursor-pointer transition-colors ${
                         selectedPlayer?.id === p.id
                           ? 'bg-idm-gold-warm/15 border border-idm-gold-warm/30'
                           : 'bg-muted/30 hover:bg-muted/50 border border-transparent'
@@ -697,7 +697,7 @@ export function AdminSkinPanel() {
 
               {/* Selected player */}
               {selectedPlayer && (
-                <div className="mt-2 p-2.5 rounded-lg bg-idm-gold-warm/10 border border-idm-gold-warm/20">
+                <div className="mt-2 p-3 sm:p-4 rounded-lg bg-idm-gold-warm/10 border border-idm-gold-warm/20">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-full bg-idm-gold-warm/20 flex items-center justify-center text-sm">

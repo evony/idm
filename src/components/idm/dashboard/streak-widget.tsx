@@ -175,7 +175,7 @@ function SingleDivisionStreakCard({
 
       <div className="p-4 space-y-3">
         {/* ─── Top streak player — hero display ─── */}
-        <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle} relative overflow-hidden`}>
+        <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle} relative overflow-hidden`}>
           {/* Animated flame glow background */}
           {topStreak.streak >= 3 && (
             <div

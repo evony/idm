@@ -64,7 +64,7 @@ export function AdminKeuanganTab({
             </h3>
             <div className="space-y-2 max-h-72 overflow-y-auto custom-scrollbar">
               {donations.donations.filter((d: { status: string }) => d.status === 'pending').map((d: { id: string; donorName: string; amount: number; message: string | null; type: string; createdAt: string }, index) => (
-                <div key={d.id} className="p-3 rounded-2xl bg-card border border-yellow-500/10">
+                <div key={d.id} className="p-4 sm:p-5 rounded-2xl bg-card border border-yellow-500/10">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-center gap-2 flex-1 min-w-0">
                       <Gift className="w-4 h-4 text-yellow-500 shrink-0" />
@@ -131,7 +131,7 @@ export function AdminKeuanganTab({
           </h3>
           <div className="space-y-1.5 max-h-64 overflow-y-auto custom-scrollbar">
             {donations?.donations?.length > 0 ? donations.donations.map((d: { id: string; donorName: string; amount: number; message: string | null; type: string; status: string; createdAt: string }, index) => (
-              <div key={d.id} className={`flex items-center justify-between p-2.5 rounded-lg border ${
+              <div key={d.id} className={`flex items-center justify-between p-3 sm:p-4 rounded-lg border ${
                 d.status === 'approved' ? 'bg-card border-green-500/10' :
                 d.status === 'rejected' ? 'bg-card border-red-500/10 opacity-50' :
                 'bg-card border-yellow-500/10'

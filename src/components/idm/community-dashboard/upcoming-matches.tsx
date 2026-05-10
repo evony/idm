@@ -61,7 +61,7 @@ function MatchCard({ match, index }: { match: EnrichedMatch; index: number }) {
       style={{ animationDelay: `${index * 60}ms` }}
     >
       <Card className={`${dt.casinoCard} border ${dt.borderSubtle} overflow-hidden group hover:shadow-md transition-all duration-300`}>
-        <CardContent className="p-3">
+        <CardContent className="p-4 sm:p-6">
           {/* Division badge */}
           <div className="flex items-center justify-between mb-2.5">
             <Badge className={`${dt.badgeBg} text-[8px] border`}>
@@ -160,7 +160,7 @@ export function UpcomingMatches({ maleData, femaleData, selectedDivision = 'all'
   if (enrichedMatches.length === 0) {
     return (
       <Card className={`${dt.casinoCard} overflow-hidden`}>
-        <CardContent className="p-4">
+        <CardContent className="p-4 sm:p-6">
           <div className="flex items-center gap-2 mb-4">
             <div className={`w-7 h-7 rounded-lg ${dt.iconBg} flex items-center justify-center`}>
               <Clock className={`w-3.5 h-3.5 ${dt.text}`} />
@@ -179,7 +179,7 @@ export function UpcomingMatches({ maleData, femaleData, selectedDivision = 'all'
 
   return (
     <Card className={`${dt.casinoCard} overflow-hidden`}>
-      <CardContent className="p-4">
+      <CardContent className="p-4 sm:p-6">
         {/* Header */}
         <div className="flex items-center gap-2 mb-3">
           <div className={`w-7 h-7 rounded-lg ${dt.iconBg} flex items-center justify-center`}>

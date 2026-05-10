@@ -937,7 +937,7 @@ function VideoListItem({
   return (
     <div className={`reveal reveal-fade-right reveal-delay-${Math.min(index + 1, 5)} group`}>
       <div
-        className="relative rounded-2xl border p-3 transition-all duration-300 cursor-pointer overflow-hidden"
+        className="relative rounded-2xl border p-4 sm:p-5 transition-all duration-300 cursor-pointer overflow-hidden"
         style={{
           background: isActive
             ? `linear-gradient(135deg, ${hexToRgba(divConfig.color, 0.08)} 0%, var(--bg-mid) 60%, ${hexToRgba(divConfig.color, 0.04)} 100%)`

@@ -68,7 +68,7 @@ function DivisionWeeklyChampions({
       {champions.length === 0 ? (
         <div className="space-y-4">
           {/* Ghost team banner */}
-          <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border} opacity-55`}>
+          <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border} opacity-55`}>
             <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-yellow-500/25 to-amber-600/25 flex items-center justify-center shrink-0">
               <Crown className="w-5 h-5 text-yellow-500/40" />
             </div>
@@ -92,7 +92,7 @@ function DivisionWeeklyChampions({
                     <Trophy className="w-6 h-6 opacity-30" style={{ color: accent }} />
                   </div>
                   {/* Ghost name */}
-                  <div className="p-2 space-y-1.5">
+                  <div className="p-3 space-y-1.5">
                     <div className="h-3 w-12 mx-auto rounded bg-muted/35" />
                     <div className="h-2 w-8 mx-auto rounded bg-muted/25" />
                   </div>
@@ -111,7 +111,7 @@ function DivisionWeeklyChampions({
       ) : (
         <div className="space-y-4">
           {/* Team banner */}
-          <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
+          <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border}`}>
             <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center shadow-lg shrink-0 champion-gold-pulse`}>
               <Crown className="w-5 h-5 text-white" />
             </div>
@@ -202,7 +202,7 @@ function DivisionWeeklyChampions({
   /* ─── Bare mode: content only (used inside unified card) ─── */
   if (bare) {
     return (
-      <div className={`p-3 lg:p-5 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} dashboard-card-glow`}>
+      <div className={`p-4 lg:p-5 rounded-2xl ${dt.bgSubtle} ${dt.borderSubtle} dashboard-card-glow`}>
         {/* Division label — small, like ReigningChampionPlaque */}
         <div className="flex items-center gap-1.5 mb-3">
           <DivisionIcon className="w-3 h-3 shrink-0" style={{ color: accent }} />
@@ -243,7 +243,7 @@ function DivisionWeeklyChampions({
       </div>
 
       {/* Content */}
-      <div className="p-3 lg:p-6">
+      <div className="p-4 lg:p-6">
         {innerContent}
       </div>
     </Card>
@@ -285,10 +285,10 @@ export function CommunityWeeklyChampions({ maleData, femaleData, selectedDivisio
               {division === 'male' ? '🕺 Male' : '💃 Female'} Juara Tarkam
             </h3>
           </div>
-          <div className="p-3 lg:p-6">
+          <div className="p-4 lg:p-6">
             <div className="space-y-4">
               {/* Ghost team banner */}
-              <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} ${dt.border} opacity-55`}>
+              <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} ${dt.border} opacity-55`}>
                 <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-yellow-500/25 to-amber-600/25 flex items-center justify-center shrink-0">
                   <Crown className="w-5 h-5 text-yellow-500/40" />
                 </div>
@@ -309,7 +309,7 @@ export function CommunityWeeklyChampions({ maleData, femaleData, selectedDivisio
                       >
                         <Trophy className="w-6 h-6 opacity-30" style={{ color: accent }} />
                       </div>
-                      <div className="p-2 space-y-1.5">
+                      <div className="p-3 space-y-1.5">
                         <div className="h-3 w-12 mx-auto rounded bg-muted/35" />
                         <div className="h-2 w-8 mx-auto rounded bg-muted/25" />
                       </div>
@@ -352,16 +352,16 @@ export function CommunityWeeklyChampions({ maleData, femaleData, selectedDivisio
             </h3>
           </div>
           {/* Ghost content — both divisions */}
-          <div className="p-3 lg:p-6">
+          <div className="p-4 lg:p-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
               {/* Male ghost */}
-              <div className={`p-3 lg:p-5 rounded-2xl ${maleDt.bgSubtle} ${maleDt.borderSubtle} opacity-55`}>
+              <div className={`p-4 lg:p-5 rounded-2xl ${maleDt.bgSubtle} ${maleDt.borderSubtle} opacity-55`}>
                 <div className="flex items-center gap-1.5 mb-3">
                   <Music className="w-3 h-3 shrink-0" style={{ color: '#2E9FFF' }} />
                   <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#2E9FFF' }}>Male ♂</span>
                 </div>
                 <div className="space-y-3">
-                  <div className={`flex items-center gap-3 p-3 rounded-2xl ${maleDt.bgSubtle} ${maleDt.border}`}>
+                  <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${maleDt.bgSubtle} ${maleDt.border}`}>
                     <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-yellow-500/25 to-amber-600/25 flex items-center justify-center shrink-0">
                       <Crown className="w-5 h-5 text-yellow-500/40" />
                     </div>
@@ -380,13 +380,13 @@ export function CommunityWeeklyChampions({ maleData, femaleData, selectedDivisio
                 </div>
               </div>
               {/* Female ghost */}
-              <div className={`p-3 lg:p-5 rounded-2xl ${femaleDt.bgSubtle} ${femaleDt.borderSubtle} opacity-55`}>
+              <div className={`p-4 lg:p-5 rounded-2xl ${femaleDt.bgSubtle} ${femaleDt.borderSubtle} opacity-55`}>
                 <div className="flex items-center gap-1.5 mb-3">
                   <Shield className="w-3 h-3 shrink-0" style={{ color: '#FF2D78' }} />
                   <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#FF2D78' }}>Female ♀</span>
                 </div>
                 <div className="space-y-3">
-                  <div className={`flex items-center gap-3 p-3 rounded-2xl ${femaleDt.bgSubtle} ${femaleDt.border}`}>
+                  <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${femaleDt.bgSubtle} ${femaleDt.border}`}>
                     <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-yellow-500/25 to-amber-600/25 flex items-center justify-center shrink-0">
                       <Crown className="w-5 h-5 text-yellow-500/40" />
                     </div>
@@ -398,7 +398,7 @@ export function CommunityWeeklyChampions({ maleData, femaleData, selectedDivisio
                         <div className="w-full flex items-center justify-center" style={{ aspectRatio: '3/4', background: 'linear-gradient(135deg, #FF2D7818, #FF2D7808)' }}>
                           <Trophy className="w-5 h-5 opacity-30 text-idm-female" />
                         </div>
-                        <div className="p-1.5 space-y-1"><div className="h-2.5 w-8 mx-auto rounded bg-muted/35" /><div className="h-2 w-6 mx-auto rounded bg-muted/25" /></div>
+                        <div className="p-3 space-y-1"><div className="h-2.5 w-8 mx-auto rounded bg-muted/35" /><div className="h-2 w-6 mx-auto rounded bg-muted/25" /></div>
                       </div>
                     ))}
                   </div>
@@ -432,7 +432,7 @@ export function CommunityWeeklyChampions({ maleData, femaleData, selectedDivisio
         </div>
 
         {/* Content — male and female side by side (or stacked on mobile) */}
-        <div className="p-3 lg:p-6">
+        <div className="p-4 lg:p-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
             {showMale && (
               <DivisionWeeklyChampions

@@ -239,7 +239,7 @@ function TournamentCard({
 
         {/* Stats row — iOS clean stat tiles */}
         <div className="grid grid-cols-3 gap-2.5 mb-4">
-          <div className="ios-card relative p-2.5 text-center tournament-stat-item tournament-stat-separator overflow-hidden" style={{ background: `linear-gradient(135deg, rgba(${division.colorRgb},0.06) 0%, rgba(${division.colorRgb},0.02) 100%)`, borderColor: `rgba(${division.colorRgb},0.1)` }}>
+          <div className="ios-card relative p-3 sm:p-4 text-center tournament-stat-item tournament-stat-separator overflow-hidden" style={{ background: `linear-gradient(135deg, rgba(${division.colorRgb},0.06) 0%, rgba(${division.colorRgb},0.02) 100%)`, borderColor: `rgba(${division.colorRgb},0.1)` }}>
             <Users className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 opacity-[0.06]" style={{ color: division.color }} />
             <p className="relative text-lg font-extrabold tabular-nums" style={{ color: division.color }}>
               {totalPlayers}
@@ -249,7 +249,7 @@ function TournamentCard({
               Pemain
             </p>
           </div>
-          <div className="ios-card relative p-2.5 text-center tournament-stat-item tournament-stat-separator overflow-hidden" style={{ background: `linear-gradient(135deg, rgba(${division.colorRgb},0.06) 0%, rgba(${division.colorRgb},0.02) 100%)`, borderColor: `rgba(${division.colorRgb},0.1)` }}>
+          <div className="ios-card relative p-3 sm:p-4 text-center tournament-stat-item tournament-stat-separator overflow-hidden" style={{ background: `linear-gradient(135deg, rgba(${division.colorRgb},0.06) 0%, rgba(${division.colorRgb},0.02) 100%)`, borderColor: `rgba(${division.colorRgb},0.1)` }}>
             <Building2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 opacity-[0.06]" style={{ color: division.color }} />
             <p className="relative text-lg font-extrabold tabular-nums" style={{ color: division.color }}>
               {totalClubs}
@@ -259,7 +259,7 @@ function TournamentCard({
               Club
             </p>
           </div>
-          <div className="ios-card relative p-2.5 text-center tournament-stat-item overflow-hidden" style={{ background: `linear-gradient(135deg, rgba(${division.colorRgb},0.06) 0%, rgba(${division.colorRgb},0.02) 100%)`, borderColor: `rgba(${division.colorRgb},0.1)` }}>
+          <div className="ios-card relative p-3 sm:p-4 text-center tournament-stat-item overflow-hidden" style={{ background: `linear-gradient(135deg, rgba(${division.colorRgb},0.06) 0%, rgba(${division.colorRgb},0.02) 100%)`, borderColor: `rgba(${division.colorRgb},0.1)` }}>
             <Gamepad2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 opacity-[0.06]" style={{ color: division.color }} />
             <p className="relative text-lg font-extrabold tabular-nums" style={{ color: division.color }}>
               {weeklyCount}

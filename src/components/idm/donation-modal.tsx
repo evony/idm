@@ -439,7 +439,7 @@ export function DonationModal({ open, onOpenChange, defaultType = 'season', defa
               </div>
 
               {/* Summary & Submit */}
-              <div className={`rounded-2xl ${config.bgSubtle} ${config.borderSubtle} border p-3`}>
+              <div className={`rounded-2xl ${config.bgSubtle} ${config.borderSubtle} border p-4 sm:p-5`}>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-muted-foreground">Total {effectiveType === 'weekly' ? 'Sawer' : 'Donasi'}</span>
                   <span className={`text-lg font-black ${config.textAccent}`}>
@@ -487,7 +487,7 @@ export function DonationModal({ open, onOpenChange, defaultType = 'season', defa
               </button>
 
               {/* Summary recap */}
-              <div className={`text-center p-3 rounded-2xl ${config.bgSubtle} ${config.borderSubtle} border`}>
+              <div className={`text-center p-4 sm:p-5 rounded-2xl ${config.bgSubtle} ${config.borderSubtle} border`}>
                 <p className="text-xs text-muted-foreground mb-0.5">{donorName.trim()}</p>
                 <p className={`text-2xl font-black ${config.textAccent}`}>{formatCurrency(finalAmount)}</p>
                 <p className="text-[10px] text-muted-foreground/70 mt-0.5">Sawer Prize Pool</p>
@@ -603,7 +603,7 @@ export function DonationModal({ open, onOpenChange, defaultType = 'season', defa
                             {activePM.mode === 'qr' ? (
                               /* QR Code Display (QRIS) */
                               <>
-                                <div className={`relative w-52 h-52 rounded-2xl border-2 ${activePM.borderColor} ${activePM.bgColor} p-2 overflow-hidden`}>
+                                <div className={`relative w-52 h-52 rounded-2xl border-2 ${activePM.borderColor} ${activePM.bgColor} p-3 sm:p-4 overflow-hidden`}>
                                   <Image
                                     src={cmsSettings[activePM.settingKey] || ''}
                                     alt={`QR Code ${activePM.label}`}
@@ -648,7 +648,7 @@ export function DonationModal({ open, onOpenChange, defaultType = 'season', defa
 
                         {/* Holder Name */}
                         {paymentHolder && (
-                          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-2xl bg-muted/50 border border-border/30">
+                          <div className="flex items-center justify-center gap-2 p-3 sm:p-4 rounded-2xl bg-muted/50 border border-border/30">
                             <span className="text-xs text-muted-foreground">a.n.</span>
                             <span className="text-xs font-semibold">{paymentHolder}</span>
                             <button

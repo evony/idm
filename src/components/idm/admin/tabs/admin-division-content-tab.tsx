@@ -320,7 +320,7 @@ export function AdminDivisionContentTab() {
       />
 
       {/* ── Bottom Save Bar ── */}
-      <div className="sticky bottom-0 bg-background/95 border-t border-border/50 p-3 -mx-4 -mb-4 rounded-b-xl flex items-center justify-between z-20">
+      <div className="sticky bottom-0 bg-background/95 border-t border-border/50 p-4 sm:p-5 -mx-4 -mb-4 rounded-b-xl flex items-center justify-between z-20">
         <p className="text-[10px] text-muted-foreground">
           {Object.keys(form).filter(k => k.startsWith('peraturan_')).length} pengaturan divisi
         </p>

@@ -672,7 +672,7 @@ export function AdminSponsorPanel() {
                     {(tierSponsors as Sponsor[]).map((sponsor: Sponsor) => (
                       <div
                         key={sponsor.id}
-                        className={`p-3 rounded-2xl border ${sponsor.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/30 opacity-60'}`}
+                        className={`p-4 sm:p-5 rounded-2xl border ${sponsor.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/30 opacity-60'}`}
                       >
                         <div className="flex items-start gap-3">
                           <div className="w-12 h-12 rounded-lg bg-muted overflow-hidden shrink-0 flex items-center justify-center">
@@ -811,7 +811,7 @@ export function AdminSponsorPanel() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-96 overflow-y-auto custom-scrollbar">
                 {bannerList.map((banner: SponsorBanner) => (
-                  <div key={banner.id} className={`p-3 rounded-2xl border ${banner.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/30 opacity-60'}`}>
+                  <div key={banner.id} className={`p-4 sm:p-5 rounded-2xl border ${banner.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/30 opacity-60'}`}>
                     <div className="flex items-start gap-3">
                       {/* Banner image */}
                       <div className="w-20 h-12 rounded-lg bg-muted overflow-hidden shrink-0">
@@ -950,7 +950,7 @@ export function AdminSponsorPanel() {
                     ) : (
                       <div className="space-y-2">
                         {tournamentSponsorList.map((ts: TournamentSponsorLink) => (
-                          <div key={ts.id} className="flex items-center justify-between p-2 rounded-lg bg-muted/30 border border-border/30">
+                          <div key={ts.id} className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-muted/30 border border-border/30">
                             <div className="flex items-center gap-2">
                               {ts.sponsor.logo ? (
                                 <NextImage src={ts.sponsor.logo} alt={ts.sponsor.name} width={24} height={24} className="w-6 h-6 rounded object-cover" unoptimized />
@@ -1021,7 +1021,7 @@ export function AdminSponsorPanel() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-96 overflow-y-auto custom-scrollbar">
                 {prizeList.map((prize: SponsoredPrize) => (
-                  <div key={prize.id} className={`p-3 rounded-2xl border ${prize.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/30 opacity-60'}`}>
+                  <div key={prize.id} className={`p-4 sm:p-5 rounded-2xl border ${prize.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/30 opacity-60'}`}>
                     <div className="flex items-start gap-3">
                       {prize.imageUrl ? (
                         <div className="w-12 h-12 rounded-lg bg-muted overflow-hidden shrink-0">

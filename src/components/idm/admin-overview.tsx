@@ -287,7 +287,7 @@ export function AdminOverview({ division, onNavigateToTab }: AdminOverviewProps)
                       key={item.label}
                       type="button"
                       onClick={() => onNavigateToTab?.(item.tabKey)}
-                      className="flex items-center justify-between p-2 rounded-lg bg-muted/30 w-full text-left transition-colors hover:bg-muted/50 cursor-pointer group"
+                      className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-muted/30 w-full text-left transition-colors hover:bg-muted/50 cursor-pointer group"
                     >
                       <div className="flex items-center gap-2.5">
                         <div className={`p-1.5 rounded-md ${needsAction ? 'bg-red-500/10' : 'bg-green-500/10'}`}>
@@ -340,7 +340,7 @@ export function AdminOverview({ division, onNavigateToTab }: AdminOverviewProps)
                     const style = ACTION_STYLES[log.action] || { bg: 'bg-muted', text: 'text-muted-foreground', icon: '•' };
                     const entityLabel = ENTITY_LABELS[log.entity] || log.entity;
                     return (
-                      <div key={log.id} className="flex items-start gap-2.5 p-2 rounded-lg bg-muted/30">
+                      <div key={log.id} className="flex items-start gap-2.5 p-3 sm:p-4 rounded-lg bg-muted/30">
                         <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] shrink-0 ${style.bg} ${style.text}`}>
                           {style.icon}
                         </div>

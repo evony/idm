@@ -469,15 +469,15 @@ export function UnifiedLoginModal({ open, onOpenChange, defaultTab = 'peserta' }
 
                   {/* Quick Stats */}
                   <div className="grid grid-cols-3 gap-2 mb-4">
-                    <div className="text-center p-2 rounded-lg bg-muted/30 border border-border/30">
+                    <div className="text-center p-3 sm:p-4 rounded-lg bg-muted/30 border border-border/30">
                       <p className="text-base font-bold">{playerAuth.account!.player.totalWins}</p>
                       <p className="text-[9px] text-muted-foreground">Menang</p>
                     </div>
-                    <div className="text-center p-2 rounded-lg bg-muted/30 border border-border/30">
+                    <div className="text-center p-3 sm:p-4 rounded-lg bg-muted/30 border border-border/30">
                       <p className="text-base font-bold">{playerAuth.account!.player.totalMvp}</p>
                       <p className="text-[9px] text-muted-foreground">MVP</p>
                     </div>
-                    <div className="text-center p-2 rounded-lg bg-muted/30 border border-border/30">
+                    <div className="text-center p-3 sm:p-4 rounded-lg bg-muted/30 border border-border/30">
                       <p className="text-base font-bold">{playerAuth.account!.player.matches}</p>
                       <p className="text-[9px] text-muted-foreground">Match</p>
                     </div>
@@ -542,7 +542,7 @@ export function UnifiedLoginModal({ open, onOpenChange, defaultTab = 'peserta' }
                     <button
                       type="button"
                       onClick={() => setShowSkinShowcase(true)}
-                      className="w-full p-3 rounded-2xl bg-gradient-to-br from-idm-gold/5 to-idm-gold/[0.02] border border-idm-gold/20 hover:border-idm-gold/40 transition-all group"
+                      className="w-full p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-idm-gold/5 to-idm-gold/[0.02] border border-idm-gold/20 hover:border-idm-gold/40 transition-all group"
                     >
                       <div className="flex items-start gap-2 mb-2">
                         <Sparkles className="w-4 h-4 text-idm-gold shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
@@ -846,7 +846,7 @@ export function UnifiedLoginModal({ open, onOpenChange, defaultTab = 'peserta' }
                     </Button>
 
                     {/* Info box */}
-                    <div className="p-2.5 rounded-lg bg-idm-gold/5 border border-idm-gold/20">
+                    <div className="p-3 sm:p-4 rounded-lg bg-idm-gold/5 border border-idm-gold/20">
                       <div className="flex items-start gap-1.5">
                         <Info className="w-3.5 h-3.5 text-idm-gold shrink-0 mt-0.5" />
                         <p className="text-[9px] text-muted-foreground">

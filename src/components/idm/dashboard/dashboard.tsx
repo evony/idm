@@ -135,7 +135,7 @@ export function Dashboard() {
           </CardHeader>
           <CardContent className="space-y-1 max-h-96 overflow-y-auto overflow-x-hidden custom-scrollbar pr-1">
             {data.topPlayers.map((player: any, i: number) => (
-              <div key={player.id} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/30 transition-colors">
+              <div key={player.id} className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/30 transition-colors">
                 <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${i < 3
                   ? 'bg-idm-gold-warm/20 text-idm-gold-warm'
                   : 'bg-muted text-muted-foreground'
@@ -167,7 +167,7 @@ export function Dashboard() {
               <p className="text-sm text-muted-foreground text-center py-8">No completed tournaments yet</p>
             ) : (
               data.weeklyChampions.map((champ: any, i: number) => (
-                <div key={i} className="p-3 rounded-lg border border-border hover:bg-muted/20 transition-colors">
+                <div key={i} className="p-3 sm:p-4 rounded-lg border border-border hover:bg-muted/20 transition-colors">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs font-semibold">{champ.tournamentName}</span>
                     <Badge variant="outline" className="text-[10px]">Week {champ.weekNumber}</Badge>
@@ -202,7 +202,7 @@ export function Dashboard() {
           <CardContent>
             <div className="space-y-2">
               {data.recentMatches.map((match: any) => (
-                <div key={match.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+                <div key={match.id} className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-muted/30">
                   <div className="flex-1 text-right"><span className="text-sm font-medium">{match.club1.name}</span></div>
                   <div className="mx-4 flex items-center gap-2">
                     <span className="text-lg font-black text-idm-gold-warm">{match.score1}</span>

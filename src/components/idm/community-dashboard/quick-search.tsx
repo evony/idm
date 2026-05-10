@@ -175,7 +175,7 @@ export function QuickSearch({ onPlayerClick }: QuickSearchProps) {
 
   return (
     <Card className={`${dt.casinoCard} overflow-hidden`}>
-      <CardContent className="p-4">
+      <CardContent className="p-4 sm:p-6">
         {/* Search input */}
         <div ref={containerRef} className="relative">
           <div className={`relative flex items-center gap-2 px-3 py-2.5 rounded-2xl ${dt.casinoBar} border ${isFocused ? dt.border : dt.borderSubtle} transition-all duration-200`}>

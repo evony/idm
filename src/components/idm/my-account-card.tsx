@@ -61,7 +61,7 @@ export function MyAccountCard({ onOpenProfile }: MyAccountCardProps) {
   return (
     <div className={`stagger-item-subtle stagger-d4 rounded-2xl ${primarySkin ? 'border border-border/50' : dt.casinoCard + ' border ' + dt.border} overflow-hidden`} style={primarySkin ? undefined : undefined}>
       {/* Header */}
-      <div className={`flex items-center gap-2 px-3 sm:px-4 py-2 ${dt.bgSubtle} border-b ${dt.borderSubtle}`}>
+      <div className={`flex items-center gap-2 px-4 sm:px-5 py-3 ${dt.bgSubtle} border-b ${dt.borderSubtle}`}>
         <Sparkles className={`w-3.5 h-3.5 ${primarySkin ? 'text-idm-gold' : dt.text}`} />
         <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Akun Saya</span>
         {skins.length > 0 && (
@@ -72,7 +72,7 @@ export function MyAccountCard({ onOpenProfile }: MyAccountCardProps) {
       </div>
 
       {/* Player Info */}
-      <div className="p-3 sm:p-4">
+      <div className="p-4 sm:p-6">
         <div className="flex items-start gap-3">
           {/* Avatar with skin frame */}
           <div className="relative shrink-0">

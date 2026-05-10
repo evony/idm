@@ -312,7 +312,7 @@ function MarketplaceCard({ item, isPremium = false, onClick }: { item: Marketpla
         </div>
       )}
 
-      <div className="p-3">
+      <div className="p-3 sm:p-4">
         {/* Category tag */}
         <div className="flex items-center gap-1.5 mb-1">
           <span className={`text-[8px] font-bold uppercase tracking-wider ${

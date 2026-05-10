@@ -100,17 +100,17 @@ export function MVP() {
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 text-center">
+                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 sm:p-4 text-center">
                     <TrendingUp className="w-5 h-5 mx-auto mb-1 text-green-500" />
                     <p className="text-xs text-gray-500 dark:text-gray-400">K/D</p>
                     <p className="font-bold text-gray-900 dark:text-white">{player.kd}</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 text-center">
+                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 sm:p-4 text-center">
                     <Trophy className="w-5 h-5 mx-auto mb-1 text-amber-500" />
                     <p className="text-xs text-gray-500 dark:text-gray-400">Win Rate</p>
                     <p className="font-bold text-gray-900 dark:text-white">{player.winRate}</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 text-center">
+                  <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 sm:p-4 text-center">
                     <Star className="w-5 h-5 mx-auto mb-1 text-purple-500" />
                     <p className="text-xs text-gray-500 dark:text-gray-400">MVP</p>
                     <p className="font-bold text-gray-900 dark:text-white">{player.mvpCount}</p>

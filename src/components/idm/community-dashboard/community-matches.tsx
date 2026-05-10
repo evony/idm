@@ -104,7 +104,7 @@ function DivisionEmptyCard({ division }: { division: 'male' | 'female' }) {
   return (
     <Card className={`${dt.casinoCard} border ${dt.borderSubtle} overflow-hidden h-full flex flex-col`}>
       <div className={dt.casinoBar} />
-      <CardContent className="p-4 flex-1 flex flex-col items-center justify-center text-center min-h-[180px]">
+      <CardContent className="p-4 sm:p-6 flex-1 flex flex-col items-center justify-center text-center min-h-[180px]">
         <span className="text-2xl mb-2">{division === 'male' ? '🕺' : '💃'}</span>
         <div className={`w-14 h-14 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle} flex items-center justify-center mb-3`}>
           <Trophy className={`w-6 h-6 ${dt.text} opacity-25`} />
@@ -166,7 +166,7 @@ export function CommunityMatches({ maleData, femaleData, selectedDivision = 'all
   }
 
   return (
-    <div className={`grid gap-3 ${selectedDivision === 'all' ? 'grid-cols-1 sm:grid-cols-2 p-3 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10' : 'grid-cols-1'}`}>
+    <div className={`grid gap-3 ${selectedDivision === 'all' ? 'grid-cols-1 sm:grid-cols-2 p-4 sm:p-5 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10' : 'grid-cols-1'}`}>
       {tournamentStatuses.map((t, i) => {
         const dt = getDivisionTheme(t.division);
         const displayStatus = mapStatus(t.status);
@@ -189,7 +189,7 @@ export function CommunityMatches({ maleData, femaleData, selectedDivision = 'all
                   <span className="text-[7px] font-bold text-idm-gold-warm uppercase tracking-wider">Match Kamu</span>
                 </div>
               )}
-              <CardContent className="p-4 flex-1 flex flex-col">
+              <CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">

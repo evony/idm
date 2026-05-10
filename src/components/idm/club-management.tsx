@@ -495,7 +495,7 @@ export function ClubManagement({ division, dt, seasonId, setConfirmDialog }: Clu
                                     <div
                                       className="overflow-hidden stagger-item-subtle"
                                     >
-                                      <div className="p-3 rounded-lg bg-muted/30 border border-border/20 space-y-2">
+                                      <div className="p-4 sm:p-5 rounded-lg bg-muted/30 border border-border/20 space-y-2">
                                         <div className="flex items-center gap-2">
                                           <Search className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
                                           <Input
@@ -538,7 +538,7 @@ export function ClubManagement({ division, dt, seasonId, setConfirmDialog }: Clu
                                 <div className="space-y-1.5">
                                   {clubDetail?.members?.map((member) => (
                                     <div key={member.id}
-                                      className={`flex items-center justify-between p-2.5 rounded-lg border ${
+                                      className={`flex items-center justify-between p-3 sm:p-4 rounded-lg border ${
                                         member.role === 'captain'
                                           ? 'border-yellow-500/20 bg-yellow-500/5'
                                           : 'border-border/20 bg-card/30'

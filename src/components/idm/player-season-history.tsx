@@ -322,7 +322,7 @@ export function PlayerSeasonHistory({
         </Badge>
       </div>
 
-      <div className={`p-3 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle} space-y-2`}>
+      <div className={`p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle} space-y-2`}>
         {allEntries.map((stat) => (
           <SeasonCard
             key={stat.seasonId}

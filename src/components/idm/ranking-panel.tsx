@@ -101,14 +101,14 @@ export function RankingPanel({ division, dt, setConfirmDialog }: RankingPanelPro
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
         <Card className={dt.casinoCard}>
           <div className={dt.casinoBar} />
-          <CardContent className="p-3 relative z-10 text-center">
+          <CardContent className="p-4 sm:p-6 relative z-10 text-center">
             <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Total Player</p>
             <p className={`text-xl font-bold ${dt.neonText}`}>{allRankings.length}</p>
           </CardContent>
         </Card>
         <Card className={dt.casinoCard}>
           <div className={dt.casinoBar} />
-          <CardContent className="p-3 relative z-10 text-center">
+          <CardContent className="p-4 sm:p-6 relative z-10 text-center">
             <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Tier Dikelola Admin</p>
             <p className="text-[10px] text-muted-foreground mt-1">Tier diatur manual saat approval peserta</p>
           </CardContent>

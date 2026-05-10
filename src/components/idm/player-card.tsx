@@ -95,7 +95,7 @@ export function PlayerCard({
       )}
 
       {/* Bottom info overlay — compact single-line name|tier on mobile */}
-      <div className="absolute bottom-0 inset-x-0 p-2 sm:p-3 z-10">
+      <div className="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10">
         {/* Gamertag + Tier in one line */}
         <div className="flex items-center gap-1.5">
           <SkinName skin={primarySkin}>

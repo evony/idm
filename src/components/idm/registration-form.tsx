@@ -433,7 +433,7 @@ export function RegistrationForm() {
 
                 {/* Similar players list */}
                 {warningState.similarPlayers.length > 0 && (
-                  <div className="mb-4 p-3 rounded-lg bg-muted/50">
+                  <div className="mb-4 p-4 sm:p-5 rounded-lg bg-muted/50">
                     <p className="text-xs font-semibold text-muted-foreground mb-2">Data yang cocok:</p>
                     <div className="space-y-2">
                       {warningState.similarPlayers.slice(0, 3).map((player) => (
@@ -487,7 +487,7 @@ export function RegistrationForm() {
 
                 {/* Approved player re-register info (daftar ulang turnamen) */}
                 {warningState.canReRegister && warningState.isApprovedPlayer && (
-                  <div className="mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20">
+                  <div className="mb-4 p-4 sm:p-5 rounded-lg bg-green-500/10 border border-green-500/20">
                     <div className="flex items-start gap-2">
                       <Music className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                       <div className="text-xs text-green-400">
@@ -499,7 +499,7 @@ export function RegistrationForm() {
 
                 {/* Re-registration info (rejected/inactive player) */}
                 {warningState.canReRegister && !warningState.isApprovedPlayer && (
-                  <div className="mb-4 p-3 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
+                  <div className="mb-4 p-4 sm:p-5 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
                     <div className="flex items-start gap-2">
                       <UserPlus className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                       <div className="text-xs text-cyan-400">
@@ -512,7 +512,7 @@ export function RegistrationForm() {
 
                 {/* Already in tournament message */}
                 {warningState.isBlocked && warningState.alreadyInTournament && (
-                  <div className="mb-4 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                  <div className="mb-4 p-4 sm:p-5 rounded-lg bg-blue-500/10 border border-blue-500/20">
                     <div className="flex items-start gap-2">
                       <Info className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
                       <div className="flex-1">
@@ -536,7 +536,7 @@ export function RegistrationForm() {
 
                 {/* Blocked message (pending in queue) */}
                 {warningState.isBlocked && !warningState.alreadyInTournament && (
-                  <div className="mb-4 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                  <div className="mb-4 p-4 sm:p-5 rounded-lg bg-red-500/10 border border-red-500/20">
                     <div className="flex items-start gap-2">
                       <Info className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
                       <p className="text-xs text-red-400">
@@ -548,7 +548,7 @@ export function RegistrationForm() {
 
                 {/* High risk message (non re-register, non blocked) */}
                 {warningState.isHighRisk && !warningState.isBlocked && !warningState.canReRegister && (
-                  <div className="mb-4 p-3 rounded-lg bg-orange-500/10 border border-orange-500/20">
+                  <div className="mb-4 p-4 sm:p-5 rounded-lg bg-orange-500/10 border border-orange-500/20">
                     <p className="text-xs text-orange-400">
                       <strong>Perhatian:</strong> Jika ini adalah Anda, tidak perlu mendaftar ulang. Hubungi admin jika lupa nickname.
                     </p>
@@ -630,7 +630,7 @@ export function RegistrationForm() {
                   <div className="space-y-1.5 max-h-64 overflow-y-auto custom-scrollbar">
                     {approvedParticipants.map((p: { id: string; gamertag: string; name: string; tier: string; points: number }, idx: number) => {
                       return (
-                        <div key={p.id} className="flex items-center justify-between p-2 rounded-lg bg-background/50 border border-blue-500/10">
+                        <div key={p.id} className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-background/50 border border-blue-500/10">
                           <div className="flex items-center gap-2 min-w-0">
                             <span className="w-5 h-5 rounded-full bg-blue-500/10 flex items-center justify-center text-[9px] font-bold text-blue-400 shrink-0">
                               {idx + 1}

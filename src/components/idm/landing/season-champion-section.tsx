@@ -427,7 +427,7 @@ function SultanOfSeasonCard({ sultans, setSelectedPlayer }: {
   const { sultan, seasonNumber } = latestSultan;
 
   return (
-    <div className="rounded-2xl overflow-hidden border bg-[#0d0d1a] p-3 sm:p-4"
+    <div className="rounded-2xl overflow-hidden border bg-[#0d0d1a] p-4 sm:p-5"
       style={{ borderColor: hexToRgba(SULTAN_EMERALD, 0.2) }}>
       {/* Header */}
       <div className="flex items-center gap-2 mb-3">
@@ -621,7 +621,7 @@ function DuoChampionCard({
       */}
       <div className="flex flex-col lg:flex-row">
         {/* ─── Male Champion Card (MVP style) ─── */}
-        <div className="flex-1 p-3 sm:p-4">
+        <div className="flex-1 p-4 sm:p-5">
           {hasMale ? (
             <div className="flex gap-3 sm:gap-4 items-stretch cursor-pointer group/male" onClick={() => {
               setSelectedPlayer({
@@ -761,7 +761,7 @@ function DuoChampionCard({
         )}
 
         {/* ─── Female Champion Card (MVP style) ─── */}
-        <div className="flex-1 p-3 sm:p-4">
+        <div className="flex-1 p-4 sm:p-5">
           {hasFemale ? (
             <div className="flex gap-3 sm:gap-4 items-stretch cursor-pointer group/female" onClick={() => {
               setSelectedPlayer({

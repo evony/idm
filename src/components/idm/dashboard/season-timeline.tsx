@@ -102,7 +102,7 @@ export function SeasonTimeline({ data }: SeasonTimelineProps) {
           <Badge className={`${dt.casinoBadge} ml-auto text-[9px]`}>{percentage}%</Badge>
         </div>
 
-        <div className="p-3 lg:p-4 space-y-4">
+        <div className="p-4 sm:p-6 space-y-4">
           {/* Progress bar */}
           <div>
             <div className="flex items-center justify-between text-[10px] mb-1.5">
@@ -199,15 +199,15 @@ export function SeasonTimeline({ data }: SeasonTimelineProps) {
 
           {/* Quick stats row */}
           <div className="grid grid-cols-3 gap-2 pt-1">
-            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border text-center`}>
+            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border text-center`}>
               <p className={`text-sm font-bold ${dt.neonText}`}>{data.totalPlayers}</p>
               <p className="text-[9px] text-muted-foreground">Players</p>
             </div>
-            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border text-center`}>
+            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border text-center`}>
               <p className={`text-sm font-bold ${dt.neonText}`}>{data.clubs?.length || 0}</p>
               <p className="text-[9px] text-muted-foreground">Clubs</p>
             </div>
-            <div className={`p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border text-center`}>
+            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border text-center`}>
               <p className={`text-sm font-bold ${dt.neonText}`}>{completedWeeks}</p>
               <p className="text-[9px] text-muted-foreground">Weeks Done</p>
             </div>

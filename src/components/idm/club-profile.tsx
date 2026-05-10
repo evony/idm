@@ -223,7 +223,7 @@ function StatBlock({ icon: Icon, label, value, sub, color }: {
   color: string;
 }) {
   return (
-    <div className="p-3 rounded-2xl bg-muted/30 border border-border/30 text-center">
+    <div className="p-4 sm:p-5 rounded-2xl bg-muted/30 border border-border/30 text-center">
       <Icon className={`w-4 h-4 ${color} mx-auto mb-1`} />
       <p className="text-lg font-bold">{value}</p>
       <p className="text-[10px] text-muted-foreground">{label}</p>
@@ -470,7 +470,7 @@ export function ClubProfile({ club, onClose, rank, onPlayerClick }: ClubProfileP
                 <Progress value={displayWinRate} className="h-2" />
               </div>
 
-              <div className="flex items-center justify-between p-2.5 rounded-2xl bg-green-500/5 border border-green-500/10">
+              <div className="flex items-center justify-between p-3 sm:p-4 rounded-2xl bg-green-500/5 border border-green-500/10">
                 <div className="flex items-center gap-2">
                   <Trophy className="w-4 h-4 text-green-500" />
                   <span className="text-xs font-medium">Win</span>
@@ -478,7 +478,7 @@ export function ClubProfile({ club, onClose, rank, onPlayerClick }: ClubProfileP
                 <span className="text-sm font-bold text-green-500">{displayWins}</span>
               </div>
 
-              <div className="flex items-center justify-between p-2.5 rounded-2xl bg-red-500/5 border border-red-500/10">
+              <div className="flex items-center justify-between p-3 sm:p-4 rounded-2xl bg-red-500/5 border border-red-500/10">
                 <div className="flex items-center gap-2">
                   <X className="w-4 h-4 text-red-500" />
                   <span className="text-xs font-medium">Kekalahan</span>
@@ -486,7 +486,7 @@ export function ClubProfile({ club, onClose, rank, onPlayerClick }: ClubProfileP
                 <span className="text-sm font-bold text-red-500">{displayLosses}</span>
               </div>
 
-              <div className="flex items-center justify-between p-2.5 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10">
+              <div className="flex items-center justify-between p-3 sm:p-4 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10">
                 <div className="flex items-center gap-2">
                   <Zap className="w-4 h-4 text-idm-gold-warm" />
                   <span className="text-xs font-medium">Total Match</span>
@@ -514,7 +514,7 @@ export function ClubProfile({ club, onClose, rank, onPlayerClick }: ClubProfileP
                     return (
                       <div
                         key={p.id}
-                        className="flex items-center gap-3 p-2.5 rounded-lg bg-muted/30 border border-border/30 hover:bg-muted/50 transition-colors cursor-pointer interactive-scale"
+                        className="flex items-center gap-3 p-3 sm:p-4 rounded-lg bg-muted/30 border border-border/30 hover:bg-muted/50 transition-colors cursor-pointer interactive-scale"
                         onClick={() => onPlayerClick?.({
                           id: p.id,
                           name: p.name || p.gamertag,
@@ -625,7 +625,7 @@ export function ClubProfile({ club, onClose, rank, onPlayerClick }: ClubProfileP
                   <Music className="w-4 h-4 text-idm-gold-warm" />
                   <h3 className="text-sm font-semibold">Rekor Match</h3>
                 </div>
-                <div className="p-3 rounded-lg bg-idm-gold-warm/5 border border-idm-gold-warm/10">
+                <div className="p-4 sm:p-5 rounded-lg bg-idm-gold-warm/5 border border-idm-gold-warm/10">
                   <div className="grid grid-cols-3 gap-2 text-center">
                     <div>
                       <p className="text-lg font-bold text-green-500">{displayWins}</p>
@@ -656,7 +656,7 @@ export function ClubProfile({ club, onClose, rank, onPlayerClick }: ClubProfileP
             )}
 
             {/* Points Breakdown */}
-            <div className="p-3 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10">
+            <div className="p-4 sm:p-5 rounded-2xl bg-idm-gold-warm/5 border border-idm-gold-warm/10">
               <div className="flex items-center gap-2 mb-2">
                 <TrendingUp className="w-4 h-4 text-idm-gold-warm" />
                 <span className="text-xs font-semibold">Rincian Poin</span>

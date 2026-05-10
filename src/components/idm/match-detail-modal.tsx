@@ -199,7 +199,7 @@ export function MatchDetailModal({ matchId, onClose, preview }: MatchDetailModal
 
         {/* MVP Section */}
         {mvpPlayer && (
-          <div className={`mx-4 mt-3 p-2.5 rounded-lg bg-yellow-500/5 border border-yellow-500/10 flex items-center gap-2.5`}>
+          <div className={`mx-4 mt-3 p-3 sm:p-4 rounded-lg bg-yellow-500/5 border border-yellow-500/10 flex items-center gap-2.5`}>
             <div className="w-7 h-7 rounded-full bg-yellow-500/15 flex items-center justify-center shrink-0">
               <Star className="w-3.5 h-3.5 text-yellow-500" />
             </div>

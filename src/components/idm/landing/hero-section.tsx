@@ -408,7 +408,7 @@ export function HeroSection({
               {/* Season Club Champion Card — Horizontal: logo left, name right */}
               {maleChampion && femaleChampion && (
                 <div className="flex flex-col items-center gap-1">
-                  <div className="relative flex items-center gap-2 sm:gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl border" style={{ background: 'rgba(212,168,83,0.06)', borderColor: 'rgba(212,168,83,0.2)', boxShadow: '0 0 20px rgba(212,168,83,0.08)' }}>
+                  <div className="relative flex items-center gap-2 sm:gap-2.5 p-4 sm:p-5 rounded-2xl border" style={{ background: 'rgba(212,168,83,0.06)', borderColor: 'rgba(212,168,83,0.2)', boxShadow: '0 0 20px rgba(212,168,83,0.08)' }}>
                     {/* Club Logo */}
                     {championClub?.logo ? (
                       <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl overflow-hidden shrink-0" style={{ boxShadow: '0 0 12px rgba(212,168,83,0.15)' }}>
@@ -538,7 +538,7 @@ export function HeroSection({
               aria-hidden={!showBracketPicker}
             >
             <div className="mb-8 sm:mb-10" style={{ animation: 'reveal-fade-up 0.25s cubic-bezier(0.16,1,0.3,1) both' }}>
-              <div className="relative rounded-2xl border border-idm-gold-warm/20 bg-mid/95 p-4 shadow-2xl">
+              <div className="relative rounded-2xl border border-idm-gold-warm/20 bg-mid/95 p-4 sm:p-6 shadow-2xl">
                   {/* Close hint */}
                   <button
                     onClick={() => setShowBracketPicker(false)}

@@ -87,7 +87,7 @@ export function StatsRowSkeleton({ count = 4, className = '' }: { count?: number
   return (
     <div className={`grid grid-cols-2 lg:grid-cols-${count} gap-3 ${className}`}>
       {Array.from({ length: count }).map((_, i) => (
-        <div key={i} className="rounded-2xl border border-border/50 bg-card p-3 sm:p-5 text-center space-y-2">
+        <div key={i} className="rounded-2xl border border-border/50 bg-card p-4 sm:p-6 text-center space-y-2">
           <ShimmerBlock className="w-8 h-8 sm:w-10 sm:h-10 mx-auto rounded-lg" />
           <ShimmerBlock className="h-5 sm:h-7 w-12 mx-auto" />
           <ShimmerBlock className="h-2 w-14 mx-auto" />

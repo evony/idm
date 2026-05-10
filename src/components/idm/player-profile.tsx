@@ -594,15 +594,15 @@ export function PlayerProfile({ player, onClose, rank, skinMap, preferredSkinTyp
                   <Badge className={`${dt.casinoBadge} text-[8px] ml-auto`}>{player.matches} MATCH</Badge>
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-center">
-                  <div className="p-2 rounded-lg bg-green-500/5 border border-green-500/10">
+                  <div className="p-3 sm:p-4 rounded-lg bg-green-500/5 border border-green-500/10">
                     <p className="text-lg font-bold text-green-500">{player.totalWins}</p>
                     <p className="text-[9px] text-muted-foreground uppercase">Wins</p>
                   </div>
-                  <div className="p-2 rounded-lg bg-red-500/5 border border-red-500/10">
+                  <div className="p-3 sm:p-4 rounded-lg bg-red-500/5 border border-red-500/10">
                     <p className="text-lg font-bold text-red-500">{losses}</p>
                     <p className="text-[9px] text-muted-foreground uppercase">Losses</p>
                   </div>
-                  <div className="p-2 rounded-lg bg-yellow-500/5 border border-yellow-500/10">
+                  <div className="p-3 sm:p-4 rounded-lg bg-yellow-500/5 border border-yellow-500/10">
                     <p className="text-lg font-bold text-yellow-500">{player.totalMvp}</p>
                     <p className="text-[9px] text-muted-foreground uppercase">MVP</p>
                   </div>
@@ -708,7 +708,7 @@ export function PlayerProfile({ player, onClose, rank, skinMap, preferredSkinTyp
                   <h3 className="text-sm font-semibold">Rekor Match</h3>
                   <Badge className={`${dt.casinoBadge} text-[8px] ml-auto`}>{player.matches} DIMAINKAN</Badge>
                 </div>
-                <div className={`p-3 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
+                <div className={`p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="text-center">
                       <p className="text-2xl font-black text-green-500">{player.totalWins}</p>
@@ -749,7 +749,7 @@ export function PlayerProfile({ player, onClose, rank, skinMap, preferredSkinTyp
                     {(matchHistoryData.leagueMatches?.length || 0) + (matchHistoryData.tournamentMatches?.length || 0)} DIMAINKAN
                   </Badge>
                 </div>
-                <div className={`p-3 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle} space-y-3`}>
+                <div className={`p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle} space-y-3`}>
                   {/* Tarkam Matches */}
                   {matchHistoryData.leagueMatches?.length > 0 && (
                     <div>

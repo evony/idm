@@ -82,7 +82,7 @@ function ActivityItem({ activity }: { activity: Activity }) {
 
   return (
     <div
-      className={`activity-card-glass group relative flex gap-3 p-3 rounded-lg ${style.bg} ${style.border} border transition-all hover:shadow-md ${style.glow} ${ageOpacity} animate-fade-enter-sm`}
+      className={`activity-card-glass group relative flex gap-3 p-4 sm:p-5 rounded-lg ${style.bg} ${style.border} border transition-all hover:shadow-md ${style.glow} ${ageOpacity} animate-fade-enter-sm`}
     >
       {/* Timeline dot & line */}
       <div className="flex flex-col items-center shrink-0 pt-0.5">

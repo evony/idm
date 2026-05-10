@@ -442,7 +442,7 @@ export function HistoricalSeasonView({ season, onBack }: HistoricalSeasonViewPro
       {standings.length > 0 && (
         <Card className="overflow-hidden">
           <div className={`h-1 ${isMale ? 'bg-gradient-to-r from-idm-male/60 to-idm-male/20' : 'bg-gradient-to-r from-idm-female/60 to-idm-female/20'}`} />
-          <CardContent className="p-4 relative z-10">
+          <CardContent className="p-4 sm:p-6 relative z-10">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <Medal className={`w-4 h-4 ${isMale ? 'text-idm-male' : 'text-idm-female'}`} />
@@ -461,7 +461,7 @@ export function HistoricalSeasonView({ season, onBack }: HistoricalSeasonViewPro
       {clubs.length > 0 && (
         <Card className="overflow-hidden">
           <div className="h-1 bg-gradient-to-r from-idm-gold-warm/60 to-idm-gold-warm/20" />
-          <CardContent className="p-4 relative z-10">
+          <CardContent className="p-4 sm:p-6 relative z-10">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-idm-gold-warm" />
@@ -478,7 +478,7 @@ export function HistoricalSeasonView({ season, onBack }: HistoricalSeasonViewPro
 
       {/* Season Info Footer */}
       <Card className="overflow-hidden">
-        <CardContent className="p-4 relative z-10">
+        <CardContent className="p-4 sm:p-6 relative z-10">
           <div className="flex items-center gap-2 mb-3">
             <Calendar className="w-4 h-4 text-muted-foreground" />
             <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Info Season</h3>

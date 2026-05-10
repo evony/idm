@@ -82,7 +82,7 @@ export function VideoModal({ isOpen, onClose, videoUrl, title }: VideoModalProps
         </div>
 
         {/* Title bar */}
-        <div className="px-4 py-3 bg-black/80 border-t border-white/10">
+        <div className="p-4 sm:p-6 bg-black/80 border-t border-white/10">
           <p className="text-sm font-semibold text-white/90 truncate">{title}</p>
         </div>
       </DialogContent>

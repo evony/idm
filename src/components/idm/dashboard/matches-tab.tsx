@@ -194,7 +194,7 @@ export function MatchesTab({ data, recentMatches, upcomingMatches, matchesByWeek
       {/* ═══ Club Filter — Filter matches by club ═══ */}
       {clubs && clubs.length > 0 && (
         <div className="stagger-item-subtle stagger-d1">
-          <div className={`flex items-center gap-3 p-3 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
+          <div className={`flex items-center gap-3 p-4 sm:p-5 rounded-2xl ${dt.bgSubtle} border ${dt.borderSubtle}`}>
             <div className={`w-5 h-5 rounded ${dt.iconBg} flex items-center justify-center shrink-0`}>
               <Shield className={`w-3 h-3 ${dt.neonText}`} />
             </div>

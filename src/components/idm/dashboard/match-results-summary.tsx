@@ -78,7 +78,7 @@ function LoadingSkeleton() {
           <Skeleton className="h-4 w-36 rounded" />
         </div>
         {[1, 2, 3].map((i) => (
-          <div key={i} className={`flex items-center gap-2 p-2 rounded-lg ${i % 2 === 0 ? 'bg-muted/5' : ''}`}>
+          <div key={i} className={`flex items-center gap-2 p-3 rounded-lg ${i % 2 === 0 ? 'bg-muted/5' : ''}`}>
             <Skeleton className="h-3 w-20 rounded" />
             <Skeleton className="h-4 w-6 rounded" />
             <span className="text-[10px] text-muted-foreground/30">vs</span>

@@ -211,7 +211,7 @@ export function DanceMatchCard({
         {/* ═══ MVP Indicator ═══ */}
         {mvpPlayer && (
           <div
-            className={`stagger-item-subtle flex items-center justify-center gap-1.5 mx-4 mb-3 p-2 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border`}
+            className={`stagger-item-subtle flex items-center justify-center gap-1.5 mx-4 mb-3 p-3 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border`}
           >
             <Crown className="w-3.5 h-3.5 text-yellow-500" />
             <span className={`text-[10px] font-semibold ${dt.neonText}`}>MVP: {mvpPlayer.gamertag}</span>
@@ -221,7 +221,7 @@ export function DanceMatchCard({
         {/* ═══ Expanded Details ═══ */}
         {expanded && (
           <div className="mx-4 mb-3">
-            <div className={`p-3 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border space-y-2`}>
+            <div className={`p-3 sm:p-4 rounded-lg ${dt.bgSubtle} ${dt.borderSubtle} border space-y-2`}>
               <div className="flex items-center justify-between text-[10px]">
                 <span className="text-muted-foreground">Status</span>
                 <span className={`font-semibold ${isLive ? 'text-red-500' : 'text-foreground'}`}>

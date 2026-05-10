@@ -67,7 +67,7 @@ export function CommunityStats({ maleData, femaleData, leagueData }: CommunitySt
           className="animate-fade-enter-sm"
           style={{ animationDelay: `${i * 60}ms` }}
         >
-          <div className={`relative overflow-hidden ${dt.casinoCard} rounded-2xl border ${dt.borderSubtle} p-3 group community-stat-card stat-card-shimmer transition-all duration-300 hover:border-idm-gold-warm/30 hover:shadow-[0_0_12px_rgba(212,168,83,0.15)]`}>
+          <div className={`relative overflow-hidden ${dt.casinoCard} rounded-2xl border ${dt.borderSubtle} p-3 sm:p-4 group community-stat-card stat-card-shimmer transition-all duration-300 hover:border-idm-gold-warm/30 hover:shadow-[0_0_12px_rgba(212,168,83,0.15)]`}>
             {/* Gold top accent line — appears on hover */}
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-idm-gold-warm/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className={`w-7 h-7 rounded-lg ${stat.iconBg} flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300`}>

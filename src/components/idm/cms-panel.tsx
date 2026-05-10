@@ -159,7 +159,7 @@ function CardEditor({
 
   return (
     <div className="group">
-      <div className={`p-3 rounded-2xl border ${card.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/20 opacity-60'} transition-colors duration-150`}>
+      <div className={`p-4 sm:p-5 rounded-2xl border ${card.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/20 opacity-60'} transition-colors duration-150`}>
         {editing ? (
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-2">
@@ -335,7 +335,7 @@ function SectionEditor({
 
             {/* Section Edit Form */}
             {editingSection ? (
-              <div className="space-y-3 p-3 rounded-2xl bg-muted/20 border border-border/30">
+              <div className="space-y-3 p-4 sm:p-5 rounded-2xl bg-muted/20 border border-border/30">
                 <h4 className="text-xs font-semibold flex items-center gap-1.5"><Settings2 className="w-3 h-3" /> Edit Section</h4>
                 <div className="grid grid-cols-2 gap-2">
                   <div>
@@ -656,7 +656,7 @@ function MarketplaceManager() {
             {items.map((item: any) => {
               const statusBadge = STATUS_BADGE[item.status] || STATUS_BADGE.pending;
               return (
-                <div key={item.id} className="flex items-center gap-3 p-2.5 rounded-lg bg-white/[0.02] border border-border/10 hover:border-border/20 transition-colors">
+                <div key={item.id} className="flex items-center gap-3 p-3 sm:p-4 rounded-lg bg-white/[0.02] border border-border/10 hover:border-border/20 transition-colors">
                   <div className="relative w-10 h-10 rounded-lg bg-muted/30 flex items-center justify-center flex-shrink-0 overflow-hidden">
                     {item.imageUrl ? <Image src={getOptimizedCloudinaryUrl(item.imageUrl, 80)} alt="" fill className="w-full h-full object-cover" sizes="40px" /> : <ShoppingBag className="w-4 h-4 text-muted-foreground/30" />}
                   </div>
@@ -1363,7 +1363,7 @@ export function CmsPanel() {
                       </h4>
                       <p className="text-[9px] text-muted-foreground/60">Masukkan judul dan URL YouTube/MP4 untuk setiap video di list. Klik list di sebelah kanan untuk memilih video, lalu klik play di banner untuk memutar. Kosongkan URL untuk menampilkan status "Coming Soon".</p>
                       {[1, 2, 3, 4].map((num) => (
-                        <div key={num} className="space-y-1.5 p-2.5 rounded-lg bg-muted/20 border border-border/30">
+                        <div key={num} className="space-y-1.5 p-3 sm:p-4 rounded-lg bg-muted/20 border border-border/30">
                           <label className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-1">
                             <span className="w-4 h-4 rounded bg-idm-gold-warm/15 text-idm-gold-warm flex items-center justify-center text-[9px] font-black">{num}</span>
                             Video #{num}
@@ -1528,7 +1528,7 @@ export function CmsPanel() {
                       </h4>
                       <p className="text-[9px] text-muted-foreground/60">Setiap badge memiliki nilai dan label. Contoh: nilai "12+" dengan label "Club Terdaftar".</p>
                       {[1, 2, 3].map((num) => (
-                        <div key={num} className="grid grid-cols-2 gap-2 p-2.5 rounded-lg bg-muted/20 border border-border/30">
+                        <div key={num} className="grid grid-cols-2 gap-2 p-3 sm:p-4 rounded-lg bg-muted/20 border border-border/30">
                           <div>
                             <label className="text-[9px] font-semibold text-muted-foreground/70 uppercase tracking-wider">Nilai Badge #{num}</label>
                             <Input

@@ -126,7 +126,7 @@ export function LiveMatchCounter() {
           stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`flex-1 px-3 py-3 flex items-center gap-2.5 transition-colors hover:bg-white/[0.02] live-counter-stat`}
+              className={`flex-1 p-3 sm:p-4 flex items-center gap-2.5 transition-colors hover:bg-white/[0.02] live-counter-stat`}
               style={{ animationDelay: `${i * 100}ms` }}
             >
               <div className={`w-8 h-8 rounded-lg ${stat.bg} flex items-center justify-center shrink-0`}>

@@ -295,7 +295,7 @@ export function AdminAchievementPanel() {
                       {(catAchievements as Achievement[]).map((achievement: Achievement) => (
                         <div
                           key={achievement.id}
-                          className={`p-3 rounded-2xl border ${achievement.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/30 opacity-60'}`}
+                          className={`p-4 sm:p-5 rounded-2xl border ${achievement.isActive ? 'bg-card border-border/50' : 'bg-muted/30 border-border/30 opacity-60'}`}
                         >
                           <div className="flex items-start gap-3">
                             {/* Icon */}
@@ -489,7 +489,7 @@ export function AdminAchievementPanel() {
               </div>
             </div>
             {/* Preview */}
-            <div className="p-3 rounded-2xl border border-border/50 bg-muted/20">
+            <div className="p-4 sm:p-5 rounded-2xl border border-border/50 bg-muted/20">
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg ${tierColors[formData.tier] || 'bg-muted'}`}>
                   {formData.icon || '🏆'}
@@ -554,7 +554,7 @@ export function AdminAchievementPanel() {
 
             {/* Players who already have this achievement (revoke section) */}
             {selectedAchievement && (existingHolders?.playerAchievements || []).length > 0 && (
-              <div className="p-3 rounded-lg border border-red-500/20 bg-red-500/5">
+              <div className="p-4 sm:p-5 rounded-lg border border-red-500/20 bg-red-500/5">
                 <Label className="text-xs text-red-500 font-medium">
                   Sudah Punya ({(existingHolders?.playerAchievements || []).length} player)
                 </Label>
@@ -619,7 +619,7 @@ export function AdminAchievementPanel() {
                   .map((p: PlayerWithAchievements) => (
                   <div
                     key={p.id}
-                    className="flex items-center justify-between p-2 rounded-lg bg-muted/30 hover:bg-muted/50 cursor-pointer"
+                    className="flex items-center justify-between p-3 sm:p-4 rounded-lg bg-muted/30 hover:bg-muted/50 cursor-pointer"
                     onClick={() => {
                       if (selectedAchievement) {
                         assignAchievement.mutate({
