@@ -32,6 +32,8 @@ export class WABot {
   private socket: WASocket | null = null;
   private connectionStatus: 'connecting' | 'connected' | 'disconnected' | 'banned' = 'disconnected';
   private phoneNumber: string = '';
+  private lastQr: string | null = null;
+  private qrTimestamp: number = 0;
   private reconnectAttempts: number = 0;
   private maxReconnectAttempts: number = 50;
   private reconnectDelay: number = 5000;
@@ -52,6 +54,15 @@ export class WABot {
       status: this.connectionStatus,
       phoneNumber: this.phoneNumber,
     };
+  }
+
+  /** Get the last QR code string (for /qr-html endpoint) */
+  getLastQr(): string | null {
+    // QR expires after 60 seconds
+    if (this.lastQr && Date.now() - this.qrTimestamp < 60000) {
+      return this.lastQr;
+    }
+    return null;
   }
 
   async start(): Promise<void> {
@@ -140,8 +151,11 @@ export class WABot {
     const { connection, lastDisconnect, qr } = update;
 
     if (qr) {
+      this.lastQr = qr;
+      this.qrTimestamp = Date.now();
       console.log('\n═══════════════════════════════════════');
       console.log('  📱 Scan QR Code dengan WhatsApp kamu');
+      console.log('  🌐 Atau buka /qr-html di browser');
       console.log('═══════════════════════════════════════\n');
       QRCode.generate(qr, { small: true });
       console.log('\n═══════════════════════════════════════\n');

@@ -12,6 +12,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 dotenvConfig({ path: resolve(__dirname, '../.env'), override: true });
 import express from 'express';
+import QRCode from 'qrcode';
 import { WABot } from './bot';
 import { ApiClient } from './api-client';
 import { initDatabase, updateBotStatus, addWaLog } from './database';
@@ -111,6 +112,62 @@ app.post('/restart', async (_req, res) => {
     res.json({ success: true, message: 'Bot restarting...' });
   } catch (err: any) {
     res.status(500).json({ error: err.message });
+  }
+});
+
+// QR Code HTML page — shows scannable QR for WhatsApp pairing
+app.get('/qr-html', async (_req, res) => {
+  try {
+    const qrString = bot.getLastQr();
+    const connStatus = bot.getConnectionStatus();
+
+    if (connStatus.status === 'connected') {
+      res.send(`<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IDM WA Bot - Connected</title>
+<style>body{font-family:system-ui,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;background:#0a0c16;color:#f5e6c8}
+.card{text-align:center;padding:2rem;border-radius:1rem;border:1px solid rgba(229,190,74,0.2);background:rgba(18,20,35,0.9)}
+h1{color:#4ade80;font-size:1.5rem}p{color:#a89878;margin-top:0.5rem}</style></head>
+<body><div class="card"><h1>✅ WhatsApp Connected</h1><p>Phone: ${connStatus.phoneNumber || 'Unknown'}</p></div></body></html>`);
+      return;
+    }
+
+    if (!qrString) {
+      res.send(`<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IDM WA Bot - Waiting QR</title>
+<style>body{font-family:system-ui,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;background:#0a0c16;color:#f5e6c8}
+.card{text-align:center;padding:2rem;border-radius:1rem;border:1px solid rgba(229,190,74,0.2);background:rgba(18,20,35,0.9)}
+h1{color:#e5be4a;font-size:1.5rem}p{color:#a89878;margin-top:0.5rem}
+.spin{display:inline-block;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}</style></head>
+<body><div class="card"><h1><span class="spin">⏳</span> Menunggu QR Code...</h1><p>Status: ${connStatus.status}</p><p>QR akan muncul otomatis saat bot meminta pairing.</p><p><button onclick="location.reload()" style="padding:0.5rem 1rem;border-radius:0.5rem;border:1px solid #e5be4a;background:transparent;color:#e5be4a;cursor:pointer">🔄 Refresh</button></p></div></body></html>`);
+      return;
+    }
+
+    // Generate QR as data URL
+    const qrDataUrl = await QRCode.toDataURL(qrString, {
+      width: 400,
+      margin: 2,
+      color: { dark: '#000000', light: '#ffffff' },
+    });
+
+    res.send(`<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IDM WA Bot - QR Code</title>
+<style>body{font-family:system-ui,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;background:#0a0c16;color:#f5e6c8}
+.card{text-align:center;padding:2rem;border-radius:1rem;border:1px solid rgba(229,190,74,0.2);background:rgba(18,20,35,0.9);max-width:480px}
+h1{color:#e5be4a;font-size:1.5rem}p{color:#a89878;margin-top:0.5rem}
+img{border-radius:0.75rem;margin:1rem 0;max-width:100%}
+.expiry{font-size:0.8rem;color:#f87171;margin-top:0.5rem}</style></head>
+<body><div class="card">
+<h1>📱 Scan QR Code</h1>
+<p>Buka WhatsApp → Perangkat tertaut → Tautkan perangkat</p>
+<img src="${qrDataUrl}" alt="WhatsApp QR Code" />
+<p class="expiry">⏰ QR berlaku 60 detik. Refresh jika sudah expired.</p>
+<p><button onclick="location.reload()" style="padding:0.5rem 1rem;border-radius:0.5rem;border:1px solid #e5be4a;background:transparent;color:#e5be4a;cursor:pointer">🔄 Refresh QR</button></p>
+</div></body></html>`);
+  } catch (err: any) {
+    res.status(500).send(`Error generating QR: ${err.message}`);
   }
 });
 
