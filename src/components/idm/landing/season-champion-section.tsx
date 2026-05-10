@@ -641,10 +641,10 @@ function DuoChampionCard({
                 matches: latestMale.player.matches || 0,
               });
             }}>
-              {/* Avatar panel — 3/4 aspect ratio */}
+              {/* Avatar panel — 3/4 aspect ratio — always male division color ring */}
               <div
-                className={`relative w-24 sm:w-32 lg:w-36 shrink-0 rounded-2xl overflow-hidden ${maleHasSkin ? 'bg-gradient-to-br from-[#d4a853]/25 to-[#d4a853]/5 border-[#d4a853]' : 'bg-gradient-to-br from-idm-male/25 to-idm-male/5 border-idm-male/15'}`}
-                style={{ aspectRatio: '3/4', ...(maleHasSkin ? { boxShadow: CHAMPION_GOLD_GLOW, border: CHAMPION_GOLD_BORDER } : {}) }}
+                className="relative w-24 sm:w-32 lg:w-36 shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-idm-male/25 to-idm-male/5 border-idm-male/30"
+                style={{ aspectRatio: '3/4' }}
               >
                 <Image
                   src={getAvatarUrl(latestMale.player.gamertag, 'male', latestMale.player.avatar)}
@@ -676,7 +676,7 @@ function DuoChampionCard({
                 <div>
                   <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
                     <span className="text-[10px] font-black" style={{ color: maleAccentLight }}>♂</span>
-                    <h3 className="text-sm lg:text-base font-black truncate" style={{ color: maleHasSkin ? CHAMPION_GOLD_LIGHT : '#f5f0e8' }}>{latestMale.player.gamertag}</h3>
+                    <h3 className="text-sm lg:text-base font-black truncate" style={{ color: maleAccentLight }}>{latestMale.player.gamertag}</h3>
                     
                   </div>
                   <div className="flex items-center gap-1.5 mb-3">
@@ -781,10 +781,10 @@ function DuoChampionCard({
                 matches: latestFemale.player.matches || 0,
               });
             }}>
-              {/* Avatar panel — 3/4 aspect ratio */}
+              {/* Avatar panel — 3/4 aspect ratio — always female division color ring */}
               <div
-                className={`relative w-24 sm:w-32 lg:w-36 shrink-0 rounded-2xl overflow-hidden ${femaleHasSkin ? 'bg-gradient-to-br from-[#d4a853]/25 to-[#d4a853]/5 border-[#d4a853]' : 'bg-gradient-to-br from-idm-female/25 to-idm-female/5 border-idm-female/15'}`}
-                style={{ aspectRatio: '3/4', ...(femaleHasSkin ? { boxShadow: CHAMPION_GOLD_GLOW, border: CHAMPION_GOLD_BORDER } : {}) }}
+                className="relative w-24 sm:w-32 lg:w-36 shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-idm-female/25 to-idm-female/5 border-idm-female/30"
+                style={{ aspectRatio: '3/4' }}
               >
                 <Image
                   src={getAvatarUrl(latestFemale.player.gamertag, 'female', latestFemale.player.avatar)}
@@ -816,7 +816,7 @@ function DuoChampionCard({
                 <div>
                   <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
                     <span className="text-[10px] font-black" style={{ color: femaleAccentLight }}>♀</span>
-                    <h3 className="text-sm lg:text-base font-black truncate" style={{ color: femaleHasSkin ? CHAMPION_GOLD_LIGHT : '#f5f0e8' }}>{latestFemale.player.gamertag}</h3>
+                    <h3 className="text-sm lg:text-base font-black truncate" style={{ color: femaleAccentLight }}>{latestFemale.player.gamertag}</h3>
                     
                   </div>
                   <div className="flex items-center gap-1.5 mb-3">

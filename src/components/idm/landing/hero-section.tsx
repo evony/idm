@@ -351,11 +351,11 @@ export function HeroSection({
               {/* Male skeleton */}
               <div className="flex flex-col items-center gap-1.5 sm:gap-2">
                 <div className="relative">
-                  <div className="absolute -inset-1.5 rounded-full opacity-30" style={{ background: 'radial-gradient(circle, rgba(212,168,83,0.3) 0%, transparent 70%)' }} />
-                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-idm-gold-warm/10 border-2 border-idm-gold-warm/20 animate-pulse" />
+                  <div className="absolute -inset-1.5 rounded-full opacity-30" style={{ background: 'radial-gradient(circle, rgba(46,159,255,0.3) 0%, transparent 70%)' }} />
+                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-idm-male/10 border-2 border-idm-male/20 animate-pulse" />
                 </div>
-                <div className="w-16 sm:w-20 h-2.5 rounded bg-idm-gold-warm/10 animate-pulse" />
-                <div className="w-12 h-1.5 rounded bg-idm-gold-warm/5 animate-pulse" />
+                <div className="w-16 sm:w-20 h-2.5 rounded bg-idm-male/10 animate-pulse" />
+                <div className="w-12 h-1.5 rounded bg-idm-male/5 animate-pulse" />
               </div>
               {/* Club skeleton */}
               <div className="flex items-center gap-2 px-3 py-2 rounded-2xl border border-idm-gold-warm/10 bg-idm-gold-warm/[0.03]">
@@ -368,11 +368,11 @@ export function HeroSection({
               {/* Female skeleton */}
               <div className="flex flex-col items-center gap-1.5 sm:gap-2">
                 <div className="relative">
-                  <div className="absolute -inset-1.5 rounded-full opacity-30" style={{ background: 'radial-gradient(circle, rgba(212,168,83,0.3) 0%, transparent 70%)' }} />
-                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-idm-gold-warm/10 border-2 border-idm-gold-warm/20 animate-pulse" />
+                  <div className="absolute -inset-1.5 rounded-full opacity-30" style={{ background: 'radial-gradient(circle, rgba(255,45,120,0.3) 0%, transparent 70%)' }} />
+                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-idm-female/10 border-2 border-idm-female/20 animate-pulse" />
                 </div>
-                <div className="w-16 sm:w-20 h-2.5 rounded bg-idm-gold-warm/10 animate-pulse" />
-                <div className="w-12 h-1.5 rounded bg-idm-gold-warm/5 animate-pulse" />
+                <div className="w-16 sm:w-20 h-2.5 rounded bg-idm-female/10 animate-pulse" />
+                <div className="w-12 h-1.5 rounded bg-idm-female/5 animate-pulse" />
               </div>
             </div>
           ) : hasChampions ? (
@@ -382,22 +382,20 @@ export function HeroSection({
               {maleChampion && (
                 <div className="flex flex-col items-center gap-1.5 sm:gap-2">
                   <div className="relative group">
-                    {/* Glow ring — gold for skin, cyan for division */}
-                    <div className="absolute -inset-1.5 rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-500" style={{ background: maleHasSkin ? 'radial-gradient(circle, rgba(212,168,83,0.4) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(46,159,255,0.3) 0%, transparent 70%)' }} />
-                    {/* Avatar container — gold skin or division color */}
+                    {/* Glow ring — division color (blue for male) */}
+                    <div className="absolute -inset-1.5 rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-500" style={{ background: 'radial-gradient(circle, rgba(46,159,255,0.3) 0%, transparent 70%)' }} />
+                    {/* Avatar container — always division color ring */}
                     <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2" style={{
-                      borderColor: maleHasSkin ? 'rgba(212,168,83,0.6)' : 'rgba(46,159,255,0.5)',
-                      boxShadow: maleHasSkin
-                        ? '0 0 20px rgba(212,168,83,0.3), 0 0 6px rgba(212,168,83,0.15), inset 0 0 10px rgba(212,168,83,0.1)'
-                        : '0 0 20px rgba(46,159,255,0.2), inset 0 0 10px rgba(46,159,255,0.1)',
+                      borderColor: 'rgba(46,159,255,0.5)',
+                      boxShadow: '0 0 20px rgba(46,159,255,0.2), inset 0 0 10px rgba(46,159,255,0.1)',
                     }}>
                       <Image src={maleChampionAvatar} alt={maleChampion.gamertag} fill sizes="96px" className="object-cover" priority />
-                      {/* Diamond shimmer overlay — gold or cyan */}
-                      <div className="absolute inset-0 rounded-full" style={{ background: maleHasSkin ? 'linear-gradient(135deg, rgba(212,168,83,0.2) 0%, transparent 50%, rgba(245,215,122,0.12) 100%)' : 'linear-gradient(135deg, rgba(79,195,247,0.15) 0%, transparent 50%, rgba(0,188,212,0.1) 100%)' }} />
+                      {/* Diamond shimmer overlay — division color */}
+                      <div className="absolute inset-0 rounded-full" style={{ background: 'linear-gradient(135deg, rgba(79,195,247,0.15) 0%, transparent 50%, rgba(0,188,212,0.1) 100%)' }} />
                     </div>
                   </div>
                   <div className="text-center">
-                    <span className="text-[10px] sm:text-xs font-bold tracking-wider uppercase" style={{ color: maleHasSkin ? CHAMPION_GOLD : 'rgba(46,159,255,0.9)' }}>{maleChampion.gamertag}</span>
+                    <span className="text-[10px] sm:text-xs font-bold tracking-wider uppercase" style={{ color: 'rgba(46,159,255,0.9)' }}>{maleChampion.gamertag}</span>
                     <p className="text-[8px] sm:text-[10px] text-idm-gold-warm/50 font-semibold tracking-wider uppercase flex items-center justify-center gap-0.5">
                       <span>💎</span> Season Champion
                     </p>
@@ -437,22 +435,20 @@ export function HeroSection({
               {femaleChampion && (
                 <div className="flex flex-col items-center gap-1.5 sm:gap-2">
                   <div className="relative group">
-                    {/* Glow ring — gold for skin, pink for division */}
-                    <div className="absolute -inset-1.5 rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-500" style={{ background: femaleHasSkin ? 'radial-gradient(circle, rgba(212,168,83,0.4) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(255,45,120,0.3) 0%, transparent 70%)' }} />
-                    {/* Avatar container — gold skin or division color */}
+                    {/* Glow ring — division color (pink for female) */}
+                    <div className="absolute -inset-1.5 rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-500" style={{ background: 'radial-gradient(circle, rgba(255,45,120,0.3) 0%, transparent 70%)' }} />
+                    {/* Avatar container — always division color ring */}
                     <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2" style={{
-                      borderColor: femaleHasSkin ? 'rgba(212,168,83,0.6)' : 'rgba(255,45,120,0.5)',
-                      boxShadow: femaleHasSkin
-                        ? '0 0 20px rgba(212,168,83,0.3), 0 0 6px rgba(212,168,83,0.15), inset 0 0 10px rgba(212,168,83,0.1)'
-                        : '0 0 20px rgba(255,45,120,0.2), inset 0 0 10px rgba(255,45,120,0.1)',
+                      borderColor: 'rgba(255,45,120,0.5)',
+                      boxShadow: '0 0 20px rgba(255,45,120,0.2), inset 0 0 10px rgba(255,45,120,0.1)',
                     }}>
                       <Image src={femaleChampionAvatar} alt={femaleChampion.gamertag} fill sizes="96px" className="object-cover" priority />
-                      {/* Diamond shimmer overlay — gold or pink */}
-                      <div className="absolute inset-0 rounded-full" style={{ background: femaleHasSkin ? 'linear-gradient(135deg, rgba(212,168,83,0.2) 0%, transparent 50%, rgba(245,215,122,0.12) 100%)' : 'linear-gradient(135deg, rgba(255,45,120,0.15) 0%, transparent 50%, rgba(255,92,154,0.1) 100%)' }} />
+                      {/* Diamond shimmer overlay — division color */}
+                      <div className="absolute inset-0 rounded-full" style={{ background: 'linear-gradient(135deg, rgba(255,45,120,0.15) 0%, transparent 50%, rgba(255,92,154,0.1) 100%)' }} />
                     </div>
                   </div>
                   <div className="text-center">
-                    <span className="text-[10px] sm:text-xs font-bold tracking-wider uppercase" style={{ color: femaleHasSkin ? CHAMPION_GOLD : 'rgba(255,45,120,0.9)' }}>{femaleChampion.gamertag}</span>
+                    <span className="text-[10px] sm:text-xs font-bold tracking-wider uppercase" style={{ color: 'rgba(255,45,120,0.9)' }}>{femaleChampion.gamertag}</span>
                     <p className="text-[8px] sm:text-[10px] text-idm-gold-warm/50 font-semibold tracking-wider uppercase flex items-center justify-center gap-0.5">
                       <span>💎</span> Season Champion
                     </p>

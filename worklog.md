@@ -371,3 +371,27 @@ Stage Summary:
 - WA Bot mini-service confirmed running on port 3004
 - /api/wa-bot proxy route now returns 200 instead of 503
 - Bot in API-only mode (ENABLE_WA not set); set ENABLE_WA=true to activate WhatsApp connection
+
+---
+Task ID: 7
+Agent: Main Agent
+Task: Fix avatar ring colors in hero banner and season champion to match division colors
+
+Work Log:
+- Identified that avatar rings in hero-section and season-champion-section were using gold color when champion has a skin, instead of division-specific colors
+- Male division color: #2E9FFF (blue/cyan) — Female division color: #FF2D78 (pink)
+- Fixed hero-section.tsx:
+  - Skeleton avatars: Changed from gold border (border-idm-gold-warm/20) to division colors (border-idm-male/20 for male, border-idm-female/20 for female)
+  - Skeleton glow rings: Changed from gold to division-specific radial gradients
+  - Actual champion avatar rings: Removed skin-based conditional — always use division color border and glow
+  - Gamertag text color: Always use division color instead of gold for skin holders
+- Fixed season-champion-section.tsx:
+  - Avatar panel borders: Removed gold skin override — always use division color (border-idm-male/30, border-idm-female/30)
+  - Gamertag text color: Always use division accent color (maleAccentLight, femaleAccentLight)
+- Empty state avatars already had correct division colors — no changes needed
+- Lint passes with no errors in edited files
+
+Stage Summary:
+- All avatar rings now consistently show division colors: Male = blue (#2E9FFF), Female = pink (#FF2D78)
+- Skin visual effects (gold border/glow) removed from avatar rings — division identity is always preserved
+- Consistent across hero-section and season-champion-section
