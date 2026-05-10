@@ -1,0 +1,291 @@
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+import type { Division } from "@/lib/store"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+/**
+ * Deterministic hash from string for procedural generation
+ */
+export function hashString(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
+/**
+ * Cloudinary base URL for fallback images
+ */
+const CLOUDINARY_BASE = 'https://res.cloudinary.com/dagoryri5/image/upload';
+
+/**
+ * Get avatar URL - uses database avatar if available, otherwise Cloudinary fallback
+ * Returns a Cloudinary URL as fallback (e.g. idm/fallback/avatars/avatar-male-1)
+ */
+export function getAvatarUrl(gamertag: string, division: 'male' | 'female', dbAvatar?: string | null): string {
+  // Priority: 1) Database avatar field, 2) Cloudinary fallback
+  if (dbAvatar) return dbAvatar;
+  const index = (hashString(gamertag) % 3) + 1;
+  // Return clean URL without transforms — let the Cloudinary loader inject correct width at render time
+  return `${CLOUDINARY_BASE}/idm/fallback/avatars/avatar-${division}-${index}`;
+}
+
+/**
+ * Club logo mapping — returns Cloudinary URL for AI-generated club logo image
+ * Falls back to a generic club logo if name not found
+ */
+const CLUB_LOGO_MAP: Record<string, string> = {
+  'Neon Blaze': `${CLOUDINARY_BASE}/idm/fallback/clubs/neon-blaze`,
+  'Phantom Step': `${CLOUDINARY_BASE}/idm/fallback/clubs/phantom-step`,
+  'Rhythm Force': `${CLOUDINARY_BASE}/idm/fallback/clubs/rhythm-force`,
+  'Crystal Wave': `${CLOUDINARY_BASE}/idm/fallback/clubs/crystal-wave`,
+  'Shadow Dance': `${CLOUDINARY_BASE}/idm/fallback/clubs/shadow-dance`,
+  'Thunder Beat': `${CLOUDINARY_BASE}/idm/fallback/clubs/thunder-beat`,
+  'Velvet Groove': `${CLOUDINARY_BASE}/idm/fallback/clubs/velvet-groove`,
+  'Star Rise': `${CLOUDINARY_BASE}/idm/fallback/clubs/star-rise`,
+  'Lunar Flow': `${CLOUDINARY_BASE}/idm/fallback/clubs/lunar-flow`,
+  // Winner teams from demo data
+  'Team Rhythm': `${CLOUDINARY_BASE}/idm/fallback/clubs/rhythm-force`,
+  'Team Flow': `${CLOUDINARY_BASE}/idm/fallback/clubs/lunar-flow`,
+  'Team Grace': `${CLOUDINARY_BASE}/idm/fallback/clubs/crystal-wave`,
+  'Team Velvet': `${CLOUDINARY_BASE}/idm/fallback/clubs/velvet-groove`,
+};
+
+export function getClubLogoUrl(clubName: string, dbLogo?: string | null): string {
+  // Priority: 1) Database logo field, 2) Mapping, 3) Cloudinary fallback
+  if (dbLogo) return dbLogo;
+  return CLUB_LOGO_MAP[clubName] || `${CLOUDINARY_BASE}/idm/fallback/clubs/neon-blaze`;
+}
+
+/**
+ * Get tier-based avatar URL (Cloudinary) — used by dashboard components
+ * Returns a Cloudinary URL for tier-based fallback avatars
+ * @param division - "male" or "female"
+ * @param tier - "S", "A", or "B"
+ */
+export function getTierAvatarUrl(division: 'male' | 'female', tier: string): string {
+  const tierLower = tier.toLowerCase();
+  // Return clean URL without transforms — let the Cloudinary loader inject correct width at render time
+  return `${CLOUDINARY_BASE}/idm/fallback/avatars/avatar-${division}-${tierLower}`;
+}
+
+/**
+ * Format number as IDR currency
+ */
+export function formatCurrency(amount: number): string {
+  return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(amount);
+}
+
+/**
+ * Format number as short IDR currency (e.g. "Rp 50K", "Rp 1.5M")
+ */
+export function formatCurrencyShort(amount: number): string {
+  if (amount >= 1_000_000_000) {
+    return `Rp ${(amount / 1_000_000_000).toFixed(1).replace(/\.0$/, '')}M`;
+  }
+  if (amount >= 1_000_000) {
+    return `Rp ${(amount / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`;
+  }
+  if (amount >= 1_000) {
+    return `Rp ${(amount / 1_000).toFixed(1).replace(/\.0$/, '')}K`;
+  }
+  return `Rp ${amount}`;
+}
+
+/**
+ * Normalize division string to strict "male" or "female"
+ * Handles "M", "F", "male", "female", "semua" (defaults to "male")
+ */
+export function toStrictDivision(division: string | Division): 'male' | 'female' {
+  if (!division) return 'male';
+  const lower = division.toLowerCase().trim();
+  if (lower === 'female' || lower === 'f') return 'female';
+  return 'male'; // "male", "m", "semua", or any other value defaults to male
+}
+
+/**
+ * Format club info as string
+ * Handles string, object with name property, or null/undefined
+ */
+export function clubToString(club: string | { id: string; name: string; logo?: string | null } | null | undefined): string {
+  if (!club) return '';
+  if (typeof club === 'string') return club;
+  return club.name || '';
+}
+
+/**
+ * Parse date string as WITA timezone (UTC+8)
+ * Server stores dates in WITA, so we treat the stored date as WITA
+ * and convert to a proper JS Date object
+ */
+export function parseWitaDate(dateStr: string | null | undefined): Date | null {
+  if (!dateStr) return null;
+  try {
+    // If it's an ISO string with timezone info, parse directly
+    // Otherwise treat as WITA (UTC+8) and adjust
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return null;
+    return d;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Convert hex color to rgba string
+ * @param hex - Hex color string like "#FF2D78" or "FF2D78"
+ * @param alpha - Alpha value: 0-1 for float, or 0-255 for integer (will be divided by 255)
+ */
+export function hexToRgba(hex: string, alpha: number): string {
+  // Remove # prefix if present
+  const cleanHex = hex.replace(/^#/, '');
+
+  // Parse hex color
+  let r: number, g: number, b: number;
+  if (cleanHex.length === 3) {
+    r = parseInt(cleanHex[0] + cleanHex[0], 16);
+    g = parseInt(cleanHex[1] + cleanHex[1], 16);
+    b = parseInt(cleanHex[2] + cleanHex[2], 16);
+  } else {
+    r = parseInt(cleanHex.substring(0, 2), 16);
+    g = parseInt(cleanHex.substring(2, 4), 16);
+    b = parseInt(cleanHex.substring(4, 6), 16);
+  }
+
+  // Normalize alpha: if > 1, treat as 0-255 scale
+  const normalizedAlpha = alpha > 1 ? alpha / 255 : alpha;
+
+  return `rgba(${r}, ${g}, ${b}, ${normalizedAlpha})`;
+}
+
+/**
+ * Check if a URL is a Cloudinary URL
+ */
+export function isCloudinaryUrl(url: string): boolean {
+  return url.includes('cloudinary.com') || url.includes('res.cloudinary.com');
+}
+
+/**
+ * Check if a club logo URL is a placeholder (data URI / SVG)
+ */
+export function isClubLogoPlaceholder(url: string): boolean {
+  return url.startsWith('data:');
+}
+
+/**
+ * Optimize a Cloudinary URL by injecting transformation parameters
+ * Injects f_auto,q_auto:good,w_*,c_limit directly into the URL
+ */
+export function getOptimizedCloudinaryUrl(url: string, width: number = 200): string {
+  if (!url || !isCloudinaryUrl(url)) return url || '';
+
+  // If URL already has transformations (e.g., /image/upload/v1234/...),
+  // inject transformations after /upload/
+  const uploadMarker = '/image/upload/';
+  const uploadIndex = url.indexOf(uploadMarker);
+
+  if (uploadIndex === -1) {
+    // Try /video/upload/ or other patterns
+    const otherUpload = url.indexOf('/upload/');
+    if (otherUpload === -1) return url;
+    const before = url.substring(0, otherUpload + '/upload/'.length);
+    const after = url.substring(otherUpload + '/upload/'.length);
+    return `${before}f_auto,q_auto:good,w_${width},c_limit/${after}`;
+  }
+
+  const before = url.substring(0, uploadIndex + uploadMarker.length);
+  const after = url.substring(uploadIndex + uploadMarker.length);
+
+  // If there are already transformations (not starting with v followed by digits),
+  // we might need to handle differently, but for simplicity, prepend our transforms
+  return `${before}f_auto,q_auto:good,w_${width},c_limit/${after}`;
+}
+
+/**
+ * CDN image mapping — maps local image paths to Cloudinary public IDs
+ * Used by cdnImage() to convert local paths to optimized Cloudinary URLs
+ */
+const CDN_IMAGE_MAP: Record<string, string> = {
+  // Banner / decorative images
+  '/images/hero-banner.png': 'idm/static/hero-banner',
+  '/images/male-division.png': 'idm/static/male-division',
+  '/images/female-division.png': 'idm/static/female-division',
+  '/images/champions-podium.png': 'idm/static/champions-podium',
+  '/images/match-versus.png': 'idm/static/match-versus',
+  '/images/match-spotlight.png': 'idm/static/match-spotlight',
+  '/images/club-banner-1.png': 'idm/static/club-banner-1',
+  '/images/player-banner-2.png': 'idm/static/player-banner-2',
+  '/images/mvp-highlight.png': 'idm/static/mvp-highlight',
+  '/images/tournament-arena.png': 'idm/static/tournament-arena',
+  '/images/sawer-live.png': 'idm/static/sawer-live',
+  '/images/bracket-tree.png': 'idm/static/bracket-tree',
+  '/images/season-progress.png': 'idm/static/season-progress',
+  '/images/leaderboard-bg.png': 'idm/static/leaderboard-bg',
+  '/images/stats-overview.png': 'idm/static/stats-overview',
+  '/images/activity-timeline.png': 'idm/static/activity-timeline',
+  '/images/donation-bg.png': 'idm/static/donation-bg',
+  // Gallery images
+  '/gallery/tournament-stage.png': 'idm/static/gallery/tournament-stage',
+  '/gallery/dance-battle.png': 'idm/static/gallery/dance-battle',
+  '/gallery/bracket-display.png': 'idm/static/gallery/bracket-display',
+  '/gallery/champion-celebration.png': 'idm/static/gallery/champion-celebration',
+  '/gallery/community-meetup.png': 'idm/static/gallery/community-meetup',
+  '/gallery/dance-performance.png': 'idm/static/gallery/dance-performance',
+  '/gallery/mvp-portrait.png': 'idm/static/gallery/mvp-portrait',
+  '/gallery/prize-donation.png': 'idm/static/gallery/prize-donation',
+  '/gallery/streamer-setup.png': 'idm/static/gallery/streamer-setup',
+  '/gallery/team-huddle.png': 'idm/static/gallery/team-huddle',
+  '/gallery/award-ceremony.png': 'idm/static/gallery/award-ceremony',
+  '/gallery/behind-scene.png': 'idm/static/gallery/behind-scene',
+  // Background images
+  '/bg-male.jpg': 'idm/static/bg-male',
+  '/bg-female.jpg': 'idm/static/bg-female',
+  '/bg-section.jpg': 'idm/static/bg-section',
+  '/bg-default.jpg': 'idm/static/bg-default',
+  '/bg-mobiledefault.jpg': 'idm/static/bg-mobiledefault',
+  '/arena-bg.png': 'idm/static/arena-bg',
+  '/champion-banner.png': 'idm/static/champion-banner',
+  '/idm-hero.png': 'idm/static/idm-hero',
+};
+
+/**
+ * Map local image paths to Cloudinary CDN URLs
+ * Converts /images/..., /gallery/..., /bg-*.jpg, etc. to optimized Cloudinary URLs
+ * @param localPath - Local image path (e.g. "/images/hero-banner.png")
+ * @param width - Image width for Cloudinary optimization (default: 800)
+ */
+export function cdnImage(localPath: string, width: number = 800): string {
+  if (!localPath) return '';
+  // Already a Cloudinary URL — return as-is
+  if (localPath.includes('cloudinary.com')) return localPath;
+  // Data URIs — return as-is
+  if (localPath.startsWith('data:')) return localPath;
+  // External URLs — return as-is
+  if (localPath.startsWith('http')) return localPath;
+
+  const cloudinaryId = CDN_IMAGE_MAP[localPath];
+  if (cloudinaryId) {
+    return `${CLOUDINARY_BASE}/f_auto,q_auto:good,w_${width},c_limit/${cloudinaryId}`;
+  }
+
+  // Fallback: try to construct from the path
+  const clean = localPath.replace(/^\//, '').replace(/\.(png|jpg|jpeg|webp|gif|svg)$/i, '');
+  return `${CLOUDINARY_BASE}/f_auto,q_auto:good,w_${width},c_limit/${clean}`;
+}
+
+/**
+ * Format TARKAM season name with number
+ * e.g. formatTarkamSeasonName("Tarkam", 1) → "TARKAM Season 1"
+ */
+export function formatTarkamSeasonName(name: string, number?: number | string): string {
+  if (!number && !name) return '';
+  if (!number) return name;
+  const seasonNum = typeof number === 'string' ? number : String(number);
+  if (!name) return `Season ${seasonNum}`;
+  return `${name} S${seasonNum}`;
+}
