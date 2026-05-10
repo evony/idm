@@ -292,3 +292,56 @@ Stage Summary:
 - Club removed from navigation (section still exists on page)
 - Juara maps to the existing highlights section (id="highlights")
 - Season maps to season-champion section (id="season-champion")
+
+---
+Task ID: 5
+Agent: Main Agent
+Task: Create idm-wa-bot separate repository and WhatsApp Bot mini-service
+
+Work Log:
+- Created new project at /home/z/idm-wa-bot with full WhatsApp bot implementation
+- Created GitHub repo: https://github.com/evony/idm-wa-bot
+- Pushed 4 commits to the repo
+- Also set up as mini-service at /home/z/my-project/mini-services/wa-bot (port 3004)
+- Bot running in API-only mode in sandbox (ENABLE_WA flag controls WA connection)
+
+Architecture:
+- **Baileys** (@whiskeysockets/baileys) for WhatsApp Web API (no browser needed)
+- **Express.js** for HTTP server (health, status, commands, restart endpoints)
+- **PostgreSQL** (pg) for direct database access to same Neon database
+- **API Client** to call main IDM app endpoints for data
+
+Files Created:
+1. **src/types.ts** - Type definitions (BotConfig, PlayerData, CommandContext, etc.)
+2. **src/utils.ts** - Utility functions (parseCommand, tierEmoji, formatPoints, etc.)
+3. **src/database.ts** - PostgreSQL database layer (players, matches, registrations, bot status)
+4. **src/api-client.ts** - HTTP client for main IDM app API
+5. **src/commands.ts** - 18 command handlers (daftar, info, ranking, status, recap, live, admin commands)
+6. **src/bot.ts** - WhatsApp bot core (Baileys connection, QR code, auto-reconnect)
+7. **src/index.ts** - Entry point (Express server + WA bot + graceful shutdown)
+
+Commands Implemented:
+- Player: p help, p daftar, p info, p batal, p ranking, p status, p recap, p next, p live, p botinfo
+- Admin: p result, p mvp, p start, p end, p broadcast, p ban, p unban, p cekgrup
+
+Database Queries:
+- findPlayerByGamertag, findPlayerByWaNumber, getLeaderboard
+- getActiveTournament, getLiveMatches, getNextMatch
+- createWaRegistration, getWaRegistration, cancelWaRegistration
+- getTournamentRecap, updateMatchResult, setMatchMvp
+- getBotStatus, updateBotStatus, addWaLog
+
+Bug Fixes Applied:
+- Fixed sslmode parsing for Neon PostgreSQL (strip from URL, set via ssl option)
+- Fixed .env loading with override=true for mini-service context
+- Fixed WhatsAppBot ID generation (PostgreSQL requires non-null id)
+- Fixed baileys logger.child() compatibility (added recursive child method)
+- Made Express server resilient to WA connection failures
+- Added ENABLE_WA flag for API-only mode in sandbox
+
+Stage Summary:
+- Repository: https://github.com/evony/idm-wa-bot (4 commits pushed)
+- Mini-service running on port 3004 in API-only mode
+- Database: Connected to Neon PostgreSQL successfully
+- Main app proxy route /api/wa-bot updated to support both gateway and direct connection
+- Bot ready for Railway deployment (just set ENABLE_WA=true and scan QR)
