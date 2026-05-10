@@ -39,6 +39,8 @@ interface CloudinaryImage {
   format: string;
   bytes: number;
   created_at: string;
+  resourceType?: string;
+  duration?: number;
 }
 
 interface CloudinaryPickerProps {
@@ -135,14 +137,17 @@ export function CloudinaryPicker({ open, onClose, onSelect, currentImage, upload
 
   // File handling
   const handleFileChange = useCallback((file: File) => {
-    // Validate file type
-    if (!file.type.startsWith('image/')) {
-      toast.error('Hanya file gambar yang diperbolehkan');
+    // Validate file type — support both image and video
+    const isImage = file.type.startsWith('image/');
+    const isVideo = file.type.startsWith('video/');
+    if (!isImage && !isVideo) {
+      toast.error('Hanya file gambar atau video yang diperbolehkan');
       return;
     }
-    // Validate file size (max 10MB)
-    if (file.size > 10 * 1024 * 1024) {
-      toast.error('Ukuran file maksimal 10MB');
+    // Validate file size (max 50MB for video, 10MB for image)
+    const maxSize = isVideo ? 50 * 1024 * 1024 : 10 * 1024 * 1024;
+    if (file.size > maxSize) {
+      toast.error(isVideo ? 'Ukuran video maksimal 50MB' : 'Ukuran gambar maksimal 10MB');
       return;
     }
 
@@ -218,7 +223,7 @@ export function CloudinaryPicker({ open, onClose, onSelect, currentImage, upload
 
       const result = await res.json();
 
-      toast.success('Gambar berhasil diupload!');
+      toast.success(uploadFile?.type.startsWith('video/') ? 'Video berhasil diupload!' : 'Gambar berhasil diupload!');
 
       // Invalidate the images query to refresh
       qc.invalidateQueries({ queryKey: ['cloudinary-images'] });
@@ -361,7 +366,9 @@ export function CloudinaryPicker({ open, onClose, onSelect, currentImage, upload
                 </div>
               ) : (
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 p-1">
-                    {filteredImages.map((img: CloudinaryImage, i: number) => (
+                    {filteredImages.map((img: CloudinaryImage, i: number) => {
+                      const isVideo = img.resourceType === 'video' || img.url.includes('/video/upload/');
+                      return (
                       <div
                         key={img.public_id}
                         className={`stagger-item-fast relative aspect-square rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${
@@ -372,14 +379,26 @@ export function CloudinaryPicker({ open, onClose, onSelect, currentImage, upload
                         style={{ animationDelay: `${i * 20}ms` }}
                         onClick={() => setSelectedImage(img)}
                       >
-                        <Image
-                          src={getOptimizedCloudinaryUrl(img.url, 300)}
-                          alt={img.public_id}
-                          fill
-                          className="w-full h-full object-cover"
-                          sizes="(max-width: 640px) 33vw, (max-width: 768px) 25vw, 20vw"
-                          unoptimized
-                        />
+                        {isVideo ? (
+                          <video
+                            src={img.url}
+                            muted
+                            className="w-full h-full object-cover"
+                            preload="metadata"
+                          />
+                        ) : (
+                          <Image
+                            src={getOptimizedCloudinaryUrl(img.url, 300)}
+                            alt={img.public_id}
+                            fill
+                            className="w-full h-full object-cover"
+                            sizes="(max-width: 640px) 33vw, (max-width: 768px) 25vw, 20vw"
+                            unoptimized
+                          />
+                        )}
+                        {isVideo && (
+                          <div className="absolute top-1 left-1 px-1 py-0.5 rounded bg-black/70 text-[8px] text-white font-bold">🎬</div>
+                        )}
                         {selectedImage?.public_id === img.public_id && (
                           <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
                             <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
@@ -389,10 +408,11 @@ export function CloudinaryPicker({ open, onClose, onSelect, currentImage, upload
                         )}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-1.5">
                           <p className="text-[9px] text-white truncate">{img.public_id.split('/').pop()}</p>
-                          <p className="text-[8px] text-white/70">{img.width}x{img.height}</p>
+                          <p className="text-[8px] text-white/70">{isVideo ? `🎬 ${img.duration?.toFixed(1) || '?'}s` : `${img.width}x${img.height}`}</p>
                         </div>
                       </div>
-                    ))}
+                      );
+                    })}
                   </div>
               )}
             </div>
@@ -418,25 +438,41 @@ export function CloudinaryPicker({ open, onClose, onSelect, currentImage, upload
                 {uploadPreview ? (
                   <div className="flex flex-col items-center gap-3">
                     <div className="relative w-40 h-40 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-lg">
-                      <Image
-                        src={uploadPreview}
-                        alt="Preview"
-                        fill
-                        className="w-full h-full object-cover"
-                        sizes="160px"
-                        unoptimized
-                      />
+                      {uploadFile?.type.startsWith('video/') ? (
+                        <video
+                          src={uploadPreview}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <Image
+                          src={uploadPreview}
+                          alt="Preview"
+                          fill
+                          className="w-full h-full object-cover"
+                          sizes="160px"
+                          unoptimized
+                        />
+                      )}
                       <button
                         onClick={clearFile}
                         className="absolute top-1 right-1 w-6 h-6 rounded-full bg-destructive flex items-center justify-center hover:bg-destructive/80 transition-colors"
                       >
                         <X className="w-3.5 h-3.5 text-white" />
                       </button>
+                      {uploadFile?.type.startsWith('video/') && (
+                        <div className="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-black/70 text-[9px] text-white font-bold flex items-center gap-1">
+                          🎬 VIDEO
+                        </div>
+                      )}
                     </div>
                     <div className="text-center">
                       <p className="text-sm font-medium">{uploadFile?.name}</p>
                       <p className="text-xs text-muted-foreground">
-                        {uploadFile ? (uploadFile.size / 1024).toFixed(1) : 0} KB
+                        {uploadFile ? (uploadFile.size / 1024 / 1024).toFixed(1) : 0} MB
                       </p>
                     </div>
                   </div>
@@ -449,9 +485,9 @@ export function CloudinaryPicker({ open, onClose, onSelect, currentImage, upload
                       <Camera className="w-8 h-8 text-muted-foreground" />
                     </div>
                     <div className="text-center">
-                      <p className="text-sm font-medium">Drag & drop gambar di sini</p>
+                      <p className="text-sm font-medium">Drag & drop gambar atau video di sini</p>
                       <p className="text-xs text-muted-foreground mt-1">
-                        atau klik untuk memilih file (maks. 10MB)
+                        Gambar (maks. 10MB) atau Video MP4/WebM (maks. 50MB)
                       </p>
                     </div>
                     <Button variant="outline" size="sm" type="button">
@@ -464,10 +500,10 @@ export function CloudinaryPicker({ open, onClose, onSelect, currentImage, upload
                 <input
                   ref={fileInputRef}
                   type="file"
-                  accept="image/*"
+                  accept="image/*,video/mp4,video/webm,video/quicktime"
                   onChange={handleInputChange}
                   className="hidden"
-                  aria-label="Pilih file gambar untuk upload"
+                  aria-label="Pilih file gambar atau video untuk upload"
                 />
               </div>
 

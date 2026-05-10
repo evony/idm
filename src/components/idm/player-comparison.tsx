@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useCallback, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import {
@@ -28,6 +27,7 @@ import { Button } from '@/components/ui/button';
 import { useDivisionTheme } from '@/hooks/use-division-theme';
 import { useAppStore } from '@/lib/store';
 import { getAvatarUrl, clubToString, toStrictDivision } from '@/lib/utils';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 
 /* ─── Types ─── */
 
@@ -171,7 +171,7 @@ function PlayerSearchDropdown({
         <div className={dt.casinoBar} />
         <div className="p-4 flex items-center gap-3">
           <div className="w-14 h-14 rounded-2xl overflow-hidden shrink-0 border border-border/20 shadow-lg">
-            <Image src={avatarSrc} alt={selectedPlayer.gamertag} width={56} height={56} className="w-full h-full object-cover" loading="lazy" />
+            <AvatarMedia src={avatarSrc} alt={selectedPlayer.gamertag} width={56} height={56} className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
@@ -253,7 +253,7 @@ function PlayerSearchDropdown({
                     className={`w-full flex items-center gap-3 px-3 py-2.5 text-left transition-colors hover:bg-muted/30 ${dt.hoverBgSubtle}`}
                   >
                     <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 border border-border/20">
-                      <Image src={avatarSrc} alt={player.gamertag} width={32} height={32} className="w-full h-full object-cover" loading="lazy" />
+                      <AvatarMedia src={avatarSrc} alt={player.gamertag} width={32} height={32} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
@@ -665,12 +665,12 @@ export function PlayerComparison({ open, onClose }: PlayerComparisonProps) {
                         >
                           {/* Avatar header */}
                           <div className="relative h-24 sm:h-28">
-                            <Image
+                            <AvatarMedia
                               src={avatarSrc}
                               alt={player.gamertag}
                               fill
                               sizes="(max-width: 640px) 50vw, 300px"
-                              className="object-cover object-top"
+                              objectPosition="top"
                               loading="lazy"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />

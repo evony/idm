@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -18,7 +19,7 @@ import { Badge } from '@/components/ui/badge';
 import { getDivisionTheme } from '@/hooks/use-division-theme';
 import { useBackgroundImages } from '@/hooks/use-background-images';
 import { useAppStore } from '@/lib/store';
-import { getAvatarUrl, hashString, clubToString } from '@/lib/utils';
+import { getAvatarUrl, hashString, clubToString, isVideoUrl } from '@/lib/utils';
 import { AchievementList } from './achievement-badge';
 import { SocialShareButton } from './social-share-button';
 import { PlayerSeasonHistory } from './player-season-history';
@@ -412,7 +413,7 @@ export function PlayerProfile({ player, onClose, rank, skinMap, preferredSkinTyp
           {/* ═══ HERO BANNER — Full Avatar Card Style ═══ */}
             <div className={`relative h-[280px] sm:h-[380px] md:h-[440px] overflow-hidden cinema-hero cinema-flare ${playerDivision === 'male' ? 'cinema-flare-male' : 'cinema-flare-female'} cinema-grade`}>
             {/* Full avatar as background */}
-            <Image src={avatarSrc} alt={player.gamertag} fill sizes="(max-width: 640px) 100vw, 512px" className="absolute inset-0 object-cover object-[center_37%]" loading="lazy" />
+            <AvatarMedia src={avatarSrc} alt={player.gamertag} fill sizes="(max-width: 640px) 100vw, 512px" objectPosition="center 37%" />
 
             {/* Dark overlay gradient — natural fade from bottom for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />

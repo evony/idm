@@ -1,10 +1,11 @@
 'use client';
 
 import Image from 'next/image';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import { Music, Shield, ChevronUp, ChevronDown, Trophy, CheckCircle2, History } from 'lucide-react';
 import { SectionHeader } from './shared';
 import { CardSkeleton } from '../ui/skeleton';
-import { getAvatarUrl, clubToString } from '@/lib/utils';
+import { getAvatarUrl, clubToString, isVideoUrl } from '@/lib/utils';
 import type { StatsData, PlayerSkinInfo } from '@/types/stats';
 import {
   getPrimarySkin,
@@ -262,7 +263,7 @@ export function PlayersSection({
 
                             {/* Avatar watermark background */}
                             <div className="absolute inset-0 flex items-center justify-center opacity-[0.10] group-hover/player:opacity-[0.13] transition-opacity duration-500 pointer-events-none">
-                              <Image src={getAvatarUrl(player.gamertag, 'male', player.avatar)} alt="" width={160} height={160} className="w-[70%] h-auto aspect-square object-cover rounded-full" aria-hidden="true" loading="lazy" />
+                              <AvatarMedia src={getAvatarUrl(player.gamertag, 'male', player.avatar)} alt="" width={160} height={160} className="w-[70%] h-auto aspect-square rounded-full" aria-hidden="true" />
                             </div>
 
                             {/* Card content */}
@@ -294,7 +295,7 @@ export function PlayersSection({
                                     : { borderColor: 'rgba(46,159,255,0.2)' }
                                   }
                                 >
-                                  <Image src={getAvatarUrl(player.gamertag, 'male', player.avatar)} alt={player.gamertag} fill sizes="(max-width: 640px) 80px, 96px" className="object-cover object-[center_37%]" loading="lazy" />
+                                  <AvatarMedia src={getAvatarUrl(player.gamertag, 'male', player.avatar)} alt={player.gamertag} fill sizes="(max-width: 640px) 80px, 96px" objectPosition="center 37%" />
                                 </div>
                                 {/* Champion badge — iOS gold */}
                                 {isChampion && (
@@ -488,7 +489,7 @@ export function PlayersSection({
 
                             {/* Avatar watermark background */}
                             <div className="absolute inset-0 flex items-center justify-center opacity-[0.10] group-hover/player:opacity-[0.13] transition-opacity duration-500 pointer-events-none">
-                              <Image src={getAvatarUrl(player.gamertag, 'female', player.avatar)} alt="" width={160} height={160} className="w-[70%] h-auto aspect-square object-cover rounded-full" aria-hidden="true" loading="lazy" />
+                              <AvatarMedia src={getAvatarUrl(player.gamertag, 'female', player.avatar)} alt="" width={160} height={160} className="w-[70%] h-auto aspect-square rounded-full" aria-hidden="true" />
                             </div>
 
                             {/* Card content */}
@@ -520,7 +521,7 @@ export function PlayersSection({
                                     : { borderColor: 'rgba(255,45,120,0.2)' }
                                   }
                                 >
-                                  <Image src={getAvatarUrl(player.gamertag, 'female', player.avatar)} alt={player.gamertag} fill sizes="(max-width: 640px) 80px, 96px" className="object-cover object-[center_37%]" loading="lazy" />
+                                  <AvatarMedia src={getAvatarUrl(player.gamertag, 'female', player.avatar)} alt={player.gamertag} fill sizes="(max-width: 640px) 80px, 96px" objectPosition="center 37%" />
                                 </div>
                                 {/* Champion badge — iOS gold */}
                                 {isChampion && (

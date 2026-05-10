@@ -1,6 +1,12 @@
 import type { ImageLoader } from 'next/image';
 
 const cloudinaryLoader: ImageLoader = ({ src, width, quality }) => {
+  // ★ Video URLs — return as-is (Next.js Image can't render videos,
+  // but the AvatarMedia component handles video separately via <video> tag)
+  if (src.includes('/video/upload/')) {
+    return src;
+  }
+
   // ★ Cloudinary: inject f_auto + q_auto + width + c_limit
   // Sebelum: .../upload/v123/cms/backgrounds/photo.jpg  (2-5MB raw)
   // Sesudah: .../upload/f_auto,q_auto:good,w_1920,c_limit/v123/cms/backgrounds/photo.jpg (50-200KB)

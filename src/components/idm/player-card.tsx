@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import { Crown, Flame } from 'lucide-react';
 import { SkinBadgesRow, SkinAvatarFrame, SkinName, SkinCardBorder } from './skin-renderer';
 import { getPrimarySkin, sortSkinsByPriority, filterActiveSkins, type PlayerSkinWithDetails } from '@/lib/skin-utils';
@@ -50,7 +50,7 @@ export function PlayerCard({
   const cardContent = (
     <>
       {/* Full avatar card background */}
-      <Image src={avatarSrc} alt={gamertag} fill sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 250px" className="absolute inset-0 object-cover object-top transition-transform duration-500 hover:scale-105" loading="lazy" />
+      <AvatarMedia src={avatarSrc} alt={gamertag} fill sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 250px" className="absolute inset-0 object-cover transition-transform duration-500 hover:scale-105" objectPosition="top" loading="lazy" />
 
       {/* Dark overlay gradient for text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />

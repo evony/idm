@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import {
   X, Clock, MapPin, Phone, Camera, Pencil, Trash2, Search, Plus, Flame,
 } from 'lucide-react';
@@ -154,7 +155,7 @@ export function AdminPlayersTab({
             <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
               <div className="relative group shrink-0">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden">
-                  <Image src={avatarSrc} alt={p.gamertag} width={40} height={40} className="w-full h-full object-cover" />
+                  <AvatarMedia src={avatarSrc} alt={p.gamertag} width={40} height={40} className="w-full h-full" />
                 </div>
                 <button
                   className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"

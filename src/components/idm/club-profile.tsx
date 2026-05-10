@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import { createPortal } from 'react-dom';
 
 import Image from 'next/image';
@@ -527,7 +528,7 @@ export function ClubProfile({ club, onClose, rank, onPlayerClick }: ClubProfileP
                         })}
                       >
                         <div className="relative w-8 rounded-md overflow-hidden shrink-0" style={{ aspectRatio: '3/4' }}>
-                          <Image src={getAvatarUrl(p.gamertag, isMale ? 'male' : 'female', p.avatar)} alt={p.gamertag} fill sizes="60px" className="w-full h-full object-cover object-top" loading="lazy" />
+                          <AvatarMedia src={getAvatarUrl(p.gamertag, isMale ? 'male' : 'female', p.avatar)} alt={p.gamertag} fill sizes="60px" objectPosition="top" />
                           <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
                         </div>
                         <div className="flex-1 min-w-0">

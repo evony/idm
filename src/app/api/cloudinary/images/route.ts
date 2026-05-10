@@ -37,16 +37,27 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Use Cloudinary Admin API via SDK
-    const result = await cloudinary.api.resources({
-      type: type as 'upload' | 'private' | 'authenticated',
-      max_results: maxResults,
-      next_cursor: nextCursor,
-      prefix: prefix,
-    });
+    // Use Cloudinary Admin API via SDK — fetch both images and videos
+    const [imageResult, videoResult] = await Promise.all([
+      cloudinary.api.resources({
+        type: type as 'upload' | 'private' | 'authenticated',
+        max_results: maxResults,
+        next_cursor: nextCursor,
+        prefix: prefix,
+        resource_type: 'image',
+      }).catch(() => ({ resources: [] })),
+      cloudinary.api.resources({
+        type: type as 'upload' | 'private' | 'authenticated',
+        max_results: maxResults,
+        next_cursor: nextCursor,
+        prefix: prefix,
+        resource_type: 'video',
+      }).catch(() => ({ resources: [] })),
+    ]);
 
-    // Transform the response to include only what we need
-    const images = (result.resources || []).map((img: { public_id: string; secure_url: string; width: number; height: number; format: string; bytes: number; created_at: string }) => ({
+    // Merge and transform the response
+    const allResources = [...(imageResult.resources || []), ...(videoResult.resources || [])];
+    const images = allResources.map((img: { public_id: string; secure_url: string; width: number; height: number; format: string; bytes: number; created_at: string; resource_type?: string; duration?: number }) => ({
       public_id: img.public_id,
       url: img.secure_url,
       width: img.width,
@@ -54,12 +65,14 @@ export async function GET(request: NextRequest) {
       format: img.format,
       bytes: img.bytes,
       created_at: img.created_at,
+      resourceType: img.resource_type || 'image',
+      duration: img.duration || undefined,
     }));
 
     return NextResponse.json({
       images,
-      next_cursor: result.next_cursor || null,
-      rate_limit_remaining: result.rate_limit_remaining,
+      next_cursor: imageResult.next_cursor || videoResult.next_cursor || null,
+      rate_limit_remaining: imageResult.rate_limit_remaining,
     }, { headers });
   } catch (error: unknown) {
     console.error('Cloudinary fetch error:', error);

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { Loader2, Star, Shield, Home, Building2, Crown, ArrowLeft } from 'lucide-react';
 import {
   Dialog, DialogContent, DialogTitle, DialogDescription,
@@ -10,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { useDivisionTheme } from '@/hooks/use-division-theme';
 import { ClubLogoImage } from './club-logo-image';
 import { getAvatarUrl, toStrictDivision } from '@/lib/utils';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 
 interface MatchDetailModalProps {
   matchId: string | null;
@@ -205,7 +205,7 @@ export function MatchDetailModal({ matchId, onClose, preview }: MatchDetailModal
             </div>
             <div className="flex items-center gap-2 flex-1 min-w-0">
               <div className="w-6 h-6 rounded-full overflow-hidden shrink-0">
-                <Image
+                <AvatarMedia
                   src={getAvatarUrl(mvpPlayer.gamertag, toStrictDivision(dt.division), mvpPlayer.avatar)}
                   alt={mvpPlayer.gamertag}
                   width={24}
@@ -248,7 +248,7 @@ export function MatchDetailModal({ matchId, onClose, preview }: MatchDetailModal
                 {(club1?.members ?? []).map((m) => (
                   <div key={m.id} className="flex items-center gap-2.5 px-2 py-1.5 rounded-md bg-muted/30">
                     <div className="w-7 h-7 rounded-full overflow-hidden shrink-0">
-                      <Image
+                      <AvatarMedia
                         src={getAvatarUrl(m.gamertag, toStrictDivision(dt.division), m.avatar)}
                         alt={m.gamertag}
                         width={28}
@@ -299,7 +299,7 @@ export function MatchDetailModal({ matchId, onClose, preview }: MatchDetailModal
                 {(club2?.members ?? []).map((m) => (
                   <div key={m.id} className="flex items-center gap-2.5 px-2 py-1.5 rounded-md bg-muted/30">
                     <div className="w-7 h-7 rounded-full overflow-hidden shrink-0">
-                      <Image
+                      <AvatarMedia
                         src={getAvatarUrl(m.gamertag, toStrictDivision(dt.division), m.avatar)}
                         alt={m.gamertag}
                         width={28}

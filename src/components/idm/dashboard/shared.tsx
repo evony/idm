@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import Image from 'next/image';
 import { Shield, Flame } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -209,7 +210,7 @@ export const ParticipantRow = React.memo(function ParticipantRow({ player, rank,
         ? 'ring-2 ring-yellow-500/30'
         : ''
       } shrink-0 shadow-sm`}>
-        <Image src={avatarSrc} alt={player.gamertag} width={32} height={32} className="w-full h-full object-cover" loading="lazy" />
+        <AvatarMedia src={avatarSrc} alt={player.gamertag} width={32} height={32} className="w-full h-full" />
       </div>
       {/* Name & Club */}
       <div className="flex-1 min-w-0">

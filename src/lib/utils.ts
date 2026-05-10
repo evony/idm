@@ -171,6 +171,64 @@ export function isCloudinaryUrl(url: string): boolean {
 }
 
 /**
+ * Check if a URL is a video URL (mp4, webm, mov, etc.)
+ * Supports both direct file extensions and Cloudinary /video/upload/ paths
+ */
+export function isVideoUrl(url: string): boolean {
+  if (!url) return false;
+  const lower = url.toLowerCase();
+  // Cloudinary video upload path
+  if (lower.includes('/video/upload/')) return true;
+  // Direct video file extensions
+  if (/\.(mp4|webm|mov|avi|mkv|m4v|ogg)(\?|$)/i.test(lower)) return false; // query params might strip ext
+  if (/\.(mp4|webm|mov|avi|mkv|m4v|ogg)$/i.test(lower)) return true;
+  // Cloudinary video format transformation (e.g. f_mp4)
+  if (lower.includes('f_mp4') || lower.includes('f_webm')) return true;
+  return false;
+}
+
+/**
+ * Get optimized Cloudinary video URL for avatar usage
+ * For videos, we return the mp4 format with auto quality
+ * Cloudinary can transform videos just like images
+ */
+export function getOptimizedVideoUrl(url: string): string {
+  if (!url) return '';
+  if (!isCloudinaryUrl(url)) return url;
+
+  // If it's already a /video/upload/ URL, inject video optimizations
+  const videoMarker = '/video/upload/';
+  const videoIndex = url.indexOf(videoMarker);
+  if (videoIndex !== -1) {
+    const before = url.substring(0, videoIndex + videoMarker.length);
+    const after = url.substring(videoIndex + videoMarker.length);
+    // If already has transforms, return as-is
+    if (after.startsWith('f_') || after.startsWith('q_') || after.startsWith('w_')) return url;
+    return `${before}f_mp4,q_auto:good,w_600,c_fill/${after}`;
+  }
+
+  // If it's an /image/upload/ URL but we want video, convert to video delivery
+  const imageMarker = '/image/upload/';
+  const imageIndex = url.indexOf(imageMarker);
+  if (imageIndex !== -1) {
+    // This is an image URL — don't convert, return as-is
+    return url;
+  }
+
+  return url;
+}
+
+/**
+ * Get a video poster/thumbnail URL from a Cloudinary video URL
+ * Cloudinary can generate a thumbnail from video by replacing /video/upload/ with /image/upload/
+ */
+export function getVideoPosterUrl(url: string): string {
+  if (!url) return '';
+  // Replace /video/upload/ with /image/upload/ for poster
+  return url.replace('/video/upload/', '/image/upload/so_auto/');
+}
+
+/**
  * Check if a club logo URL is a placeholder (data URI / SVG)
  */
 export function isClubLogoPlaceholder(url: string): boolean {

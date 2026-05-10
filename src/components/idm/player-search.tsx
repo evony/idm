@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useCallback, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { Search, X, Loader2, Shield } from 'lucide-react';
 import {
   Dialog, DialogContent, DialogTitle, DialogDescription,
@@ -10,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { useDivisionTheme } from '@/hooks/use-division-theme';
 import { ClubLogoImage } from './club-logo-image';
 import { getAvatarUrl, clubToString } from '@/lib/utils';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import { useAppStore } from '@/lib/store';
 
 interface PlayerSearchProps {
@@ -180,7 +180,7 @@ export function PlayerSearch({ division, onSelectPlayer, open = false, onOpenCha
                   >
                     {/* Avatar */}
                     <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 shadow-sm">
-                      <Image
+                      <AvatarMedia
                         src={avatarSrc}
                         alt={player.gamertag}
                         width={40}

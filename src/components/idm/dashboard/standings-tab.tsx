@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import Image from 'next/image';
 
 import {
@@ -172,7 +173,7 @@ export function StandingsTab({ data, otherDivisionData, currentDivision, setSele
                                 idx === 1 ? 'avatar-ring-silver' :
                                 idx === 2 ? 'avatar-ring-bronze' : ''
                               }`}>
-                                <Image src={getAvatarUrl(p.gamertag, playerDiv, p.avatar)} alt={p.gamertag} width={28} height={28} className="w-full h-full object-cover" loading="lazy" />
+                                <AvatarMedia src={getAvatarUrl(p.gamertag, playerDiv, p.avatar)} alt={p.gamertag} width={28} height={28} className="w-full h-full" />
                               </div>
                               <div className="min-w-0">
                                 <div className="flex items-center gap-1.5">

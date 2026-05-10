@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { file, folder, publicId } = body;
+    const { file, folder, publicId, resourceType } = body;
 
     if (!file) {
       return NextResponse.json({ error: 'File diperlukan' }, { headers, status: 400 });
@@ -43,13 +43,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'File harus berupa base64 data URL' }, { headers, status: 400 });
     }
 
+    // Detect resource type from data URL prefix
+    const isVideoFile = file.startsWith('data:video/') || resourceType === 'video';
+    const detectedResourceType = isVideoFile ? 'video' : 'image';
+
     // Upload to Cloudinary
     const uploadOptions: UploadApiOptions = {
       folder: folder || 'general',
       overwrite: true,
       invalidate: true, // ★ Invalidate CDN cache so updated images appear immediately
-      resource_type: 'image',
+      resource_type: detectedResourceType,
     };
+
+    // For videos, add eager transformation for optimized streaming
+    if (isVideoFile) {
+      uploadOptions.eager = [
+        { width: 600, crop: 'fill', quality: 'auto:good', format: 'mp4' },
+      ];
+    }
 
     if (publicId) {
       uploadOptions.public_id = publicId;
@@ -64,6 +75,8 @@ export async function POST(request: NextRequest) {
       height: result.height,
       format: result.format,
       bytes: result.bytes,
+      resourceType: result.resource_type,
+      duration: result.duration || undefined,
     }, { headers });
   } catch (error: unknown) {
     console.error('[Cloudinary Upload] Error:', error);

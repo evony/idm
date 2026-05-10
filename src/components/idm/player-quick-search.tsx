@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useCallback, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { Search, X, Loader2, Shield, Clock, Sparkles, ArrowRight, ChevronRight } from 'lucide-react';
 import { useDivisionTheme } from '@/hooks/use-division-theme';
 import { getAvatarUrl, clubToString, toStrictDivision } from '@/lib/utils';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import { useAppStore } from '@/lib/store';
 
 interface PlayerQuickSearchProps {
@@ -264,7 +264,7 @@ export function PlayerQuickSearch({ onSelectPlayer }: PlayerQuickSearchProps) {
                     >
                       {/* Avatar */}
                       <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 shadow-sm border border-border/20">
-                        <Image
+                        <AvatarMedia
                           src={avatarSrc}
                           alt={player.gamertag}
                           width={36}
@@ -351,7 +351,7 @@ export function PlayerQuickSearch({ onSelectPlayer }: PlayerQuickSearchProps) {
                   >
                     {/* Avatar */}
                     <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 shadow-sm border border-border/20">
-                      <Image
+                      <AvatarMedia
                         src={avatarSrc}
                         alt={player.gamertag}
                         width={36}

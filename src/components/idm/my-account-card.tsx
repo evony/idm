@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import {
   LogOut, Settings, Shield, Trophy, Crown, Flame,
   ChevronRight, Gamepad2, Star, Sparkles,
@@ -13,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { SkinBadgesRow, SkinAvatarFrame, SkinName } from './skin-renderer';
 import { getPrimarySkin } from '@/lib/skin-utils';
 import { getAvatarUrl, clubToString } from '@/lib/utils';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 import { toast } from 'sonner';
 
 interface MyAccountCardProps {
@@ -78,7 +78,7 @@ export function MyAccountCard({ onOpenProfile }: MyAccountCardProps) {
           <div className="relative shrink-0">
             <SkinAvatarFrame skin={primarySkin}>
               <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-border/30 shadow-lg">
-                <Image
+                <AvatarMedia
                   src={avatarSrc}
                   alt={player.gamertag}
                   width={56}

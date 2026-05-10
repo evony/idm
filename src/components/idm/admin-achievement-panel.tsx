@@ -1,6 +1,7 @@
 'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { AvatarMedia } from '@/components/ui/avatar-media';
 
 import {
   Award, Plus, Pencil, Trash2, Users, Loader2, X, Star, Zap, Search, XCircle
@@ -634,7 +635,7 @@ export function AdminAchievementPanel() {
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-full bg-muted overflow-hidden">
                         {p.avatar ? (
-                          <Image src={p.avatar} alt={p.gamertag} width={32} height={32} className="w-full h-full object-cover" loading="lazy" />
+                          <AvatarMedia src={p.avatar} alt={p.gamertag} width={32} height={32} className="w-full h-full" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-xs">👤</div>
                         )}
