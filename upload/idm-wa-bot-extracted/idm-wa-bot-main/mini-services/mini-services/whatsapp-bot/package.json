@@ -1,0 +1,16 @@
+{
+  "name": "whatsapp-bot-service",
+  "version": "1.0.0",
+  "description": "WhatsApp Bot Service for Idol Meta Weekly",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot index.ts",
+    "start": "bun index.ts"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.6.0",
+    "pino": "^8.16.0",
+    "qrcode-terminal": "^0.12.0",
+    "socket.io-client": "^4.7.0"
+  }
+}

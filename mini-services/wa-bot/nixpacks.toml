@@ -1,0 +1,9 @@
+# Force Railway to use Dockerfile builder
+[phases.setup]
+nixPkgs = ["nodejs_20"]
+
+[phases.build]
+cmds = ["npm install", "npx prisma generate"]
+
+[start]
+cmd = "npx tsx index.ts"

@@ -1,7 +1,7 @@
 /**
  * WA Bot Status API
  * GET /api/wa-bot
- * 
+ *
  * Proxies status info from the WA bot mini-service (port 3004)
  * Falls back to "not running" if bot is offline
  */
@@ -10,11 +10,8 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
   try {
-    // Use XTransformPort for gateway compatibility
-    const url = new URL('/status', request.url)
-    url.searchParams.set('XTransformPort', '3004')
-
-    const res = await fetch(url.toString(), {
+    // Direct fetch to WA bot mini-service on port 3004
+    const res = await fetch('http://localhost:3004/status', {
       signal: AbortSignal.timeout(3000),
       headers: {
         'Accept': 'application/json',

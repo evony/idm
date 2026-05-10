@@ -1,0 +1,19 @@
+{
+  "name": "TARKAM — Idol Meta",
+  "short_name": "TARKAM",
+  "description": "Komunitas Tarkam Idol Meta — kompetisi, klasemen, marketplace, dan lebih banyak!",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080a14",
+  "theme_color": "#080a14",
+  "categories": ["sports", "entertainment"],
+  "icons": [
+    {
+      "src": "/logo1.webp",
+      "sizes": "1024x1024",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
