@@ -83,48 +83,6 @@ function LandingThemeToggle({ scrolled }: { scrolled: boolean }) {
   );
 }
 
-/* ═══ Mobile Theme Toggle — Bottom Nav ═══
-   Compact theme toggle for the mobile bottom navigation bar.
-   Matches the bottom nav item style with icon + label.
-*/
-function MobileThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const mounted = useIsMounted();
-
-  if (!mounted) {
-    return (
-      <button className="flex flex-col items-center justify-center py-2 px-2 opacity-50" aria-label="Toggle theme">
-        <div className="w-5 h-5" />
-        <span className="text-[11px] font-medium mt-1">Tema</span>
-      </button>
-    );
-  }
-
-  const isDark = theme === 'dark';
-
-  return (
-    <button
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="btn-press relative flex flex-col items-center justify-center py-2 px-2 rounded-lg transition-all duration-300 cursor-pointer text-muted-foreground hover:text-idm-gold-warm/70"
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-    >
-      <div className="relative w-5 h-5 overflow-hidden">
-        <Sun
-          className={`absolute inset-0 w-5 h-5 transition-all duration-300 ${
-            isDark ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
-          }`}
-        />
-        <Moon
-          className={`absolute inset-0 w-5 h-5 transition-all duration-300 ${
-            isDark ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'
-          }`}
-        />
-      </div>
-      <span className="relative z-10 text-[11px] font-medium mt-1">Tema</span>
-    </button>
-  );
-}
-
 // Modal & utility components
 import { PlayerProfile } from './player-profile';
 import { ClubProfile } from './club-profile';
@@ -603,8 +561,6 @@ export function LandingPage() {
             );
           })}
 
-          {/* Mobile Theme Toggle — compact button at the end of bottom nav */}
-          <MobileThemeToggle />
         </div>
       </nav>
 
